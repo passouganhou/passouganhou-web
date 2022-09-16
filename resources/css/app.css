@@ -1,3 +1,16 @@
+@import '../fonts/stylesheet.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    html {
+      font-family: "Montserrat", system-ui, sans-serif;
+      letter-spacing: 0.03rem;
+    }
+    b {
+        font-weight: 700;
+    }
+}
