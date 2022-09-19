@@ -25,7 +25,7 @@ x-init="console.log(true)">
                     </x-nav-link>
                 </ul>
 
-                <x-btn-default href="#" :chevronRight="true" class="px-8 font-bold font-segoe-ui">Peça Agora</x-btn-default>
+                <x-btn-default href="#" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form">Peça Agora</x-btn-default>
             </div>
         </nav>
 

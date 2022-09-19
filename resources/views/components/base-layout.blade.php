@@ -4,17 +4,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        @vite(['resources/css/app.css'])
         <title>{{ $title }} - Passou Ganhou</title>
+        @vite(['resources/css/app.css'])
+        @livewireStyles
     </head>
     <body class="antialiased">
+        <style>
+            [x-cloak] {
+                display: none;
+            }
+        </style>
        <x-header />
-
+        <livewire:form-contact />
         <main>
             {{ $main }}
         </main>
 
         <x-footer />
+        @livewireScripts
         @vite(['resources/js/app.js'])
     </body>
 </html>

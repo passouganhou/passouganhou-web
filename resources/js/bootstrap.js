@@ -2,6 +2,11 @@
 // window._ = _;
 
 import Alpine from "alpinejs";
+import focus from "@alpinejs/focus";
+import mask from "@alpinejs/mask";
+
+Alpine.plugin(mask);
+Alpine.plugin(focus);
 
 window.Alpine = Alpine;
 
@@ -38,3 +43,15 @@ Alpine.start();
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+window.addEventListener("DOMContentLoaded", function () {
+    const buttons = Array.from(document.querySelectorAll(".open-contact-form"));
+    buttons.forEach((button) => {
+        button.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.dispatchEvent(
+                new CustomEvent("open-contact-form", { bubbles: true })
+            );
+        });
+    });
+});
