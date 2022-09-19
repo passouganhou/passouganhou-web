@@ -2,36 +2,47 @@
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
         <div class="relative">
-            <img loading="lazy" src="{{ Vite::asset('resources/images/banner-home.jpg') }}" alt="Banner Passou Ganhou">
-            <div class="inset-0 absolute pt-32">
+            <img loading="lazy"
+            srcset="{{ Vite::asset('resources/images/banner-home-xs.jpg') }} 640w,
+            {{ Vite::asset('resources/images/banner-home-md.jpg') }} 1024w,
+            {{ Vite::asset('resources/images/banner-home-lg.jpg') }} 1280px,
+            {{ Vite::asset('resources/images/banner-home.jpg') }} 1281w"
+            sizes="(max-width: 640px) 640px,
+            (max-width: 1024px) 1024px,
+            (max-width: 1280px) 1280px,
+            1281px"
+            class="w-full"
+            src="{{ Vite::asset('resources/images/banner-home.jpg') }}"
+            alt="Banner Passou Ganhou">
+            <div class="inset-0 absolute 2xl:pt-32 xl:pt-20 lg:pt-16 md:pt-12 sm:pt-10 pt-6">
                 <div class="container">
-                    <h1 class="text-6xl text-passou-magenta mb-5">
+                    <h1 class="2xl:text-6xl xl:text-5xl md:text-4xl sm:text-2xl text-xl text-passou-magenta md:mb-5 mb-3">
                         Para <span class="font-bold">empreendedor</span><br>
                         que quer <span class="font-bold">crescer</span> com<br>
                         a <span class="font-bold">Passou Ganhou.</span>
                     </h1>
 
-                    <h2 class="text-white text-3xl mb-40">
+                    <h2 class="text-white xl:text-3xl md:text-2xl sm:text-lg text-sm xl:mb-40 md:mb-32 sm:mb-20 mb-4">
                         Soluções inteligentes, benefícios<br>
                         exclusivos e, claro, as melhores taxas.
                     </h2>
 
-                    <x-btn-magenta href="#" class="font-montserrat text-2xl font-semibold px-10">Peça a sua</x-btn-magenta>
+                    <x-btn-magenta href="#" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6">Peça a sua</x-btn-magenta>
                 </div>
             </div>
         </div>
 
-        <section class="pt-10 2xl:pt-20 bg-[length:320px] bg-maquininhas bg-no-repeat" style="background-image: url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})">
+        <section class="pt-10 2xl:pt-20 bg-[length:320px] bg-maquininhas bg-no-repeat lg:bg-[url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})]">
             <div class="container mx-auto px-4">
                 <div class="mb-20">
-                    <h2 class="text-3xl text-center text-passou-magenta mb-6 font-segoe-ui">
+                    <h2 class="md:text-3xl text-2xl leading-tight text-center text-passou-magenta mb-6 font-segoe-ui">
                         A <span class="text-passou-cyan font-bold">maquininha ideal</span> para o micro, pequeno, médio e gigante.
                     </h2>
                 </div>
 
                 <div class="mb-40">
                     <div class="flex flex-wrap">
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-10">
+                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <div class="flex flex-col items-center">
 
                                 <div class="items-end h-60 flex justify-center mb-4">
@@ -40,9 +51,8 @@
 
                                 <div class="p-4">
 
-                                    <h4 class="text-xl font-extrabold text-center mb-3">
-
-                                        <span class="text-passou-magenta text-3xl font-bold">Enjoy</span>
+                                    <h4 class="font-segoe-ui text-center mb-3 font-bold">
+                                        <span class="text-passou-magenta text-3xl">Enjoy</span>
                                     </h4>
 
                                     {{-- <ul class="list-disc">
@@ -52,13 +62,13 @@
                                         <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Envio de compravante por SMS</li>
                                     </ul> --}}
                                 </div>
-                                <x-btn-default href="#" :chevronRight="true" class="px-8 font-segoe-ui">
+                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
                                     Saiba mais
                                 </x-btn-default>
                             </div>
                         </div>
 
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-10">
+                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <div class="flex flex-col items-center">
                                 <div class="items-end h-60 flex justify-center mb-4">
 
@@ -66,7 +76,7 @@
                                 </div>
 
                                 <div class="p-4">
-                                    <h4 class="text-xl font-extrabold text-center mb-3">
+                                    <h4 class="font-segoe-ui text-center mb-3">
                                         <span class="text-passou-magenta text-3xl font-bold">Revolution</span>
                                     </h4>
 
@@ -76,20 +86,20 @@
                                         <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
                                     </ul> --}}
                                 </div>
-                                <x-btn-default href="#" :chevronRight="true" class="px-8 font-segoe-ui">
+                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
                                     Saiba mais
                                 </x-btn-default>
                             </div>
                         </div>
 
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-10">
+                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <div class="flex flex-col items-center">
                                 <div class="items-end h-60 flex justify-center mb-4">
                                     <img loading="lazy" class="w-40" src="{{ Vite::asset('resources/images/machine-ultra.png') }}" alt="Passou Ganhou Ultra">
                                 </div>
 
                                 <div class="p-4">
-                                    <h4 class="text-xl font-extrabold text-center mb-3">
+                                    <h4 class="font-segoe-ui text-center mb-3">
                                         <span class="text-passou-magenta text-3xl font-bold">Ultra</span>
                                     </h4>
 {{--
@@ -100,20 +110,20 @@
                                         <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Conectividade total: 4G, Wi-Fi</li>
                                     </ul> --}}
                                 </div>
-                                <x-btn-default href="#" :chevronRight="true" class="px-8 font-segoe-ui">
+                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
                                     Saiba mais
                                 </x-btn-default>
                             </div>
                         </div>
 
-                        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-10">
+                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <div class="flex flex-col items-center">
                                 <div class="items-end h-60 flex justify-center mb-4">
                                     <img loading="lazy" class="w-40" src="{{ Vite::asset('resources/images/machine-tef.png') }}" alt="Passou Ganhou TEF">
                                 </div>
 
                                 <div class="p-4">
-                                    <h4 class="text-xl font-extrabold text-center mb-3">
+                                    <h4 class="font-segoe-ui text-center mb-3">
                                         <span class="text-passou-magenta text-3xl font-bold">TEF</span>
                                     </h4>
 {{--
@@ -124,7 +134,7 @@
                                     </ul> --}}
                                 </div>
 
-                                <x-btn-default href="#" :chevronRight="true" class="px-8 font-segoe-ui">
+                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
                                     Saiba mais
                                 </x-btn-default>
                             </div>
@@ -132,11 +142,11 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center">
-                    <x-btn-magenta href="#" :chevronRight="true" :bg="true" class="mx-20 font-bold font-segoe-ui pb-4 px-10 text-2xl">
+                <div class="flex justify-center flex-wrap">
+                    <x-btn-magenta href="#" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
                         Peça pelo Site
                     </x-btn-magenta>
-                    <x-btn-default href="#" :chevronRight="true" :bg="true" class="mx-20 px-10 font-segoe-ui font-bold text-2xl pb-4">
+                    <x-btn-default href="#" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
                         Peça pelo Whats
                     </x-btn-default>
                 </div>
@@ -150,15 +160,15 @@
 
         <section class="bg-passou-magenta-800 pt-48 pb-24">
             <div class="container">
-                <h2 class="text-3xl text-center text-passou-cyan font-segoe-ui">Todas as bandeiras que você precisa</h2>
-                <div class="flex justify-center items-center pt-10 mb-10">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/mastercard-brand.png') }}" alt="Bandeira Mastercard">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/visa-brand.png') }}" alt="Bandeira Visa">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/elo-brand.png') }}" alt="Bandeira Elo">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/american-express-brand.png') }}" alt="Bandeira Amex">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/dinners-club-international-brand.png') }}" alt="Bandeira Dinners">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/aura-brand.png') }}" alt="Bandeira Aura">
-                    <img loading="lazy" class="mx-6" src="{{ Vite::asset('resources/images/jcb-brand.png') }}" alt="Bandeira JCB">
+                <h2 class="sm:text-3xl text-xl text-center text-passou-cyan font-segoe-ui">Todas as bandeiras que você precisa</h2>
+                <div class="flex justify-center items-center flex-wrap pt-10 mb-10">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/mastercard-brand.png') }}" alt="Bandeira Mastercard">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/visa-brand.png') }}" alt="Bandeira Visa">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/elo-brand.png') }}" alt="Bandeira Elo">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/american-express-brand.png') }}" alt="Bandeira Amex">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/dinners-club-international-brand.png') }}" alt="Bandeira Dinners">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/aura-brand.png') }}" alt="Bandeira Aura">
+                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/jcb-brand.png') }}" alt="Bandeira JCB">
                 </div>
                 <p class="font-segoe-ui text-sm text-center text-white leading-snug">
                     Bandeiras: Mastercard, Visa e Elo nas funções crédito e débito,<br>
@@ -167,14 +177,14 @@
             </div>
         </section>
 
-        <section class="bg-cover bg-center bg-no-repeat pt-40 pb-20 min-h-160" style="background-image: url({{ Vite::asset('resources/images/banner-sacolas.jpg') }})">
+        <section class="bg-cover bg-center bg-no-repeat md:pt-40 pt-20 md:pb-20 pb-12 min-h-160" style="background-image: url({{ Vite::asset('resources/images/banner-sacolas.jpg') }})">
             <div class="container">
-                <h2 class="text-4xl text-passou-magenta font-segoe-ui mb-10 leading-snug">
+                <h2 class="md:text-4xl sm:text-2xl text-lg tracking-tight text-passou-magenta font-segoe-ui mb-10 leading-snug">
                     Vendas com a <span class="font-bold uppercase">Passou Ganhou</span><br>
                     e transforme seus clientes em fãs
                 </h2>
 
-                <p class="text-4xl text-passou-magenta font-segoe-ui mb-108 leading-snug">
+                <p class="md:text-4xl sm:text-2xl text-lg tracking-tight text-passou-magenta font-segoe-ui md:mb-108 mb-40 leading-snug">
                     Quem é <span class="font-bold uppercase">Passou Ganhou</span> sai na frente.<br>
                     Não tem essa de plano de fidelidade ou<br>
                     metas de vendas. É o atendimento sem<br>
@@ -188,42 +198,42 @@
         </section>
 
         <section class="bg-[#e9ded7] pt-16 pb-20">
-            <div class="container">
-                <h2 class="text-2.5xl font-bold text-passou-magenta-800 text-center font-segoe-ui tracking-tight mb-3">Com a gente não tem essa de metas de venda, plano de fidelidade ou domícilio bancário.</h2>
-                <h3 class="text-5xl text-center font-segoe-ui font-bold tracking-tight text-passou-magenta-800">Resumindo: sem complicação.</h3>
+            <div class="container lg:px-10 px-4">
+                <h2 class="md:text-2.5xl text-xl font-bold text-passou-magenta-800 text-center font-segoe-ui tracking-tight mb-3">Com a gente não tem essa de metas de venda, plano de fidelidade ou domícilio bancário.</h2>
+                <h3 class="md:text-5xl text-2xl text-center font-segoe-ui font-bold tracking-tight text-passou-magenta-800">Resumindo: sem complicação.</h3>
 
-                <div class="flex flex-wrap justify-between items-start -mx-10 pt-20">
-                    <div class="w-4/12 mb-16 px-10 flex flex-col items-center justify-start">
+                <div class="flex flex-wrap justify-between items-start lg:-mx-10 px-4 pt-20">
+                    <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
                         <img loading="lazy" src="{{ Vite::asset('resources/images/split-pagamento.png') }}" class="mb-4" alt="Split de Pagamento">
-                        <p class="text-center text-2xl font-bold text-passou-magenta tracking-tight">Split de Pagamento</p>
+                        <p class="text-center lg:text-2xl text-xl font-bold text-passou-magenta tracking-tight">Split de Pagamento</p>
                     </div>
-                    <div class="w-4/12 mb-16 px-10 flex flex-col items-center justify-start">
+                    <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
                         <img loading="lazy" src="{{ Vite::asset('resources/images/conta-pagamento.png') }}" class="mb-4" alt="Conta Pagamento">
-                        <p class="text-center text-2xl font-bold text-passou-magenta tracking-tight">Conta Pagamento</p>
+                        <p class="text-center lg:text-2xl text-xl font-bold text-passou-magenta tracking-tight">Conta Pagamento</p>
                     </div>
-                    <div class="w-4/12 mb-16 px-10 flex flex-col items-center justify-start">
+                    <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
                         <img loading="lazy" src="{{ Vite::asset('resources/images/acompanhamento.png') }}" class="mb-4" alt="Acompanhamento em tempo real de transações">
-                        <p class="text-center text-2xl font-bold text-passou-magenta tracking-tight">Acompanhamento em tempo real de transações</p>
+                        <p class="text-center lg:text-2xl text-xl font-bold text-passou-magenta tracking-tight">Acompanhamento em tempo real de transações</p>
                     </div>
-                    <div class="w-4/12 mb-16 px-10 flex flex-col items-center justify-start">
+                    <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
                         <img loading="lazy" src="{{ Vite::asset('resources/images/consultoria.png') }}" class="mb-4" alt="Consultoria empresarial e atendimento personalizado ">
-                        <p class="text-center text-2xl font-bold text-passou-magenta tracking-tight">Consultoria empresarial e atendimento personalizado </p>
+                        <p class="text-center lg:text-2xl text-xl font-bold text-passou-magenta tracking-tight">Consultoria empresarial e atendimento personalizado </p>
                     </div>
-                    <div class="w-4/12 mb-16 px-10 flex flex-col items-center justify-start">
+                    <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
                         <img loading="lazy" src="{{ Vite::asset('resources/images/suporte-whatsapp.png') }}" class="mb-4" alt="Suporte instantâneo via WhatsApp">
-                        <p class="text-center text-2xl font-bold text-passou-magenta tracking-tight">Suporte instantâneo via WhatsApp</p>
+                        <p class="text-center lg:text-2xl text-xl font-bold text-passou-magenta tracking-tight">Suporte instantâneo via WhatsApp</p>
                     </div>
-                    <div class="w-4/12 mb-16 px-10 flex flex-col items-center justify-start">
+                    <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
                         <img loading="lazy" src="{{ Vite::asset('resources/images/sem-contrato.png') }}" class="mb-4" alt="Sem contrato de fidelização">
-                        <p class="text-center text-2xl font-bold text-passou-magenta tracking-tight">Sem contrato de fidelização</p>
+                        <p class="text-center lg:text-2xl text-xl font-bold text-passou-magenta tracking-tight">Sem contrato de fidelização</p>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <x-btn-magenta class="pl-12 pr-10 font-bold pt-5 pb-6 text-2xl font-segoe-ui normal-case mb-5" :bg="true">
+                    <x-btn-magenta class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
-                            <x-icon name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 ml-10" width="20" height="20"/>
+                            <x-icon name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
                         </x-slot>
                     </x-btn-magenta>
 
@@ -233,9 +243,9 @@
         </section>
 
         <section class="pt-20 bg-[#eaddd7] pb-20">
-            <div class="container">
-                <div class="flex -mx-6">
-                    <div class="w-1/2 px-6">
+            <div class="container px-6">
+                <div class="flex -mx-6 flex-wrap justify-center">
+                    <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0">
                         <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
                         <a href="" class="group">
                             <div class="relative">
@@ -248,7 +258,7 @@
                         </a>
                     </div>
 
-                    <div class="w-1/2 px-6">
+                    <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0">
                         <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
                         <a href="" class="group">
                             <div class="relative">

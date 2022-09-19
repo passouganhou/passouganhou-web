@@ -1,16 +1,18 @@
 <footer class="bg-passou-magenta-800 py-16 relative">
 
-    <button class="absolute bottom-16 right-12 w-12 h-12 border border-white rounded-full flex justify-center items-center bg-white bg-opacity-0 hover:bg-opacity-25 transition-all">
+    <a
+    href="#body"
+    class="page-scroller absolute sm:bottom-20 bottom-40 sm:right-12 right-4 w-12 h-12 border border-white rounded-full flex justify-center items-center bg-white bg-opacity-0 hover:bg-opacity-25 transition-all">
         <x-icon name="chevron-up" class="fill-white absolute mb-3" width="20" height="20" />
         <x-icon name="chevron-up" class="fill-white absolute -mb-3" width="20" height="20"  />
-    </button>
+    </a>
 
-    <div class="px-36">
-        <div class="flex justify-between">
-            <div>
-                <img class="w-48" src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}" alt="Logo Passou Ganhou">
+    <div class="xl:px-36 md:px-16 px-4">
+        <div class="flex flex-wrap">
+            <div class="lg:w-3/12 md:w-1/2 w-full lg:mb-0 mb-8">
+                <img class="xl:w-48" src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}" alt="Logo Passou Ganhou">
             </div>
-            <div class="flex">
+            <div class="flex lg:w-6/12 md:w-1/2 w-full md:justify-center justify-start sm:flex-row flex-col  lg:mb-0 mb-8">
                 <h3 class="font-segoe-ui text-lg font-bold text-white mr-3">Escritório:</h3>
                 <p class="leading-tight font-segoe-ui text-white">
                     Brasília<br>
@@ -19,7 +21,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="lg:w-3/12 w-full flex flex-col lg:items-end items-start">
                 <h3 class="font-bold text-lg text-white mb-3">Siga a Passou, Ganhou</h3>
 
                 <div class="flex items-center justify-center">

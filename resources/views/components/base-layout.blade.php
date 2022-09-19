@@ -8,7 +8,7 @@
         @vite(['resources/css/app.css'])
         @livewireStyles
     </head>
-    <body class="antialiased">
+    <body class="antialiased" id="body">
         <style>
             [x-cloak] {
                 display: none;
