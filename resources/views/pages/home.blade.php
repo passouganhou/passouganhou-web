@@ -43,101 +43,53 @@
                 <div class="mb-40">
                     <div class="flex flex-wrap">
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <div class="flex flex-col items-center">
-
-                                <div class="items-end h-60 flex justify-center mb-4">
-                                    <img loading="lazy" class="w-40" src="{{ Vite::asset('resources/images/machine-enjoy.png') }}" alt="Enjoy">
-                                </div>
-
-                                <div class="p-4">
-
-                                    <h4 class="font-segoe-ui text-center mb-3 font-bold">
-                                        <span class="text-passou-magenta text-3xl">Enjoy</span>
-                                    </h4>
-
-                                    {{-- <ul class="list-disc">
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Maquininha leve e portátil</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Não precisa de celular</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Bateria de longa duração</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Envio de compravante por SMS</li>
-                                    </ul> --}}
-                                </div>
-                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
-                                    Saiba mais
-                                </x-btn-default>
-                            </div>
+                            <x-maquininha name="Enjoy" image="{{ Vite::asset('resources/images/machine-enjoy.png') }}">
+                                <x-slot name="list">
+                                    <ul class="list-disc  whitespace-nowrap text-white font-medium">
+                                        <li class="text-lg leading-tight">Maquininha leve e portátil</li>
+                                        <li class="text-lg leading-tight">Não precisa de celular</li>
+                                        <li class="text-lg leading-tight">Bateria de longa duração</li>
+                                        <li class="text-lg leading-tight">Envio de compravante por SMS</li>
+                                    </ul>
+                                </x-slot>
+                            </x-maquininha>
                         </div>
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <div class="flex flex-col items-center">
-                                <div class="items-end h-60 flex justify-center mb-4">
-
-                                    <img loading="lazy" class="w-40" src="{{ Vite::asset('resources/images/machine-revolution.png') }}" alt="Passou Ganhou Revolution">
-                                </div>
-
-                                <div class="p-4">
-                                    <h4 class="font-segoe-ui text-center mb-3">
-                                        <span class="text-passou-magenta text-3xl font-bold">Revolution</span>
-                                    </h4>
-
-                                    {{-- <ul class="list-disc">
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Imprime comprovante</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Permite pagamento por aproximação</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
-                                    </ul> --}}
-                                </div>
-                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
-                                    Saiba mais
-                                </x-btn-default>
-                            </div>
+                            <x-maquininha name="Revolution" image="{{ Vite::asset('resources/images/machine-revolution.png') }}">
+                                <x-slot name="list">
+                                    <ul class="list-disc   text-white font-medium">
+                                        <li class="text-lg leading-tight whitespace-nowrap">Imprime comprovante</li>
+                                        <li class="text-lg leading-tight whitespace-nowrap">Permite pagamento por aproximação</li>
+                                        <li class="text-lg leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                    </ul>
+                                </x-slot>
+                            </x-maquininha>
                         </div>
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <div class="flex flex-col items-center">
-                                <div class="items-end h-60 flex justify-center mb-4">
-                                    <img loading="lazy" class="w-40" src="{{ Vite::asset('resources/images/machine-ultra.png') }}" alt="Passou Ganhou Ultra">
-                                </div>
-
-                                <div class="p-4">
-                                    <h4 class="font-segoe-ui text-center mb-3">
-                                        <span class="text-passou-magenta text-3xl font-bold">Ultra</span>
-                                    </h4>
-{{--
-                                    <ul class="list-disc">
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Design compacto e moderno</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Permite pagamento por QRCode e aproximação</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Imprime comprovante com muita agilidade</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Conectividade total: 4G, Wi-Fi</li>
-                                    </ul> --}}
-                                </div>
-                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
-                                    Saiba mais
-                                </x-btn-default>
-                            </div>
+                            <x-maquininha name="Ultra" image="{{ Vite::asset('resources/images/machine-ultra.png') }}">
+                                <x-slot name="list">
+                                    <ul class="list-disc text-white font-medium">
+                                        <li class="text-lg leading-tight whitespace-nowrap">Design compacto e moderno</li>
+                                        <li class="text-lg leading-tight whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
+                                        <li class="text-lg leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                        <li class="text-lg leading-tight">Conectividade total: 4G, Wi-Fi</li>
+                                    </ul>
+                                </x-slot>
+                            </x-maquininha>
                         </div>
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <div class="flex flex-col items-center">
-                                <div class="items-end h-60 flex justify-center mb-4">
-                                    <img loading="lazy" class="w-40" src="{{ Vite::asset('resources/images/machine-tef.png') }}" alt="Passou Ganhou TEF">
-                                </div>
-
-                                <div class="p-4">
-                                    <h4 class="font-segoe-ui text-center mb-3">
-                                        <span class="text-passou-magenta text-3xl font-bold">TEF</span>
-                                    </h4>
-{{--
-                                    <ul class="list-disc">
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
-                                        <li class="text-ebw-grey-500 font-medium text-lg leading-tightest mb-3">Feita para garantir total segurança em todas as transações.</li>
-                                    </ul> --}}
-                                </div>
-
-                                <x-btn-default href="#" :chevronRight="true" :bg="true" class="px-8 font-segoe-ui font-bold">
-                                    Saiba mais
-                                </x-btn-default>
-                            </div>
+                            <x-maquininha name="TEF" image="{{ Vite::asset('resources/images/machine-tef.png') }}">
+                                <x-slot name="list">
+                                    <ul class="list-disc text-white font-medium">
+                                        <li class="text-lg leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
+                                        <li class="text-lg leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
+                                        <li class="text-lg leading-tight whitespace-nowrap">eita para garantir total segurança em todas as transações.</li>
+                                    </ul>
+                                </x-slot>
+                            </x-maquininha>
                         </div>
                     </div>
                 </div>
