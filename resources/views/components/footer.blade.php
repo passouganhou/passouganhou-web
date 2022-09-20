@@ -25,16 +25,16 @@
                 <h3 class="font-bold text-lg text-white mb-3">Siga a Passou, Ganhou</h3>
 
                 <div class="flex items-center justify-center">
-                    <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/passouganhou/" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="facebook" class="fill-white" width="24" height="24" />
                     </a>
-                    <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/passouganhou?igshid=YmMyMTA2M2Y=" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="instagram" class="fill-white" width="24" height="24" />
                     </a>
-                    <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/products/ebw-bank-passou-ganhou-m%C3%A1quina-de-cart%C3%A3o/" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="linkedin" class="fill-white" width="24" height="24" />
                     </a>
-                    <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/ebwbank" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <div class="w-[22px] h-[22px] bg-white rounded-sm flex justify-center items-center">
                             <x-icons name="tiktok" class="fill-passou-magenta-800" />
                         </div>

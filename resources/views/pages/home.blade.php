@@ -5,7 +5,7 @@
             <img loading="lazy"
             srcset="{{ Vite::asset('resources/images/banner-home-xs.jpg') }} 640w,
             {{ Vite::asset('resources/images/banner-home-md.jpg') }} 1024w,
-            {{ Vite::asset('resources/images/banner-home-lg.jpg') }} 1280px,
+            {{ Vite::asset('resources/images/banner-home-lg.jpg') }} 1280w,
             {{ Vite::asset('resources/images/banner-home.jpg') }} 1281w"
             sizes="(max-width: 640px) 640px,
             (max-width: 1024px) 1024px,
@@ -27,7 +27,7 @@
                         exclusivos e, claro, as melhores taxas.
                     </h2>
 
-                    <x-btn-magenta href="#" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6">Peça a sua</x-btn-magenta>
+                    <x-btn-magenta href="#" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6 open-contact-form">Peça a sua</x-btn-magenta>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="flex justify-center flex-wrap">
-                    <x-btn-magenta href="#" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
+                    <x-btn-magenta href="#" :chevronRight="true" :bg="true" class="open-contact-form lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
                         Peça pelo Site
                     </x-btn-magenta>
                     <x-btn-default href="#" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
@@ -182,7 +182,7 @@
                 </div>
 
                 <div class="text-center">
-                    <x-btn-magenta class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
+                    <x-btn-magenta class="open-contact-form sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
                             <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
@@ -199,11 +199,11 @@
                 <div class="flex -mx-6 flex-wrap justify-center">
                     <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0">
                         <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
-                        <a href="" class="group">
+                        <a href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer"  class="group">
                             <div class="relative">
                                 <img class="absolute top-8 left-8 z-10 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200 " loading="lazy" src="{{ Vite::asset('resources/images/logo-ebw.png') }}" alt="Logo EBW Bank">
                                 <img loading="lazy" class="rounded-3xl shadow-[25px_15px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/portal-do-investidor.jpg') }}" alt="Portal do Investidor">
-                                <x-btn-default class="px-8 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" href="#">
+                                <x-btn-default href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="px-8 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true">
                                     Portal do Investidor
                                 </x-btn-default>
                             </div>
@@ -212,11 +212,11 @@
 
                     <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0">
                         <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
-                        <a href="" class="group">
+                        <a  href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
                                 <img class="absolute top-8 left-8 z-10 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200 " loading="lazy" src="{{ Vite::asset('resources/images/logo-ebw.png') }}" alt="Logo EBW Bank">
                                 <img loading="lazy" class="rounded-3xl shadow-[25px_15px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/conheca-a-ebw.jpg') }}" alt="Conheça a EBW">
-                                <x-btn-default class="px-12 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" href="#">
+                                <x-btn-default  href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="px-12 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" >
                                    Conheça a EBW
                                 </x-btn-default>
                             </div>

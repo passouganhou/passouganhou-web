@@ -64,7 +64,7 @@
 
     function scroller(e) {
         e.preventDefault();
-        const hash = e.target.hash;
+        const hash = this.hash;
         const offTopHash = document.querySelector(hash).offsetTop;
         scrollTo(offTopHash, 1200, "easeOutSine");
     }
