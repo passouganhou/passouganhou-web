@@ -18,10 +18,10 @@ x-init="console.log(true)">
                     <x-nav-link href="#">Atendimento</x-nav-link>
                     <x-nav-link href="#">Venda pela internet</x-nav-link>
                     <x-nav-link href="#">Portal do Empreendedor
-                        <x-icon name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link href="#">FAQ
-                        <x-icon name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
 
@@ -43,10 +43,10 @@ x-init="console.log(true)">
                     <x-nav-link type="item-mobile" href="#">Atendimento</x-nav-link>
                     <x-nav-link type="item-mobile" href="#">Venda pela internet</x-nav-link>
                     <x-nav-link type="item-mobile" href="#">Portal do Empreendedor
-                        <x-icon name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link type="item-mobile" href="#">FAQ
-                        <x-icon name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
                 <x-btn-default href="#" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form mt-1">Peça Agora</x-btn-default>
@@ -61,10 +61,10 @@ x-init="console.log(true)">
                 class="z-50 flex justify-center items-center border-2 border-white rounded-lg w-10 h-10 overflow-hidden"
                 x-on:click="openMenu = !openMenu">
                 <span x-show="!openMenu" x-cloak x-transition>
-                    <x-icon name="bars" class="fill-white" width="24" height="24" />
+                    <x-icons name="bars" class="fill-white" width="24" height="24" />
                 </span>
                 <span x-show="openMenu" x-cloak x-transition>
-                    <x-icon name="times"  class="fill-white" width="24" height="24" />
+                    <x-icons name="times"  class="fill-white" width="24" height="24" />
                 </span>
             </button>
         </div>

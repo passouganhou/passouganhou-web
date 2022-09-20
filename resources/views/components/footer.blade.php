@@ -3,8 +3,8 @@
     <a
     href="#body"
     class="page-scroller absolute sm:bottom-20 bottom-40 sm:right-12 right-4 w-12 h-12 border border-white rounded-full flex justify-center items-center bg-white bg-opacity-0 hover:bg-opacity-25 transition-all">
-        <x-icon name="chevron-up" class="fill-white absolute mb-3" width="20" height="20" />
-        <x-icon name="chevron-up" class="fill-white absolute -mb-3" width="20" height="20"  />
+        <x-icons name="chevron-up" class="fill-white absolute mb-3" width="20" height="20" />
+        <x-icons name="chevron-up" class="fill-white absolute -mb-3" width="20" height="20"  />
     </a>
 
     <div class="xl:px-36 md:px-16 px-4">
@@ -26,17 +26,17 @@
 
                 <div class="flex items-center justify-center">
                     <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
-                        <x-icon name="facebook" class="fill-white" width="24" height="24" />
+                        <x-icons name="facebook" class="fill-white" width="24" height="24" />
                     </a>
                     <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
-                        <x-icon name="instagram" class="fill-white" width="24" height="24" />
+                        <x-icons name="instagram" class="fill-white" width="24" height="24" />
                     </a>
                     <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
-                        <x-icon name="linkedin" class="fill-white" width="24" height="24" />
+                        <x-icons name="linkedin" class="fill-white" width="24" height="24" />
                     </a>
                     <a href="#" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <div class="w-[22px] h-[22px] bg-white rounded-sm flex justify-center items-center">
-                            <x-icon name="tiktok" class="fill-passou-magenta-800" />
+                            <x-icons name="tiktok" class="fill-passou-magenta-800" />
                         </div>
                     </a>
                 </div>

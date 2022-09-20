@@ -185,7 +185,7 @@
                     <x-btn-magenta class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
-                            <x-icon name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
+                            <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
                         </x-slot>
                     </x-btn-magenta>
 
@@ -259,7 +259,7 @@
                                 <div class="mb-4">
                                     <a href="mailto:vendas@passouganhou.com.br"
                                     class="flex w-full leading-none break-all px-4 justify-center items-center border-2 border-passou-cyan bg-opacity-0 hover:bg-opacity-20 bg-passou-cyan transition-opacity duration-300 rounded-full py-5">
-                                        <x-icon name="envelope" class="fill-passou-magenta-800" />
+                                        <x-icons name="envelope" class="fill-passou-magenta-800" />
                                         <span class="text-passou-magenta-800 font-segoe-ui text-[15px] font-medium tracking-wide ml-3">vendas@passouganhou.com.br</span>
                                     </a>
                                 </div>
@@ -289,7 +289,7 @@
                                 <div class="mb-4">
                                     <a href="mailto:suporte@passouganhou.com.br"
                                     class="flex w-full leading-none break-all px-4 justify-center items-center border-2 border-passou-cyan bg-opacity-0 hover:bg-opacity-20 bg-passou-cyan transition-opacity duration-300 rounded-full py-5">
-                                        <x-icon name="envelope" class="fill-passou-magenta-800" />
+                                        <x-icons name="envelope" class="fill-passou-magenta-800" />
                                         <span class="text-passou-magenta-800 font-segoe-ui text-[15px] font-medium tracking-wide ml-3">suporte@passouganhou.com.br</span>
                                     </a>
                                 </div>
@@ -319,7 +319,7 @@
                                 <div class="mb-4">
                                     <a href="mailto:cac@passouganhou.com.br"
                                     class="flex w-full leading-none break-all px-4 justify-center items-center border-2 border-passou-cyan bg-opacity-0 hover:bg-opacity-20 bg-passou-cyan transition-opacity duration-300 rounded-full py-5">
-                                        <x-icon name="envelope" class="fill-passou-magenta-800" />
+                                        <x-icons name="envelope" class="fill-passou-magenta-800" />
                                         <span class="text-passou-magenta-800 font-segoe-ui text-[15px] font-medium tracking-wide ml-3">cac@passouganhou.com.br</span>
                                     </a>
                                 </div>

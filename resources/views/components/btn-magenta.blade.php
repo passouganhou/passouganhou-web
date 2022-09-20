@@ -11,6 +11,6 @@
     <span class="mr-2">{{ $slot }}</span>
     {{ $icon ?? ''}}
     @if ($chevronRight)
-        <x-icon name="chevron-right" class="fill-white {{ $bg ? 'group-hover:fill-white' : 'group-hover:fill-passou-magenta'}} transition-all duration-200" />
+        <x-icons name="chevron-right" class="fill-white {{ $bg ? 'group-hover:fill-white' : 'group-hover:fill-passou-magenta'}} transition-all duration-200" />
     @endif
 </a>

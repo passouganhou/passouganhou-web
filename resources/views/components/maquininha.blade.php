@@ -13,7 +13,7 @@ x-on:close-all-maquininhas.window="open = false">
     <x-btn-default href="#" x-on:click.prevent="asdf" :bg="true" class="px-8 font-segoe-ui font-bold">
         Saiba mais
         <x-slot name="icon">
-            <x-icon name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200" />
+            <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200" />
         </x-slot>
     </x-btn-default>
 
