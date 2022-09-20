@@ -44,12 +44,12 @@
                     <div class="flex flex-wrap">
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="Enjoy" image="{{ Vite::asset('resources/images/machine-enjoy.png') }}">
-                                <x-slot name="list">
-                                    <ul class="list-disc  whitespace-nowrap text-white font-medium">
-                                        <li class="text-lg leading-tight">Maquininha leve e portátil</li>
-                                        <li class="text-lg leading-tight">Não precisa de celular</li>
-                                        <li class="text-lg leading-tight">Bateria de longa duração</li>
-                                        <li class="text-lg leading-tight">Envio de compravante por SMS</li>
+                                <x-slot name="list" class="md:left-16">
+                                    <ul class="list-disc  md:whitespace-nowrap text-white font-medium">
+                                        <li class="md:text-lg md:leading-tight leading-tight">Maquininha leve e portátil</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Não precisa de celular</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Bateria de longa duração</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Envio de compravante por SMS</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -57,11 +57,11 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="Revolution" image="{{ Vite::asset('resources/images/machine-revolution.png') }}">
-                                <x-slot name="list">
-                                    <ul class="list-disc   text-white font-medium">
-                                        <li class="text-lg leading-tight whitespace-nowrap">Imprime comprovante</li>
-                                        <li class="text-lg leading-tight whitespace-nowrap">Permite pagamento por aproximação</li>
-                                        <li class="text-lg leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                <x-slot name="list" class="md:left-0">
+                                    <ul class="list-disc  text-white font-medium">
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Imprime comprovante</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por aproximação</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -69,12 +69,12 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="Ultra" image="{{ Vite::asset('resources/images/machine-ultra.png') }}">
-                                <x-slot name="list">
+                                <x-slot name="list" class="md:-left-6">
                                     <ul class="list-disc text-white font-medium">
-                                        <li class="text-lg leading-tight whitespace-nowrap">Design compacto e moderno</li>
-                                        <li class="text-lg leading-tight whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
-                                        <li class="text-lg leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
-                                        <li class="text-lg leading-tight">Conectividade total: 4G, Wi-Fi</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Design compacto e moderno</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Conectividade total: 4G, Wi-Fi</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -82,11 +82,11 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="TEF" image="{{ Vite::asset('resources/images/machine-tef.png') }}">
-                                <x-slot name="list">
+                                <x-slot name="list" class="2xl:-left-20 md:-left-80">
                                     <ul class="list-disc text-white font-medium">
-                                        <li class="text-lg leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
-                                        <li class="text-lg leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
-                                        <li class="text-lg leading-tight whitespace-nowrap">eita para garantir total segurança em todas as transações.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">eita para garantir total segurança em todas as transações.</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>

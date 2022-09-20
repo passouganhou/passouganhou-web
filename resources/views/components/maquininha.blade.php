@@ -26,7 +26,7 @@ x-on:close-all-maquininhas.window="open = false">
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
-    class="absolute left-16 top-full bg-passou-magenta px-8 py-5 rounded-xl shadow-lg">
+    {{ $list->attributes->class(['absolute top-full bg-passou-magenta px-8 py-5 rounded-xl shadow-lg z-10 left-1/2 -translate-x-1/2 md:translate-x-0 w-full md:w-auto']) }}>
         {{ $list }}
     </div>
 
