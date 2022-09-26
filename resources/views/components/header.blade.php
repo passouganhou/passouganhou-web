@@ -1,6 +1,5 @@
 <div x-data="{ openMenu: false, floatingMenu: false }"
-x-on:scroll.window.throttle.50ms="handleScroll"
-x-init="console.log(true)">
+x-on:scroll.window.throttle.50ms="handleScroll">
 
     <header x-ref="header-menu"
         class="top-0 left-0 right-0 z-40 transition-all duration-300 fixed bg-passou-magenta shadow-md py-4"
@@ -20,7 +19,7 @@ x-init="console.log(true)">
                     <x-nav-link href="#">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
-                    <x-nav-link href="#">FAQ
+                    <x-nav-link href="{{ route('faq.index') }}">FAQ
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
@@ -45,11 +44,12 @@ x-init="console.log(true)">
                     <x-nav-link type="item-mobile" href="#">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
-                    <x-nav-link type="item-mobile" href="#">FAQ
+                    <x-nav-link type="item-mobile" href="{{ route('faq.index') }}">FAQ
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
                 <x-btn-default href="#" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form mt-1">Peça Agora</x-btn-default>
+            </div>
         </nav>
         <div class="xl:hidden flex justify-between container">
             <a class="flex justify-center" href="#">

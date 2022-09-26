@@ -21,11 +21,15 @@ module.exports = {
             },
         },
         extend: {
+            borderRadius: {
+                "5xl": "2.7rem",
+            },
             fontSize: {
                 "4.5xl": "2.5rem",
                 "2.5xl": "1.75rem",
             },
             spacing: {
+                0.5: "2px",
                 108: "27.125rem",
             },
             fontFamily: {
@@ -41,8 +45,11 @@ module.exports = {
             colors: {
                 passou: {
                     magenta: "#7a378a",
+                    "magenta-700": "#662583",
                     "magenta-800": "#461d52",
                     cyan: "#00ab97",
+                    "soft-cyan": "#6cdbd4",
+                    gray: "#a7a6a7",
                 },
             },
         },

@@ -7,13 +7,14 @@
         <title>{{ $title }} - Passou Ganhou</title>
         @vite(['resources/css/app.css'])
         @livewireStyles
-    </head>
-    <body class="antialiased" id="body">
         <style>
             [x-cloak] {
                 display: none;
             }
         </style>
+    </head>
+    <body class="antialiased" id="body">
+
        <x-header />
         <livewire:form-contact />
         <main>
