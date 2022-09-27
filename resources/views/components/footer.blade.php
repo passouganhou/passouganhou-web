@@ -11,14 +11,23 @@
         <div class="flex flex-wrap">
             <div class="lg:w-3/12 md:w-1/2 w-full lg:mb-0 mb-8">
                 <img class="xl:w-48" src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}" alt="Logo Passou Ganhou">
+                <div class="pt-6">
+                    <a class="font-segoe-ui text-lg hover:underline font-bold text-white" href="{{ route('politica-de-privacidade') }}">Política de Privacidade</a>
+                </div>
+                <div class="pt-1">
+                    <a class="font-segoe-ui text-lg hover:underline font-bold text-white" href="{{ route('termos-e-condicoes-de-uso') }}">Termos e Condições de Uso</a>
+                </div>
             </div>
-            <div class="flex lg:w-6/12 md:w-1/2 w-full md:justify-center justify-start sm:flex-row flex-col  lg:mb-0 mb-8">
-                <h3 class="font-segoe-ui text-lg font-bold text-white mr-3">Escritório:</h3>
-                <p class="leading-tight font-segoe-ui text-white">
-                    Brasília<br>
-                    Ed. Prime Business Setor Bancário Sul, Q 2<br>
-                    Salas 09/10 Asa Sul - CEP: 70.070-120
-                </p>
+            <div class="lg:w-6/12 md:w-1/2 w-full  lg:mb-0 mb-8">
+                <div class="flex md:justify-center justify-start sm:flex-row flex-col">
+                    <h3 class="font-segoe-ui text-lg font-bold text-white mr-3">Escritório:</h3>
+                    <p class="leading-tight font-segoe-ui text-white">
+                        Brasília<br>
+                        Ed. Prime Business Setor Bancário Sul, Q 2<br>
+                        Salas 09/10 Asa Sul - CEP: 70.070-120
+                    </p>
+                </div>
+
             </div>
 
             <div class="lg:w-3/12 w-full flex flex-col lg:items-end items-start">
@@ -31,14 +40,17 @@
                     <a href="https://instagram.com/passouganhou?igshid=YmMyMTA2M2Y=" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="instagram" class="fill-white" width="24" height="24" />
                     </a>
-                    <a href="https://www.linkedin.com/products/ebw-bank-passou-ganhou-m%C3%A1quina-de-cart%C3%A3o/" class="mx-3" target="_blank" rel="noopener noreferrer">
-                        <x-icons name="linkedin" class="fill-white" width="24" height="24" />
+                    <a href="https://twitter.com/ebwbank " class="mx-3" target="_blank" rel="noopener noreferrer">
+                        <x-icons name="twitter" class="fill-white" width="24" height="24" />
                     </a>
-                    <a href="https://twitter.com/ebwbank" class="mx-3" target="_blank" rel="noopener noreferrer">
+                    <a href="https://youtube.com/channel/UCYIV1S3aPZ0OZ2WL_MTg3yg " class="mx-3" target="_blank" rel="noopener noreferrer">
+                        <x-icons name="youtube" class="fill-white" width="24" height="24" />
+                    </a>
+                    {{-- <a href="https://twitter.com/ebwbank" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <div class="w-[22px] h-[22px] bg-white rounded-sm flex justify-center items-center">
                             <x-icons name="tiktok" class="fill-passou-magenta-800" />
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>

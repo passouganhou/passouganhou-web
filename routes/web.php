@@ -31,6 +31,13 @@ Route::get('venda-pela-internet', function () {
     return view('pages.venda-pela-internet');
 })->name('venda-pela-internet.index');
 
+Route::get('termos-e-condicoes-de-uso', function () {
+    return view('pages.termos-condicoes-de-uso');
+})->name('termos-e-condicoes-de-uso');
+Route::get('politica-de-privacidade', function () {
+    return view('pages.politica-de-privacidade');
+})->name('politica-de-privacidade');
+
 Route::middleware('auth')->group(function () {
     Route::post('export-contacts', [ExportController::class, 'export'])->name('export.contacts');
 });

@@ -98,7 +98,7 @@
                     <x-btn-magenta href="{{ route('peca-maquininha.index') }}" :chevronRight="true" :bg="true" class="open-contact-form lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
                         Peça pelo Site
                     </x-btn-magenta>
-                    <x-btn-default href="https://wa.me/5561996044061" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
+                    <x-btn-default href="https://api.whatsapp.com/send?phone=5561996044061&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Bem-vindo%20%C3%A0%20PASSOU%20GANHOU.%20Meu%20nome%20%C3%A9%20Charles%2C%20do%20time%20de%20novos%20neg%C3%B3cios.%20Conta%20pra%20mim%20seu%20nome%2C%20por%20favor%3F" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
                         Peça pelo Whats
                     </x-btn-default>
                 </div>
@@ -264,14 +264,15 @@
                                     </a>
                                 </div>
                                 <div class="mb-4">
-                                    <a href="https://wa.me/5561996044061" target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
+
+                                    <a href="https://api.whatsapp.com/send?phone=5561996044061&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Bem-vindo%20%C3%A0%20PASSOU%20GANHOU.%20Meu%20nome%20%C3%A9%20Charles%2C%20do%20time%20de%20novos%20neg%C3%B3cios.%20Conta%20pra%20mim%20seu%20nome%2C%20por%20favor%3F" target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
                                         Chame pelo WhatsApp!
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
+                    {{-- <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
                                 <p class="font-bold text-passou-cyan my-4 text-xl">
@@ -294,13 +295,13 @@
                                     </a>
                                 </div>
                                 <div class="mb-4">
-                                    <a href="https://wa.me/5561996041988" target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
+                                    <a href="https://api.whatsapp.com/send?phone=5561996044061&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Bem-vindo%20%C3%A0%20PASSOU%20GANHOU.%20Meu%20nome%20%C3%A9%20Charles%2C%20do%20time%20de%20novos%20neg%C3%B3cios.%20Conta%20pra%20mim%20seu%20nome%2C%20por%20favor%3F " target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
                                         Chame pelo WhatsApp!
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
@@ -308,7 +309,7 @@
                                     Fale conosco
                                 </p>
                                 <p class="font-bold mb-4 text-passou-magenta-800 text-2xl">
-                                    0800-894-3000
+                                    0800-0001-678
                                 </p>
                                 <p class="text-passou-magenta-800">
                                     Horário de atendimento: <br>
@@ -324,8 +325,8 @@
                                     </a>
                                 </div>
                                 <div class="mb-4">
-                                    <a href="tel:08008943000" target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
-                                        Ligue 0800-894-3000
+                                    <a href="tel:08000001678" target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
+                                        0800-0001-678
                                     </a>
                                 </div>
                             </div>
