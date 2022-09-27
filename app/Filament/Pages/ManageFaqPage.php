@@ -14,6 +14,8 @@ use Filament\Pages\SettingsPage;
 
 class ManageFaqPage extends SettingsPage
 {
+    protected static ?string $navigationLabel = 'Maquininhas FAQ';
+
     protected static ?string $navigationIcon = 'heroicon-o-cog';
 
     protected static string $settings = FaqPageSettings::class;
