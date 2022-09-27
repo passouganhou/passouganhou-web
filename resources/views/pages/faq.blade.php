@@ -118,7 +118,7 @@
 
                 <div class="flex -mx-4 justify-center flex-wrap">
                     <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
-                        <a href="#" class="group">
+                        <a href="mailto:passouganhou@passouganhou.com.br" class="group">
                             <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-email.png') }}" alt="Email">
                             </div>
@@ -126,7 +126,7 @@
                         </a>
                     </div>
                     <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
-                        <a href="#" class="group">
+                        <a href="tel:08000001678" class="group">
                             <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-central.png') }}" alt="Central de Relacionamento">
                             </div>
@@ -134,7 +134,7 @@
                         </a>
                     </div>
                     <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
-                        <a href="#" class="group">
+                        <a href="https://api.whatsapp.com/send?phone=5561996044061&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Bem-vindo%20%C3%A0%20PASSOU%20GANHOU.%20Meu%20nome%20%C3%A9%20Charles%2C%20do%20time%20de%20novos%20neg%C3%B3cios.%20Conta%20pra%20mim%20seu%20nome%2C%20por%20favor%3F" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-whatsapp.png') }}" alt="Whatsapp">
                             </div>
