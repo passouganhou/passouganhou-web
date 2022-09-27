@@ -27,7 +27,7 @@
                         exclusivos e, claro, as melhores taxas.
                     </h2>
 
-                    <x-btn-magenta href="#" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6 open-contact-form">Peça a sua</x-btn-magenta>
+                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6 open-contact-form">Peça a sua</x-btn-magenta>
                 </div>
             </div>
         </div>
@@ -95,10 +95,10 @@
                 </div>
 
                 <div class="flex justify-center flex-wrap">
-                    <x-btn-magenta href="#" :chevronRight="true" :bg="true" class="open-contact-form lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
+                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" :chevronRight="true" :bg="true" class="open-contact-form lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
                         Peça pelo Site
                     </x-btn-magenta>
-                    <x-btn-default href="#" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
+                    <x-btn-default href="https://wa.me/5561996044061" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
                         Peça pelo Whats
                     </x-btn-default>
                 </div>
@@ -182,7 +182,7 @@
                 </div>
 
                 <div class="text-center">
-                    <x-btn-magenta class="open-contact-form sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
+                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="open-contact-form sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
                             <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
@@ -195,7 +195,7 @@
         </section>
 
         <section class="pt-20 bg-[#eaddd7] pb-20">
-            <div class="container px-6">
+            <div class="container px-6" id="portal-do-empreendedor">
                 <div class="flex -mx-6 flex-wrap justify-center">
                     <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0 relative">
                         <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
@@ -225,7 +225,7 @@
                 </div>
             </div>
 
-            <div class="container mx-auto px-4 pt-32">
+            <div class="container mx-auto px-4 pt-32" id="atendimento">
 
                 <div class=" mb-10">
                     <img loading="lazy" class="mx-auto block" src="{{ Vite::asset('resources/images/icon-business.png') }}" alt="Negocie as suas taxas">

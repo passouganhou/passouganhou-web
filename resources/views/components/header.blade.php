@@ -6,17 +6,17 @@ x-on:scroll.window.throttle.50ms="handleScroll">
         x-bind:class="floatingMenu ? 'fixed bg-passou-magenta shadow-md' : 'relative'">
         <nav class="container mx-auto px-4 hidden xl:block py-2">
             <div class="flex justify-between items-center">
-                <a class="flex justify-center" href="#">
+                <a class="flex justify-center" href="{{ route('home') }}">
                     <img x-bind:class="floatingMenu ? 'max-w-ss' : 'max-w-xxs'"
                         src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}" alt="Passou Ganhou Logo"
                         class="max-w-ss">
                 </a>
 
                 <ul class="flex flex-row items-center justify-center">
-                    <x-nav-link href="#">Home</x-nav-link>
-                    <x-nav-link href="#">Atendimento</x-nav-link>
-                    <x-nav-link href="#">Venda pela internet</x-nav-link>
-                    <x-nav-link href="#">Portal do Empreendedor
+                    <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
+                    <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#portal-do-empreendedor" class="page-scroller">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}">FAQ
@@ -24,7 +24,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                     </x-nav-link>
                 </ul>
 
-                <x-btn-default href="#" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form">Peça Agora</x-btn-default>
+                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form">Peça Agora</x-btn-default>
             </div>
         </nav>
 
@@ -38,21 +38,21 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                 </a>
 
                 <ul class="flex-1 flex flex-col items-center justify-center">
-                    <x-nav-link type="item-mobile" href="#">Home</x-nav-link>
-                    <x-nav-link type="item-mobile" href="#">Atendimento</x-nav-link>
-                    <x-nav-link type="item-mobile" href="#">Venda pela internet</x-nav-link>
-                    <x-nav-link type="item-mobile" href="#">Portal do Empreendedor
+                    <x-nav-link type="item-mobile" href="{{ route('home') }}">Home</x-nav-link>
+                    <x-nav-link type="item-mobile" href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
+                    <x-nav-link type="item-mobile" href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link>
+                    <x-nav-link type="item-mobile" href="{{ route('home') }}#portal-do-empreendedor" class="page-scroller">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('faq.index') }}">FAQ
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
-                <x-btn-default href="#" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form mt-1">Peça Agora</x-btn-default>
+                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form mt-1">Peça Agora</x-btn-default>
             </div>
         </nav>
         <div class="xl:hidden flex justify-between container">
-            <a class="flex justify-center" href="#">
+            <a class="flex justify-center" href="{{ route('home') }}">
                 <img src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}"
                     alt="Passou Ganhou Logo"
                     class="w-28">
