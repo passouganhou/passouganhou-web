@@ -4,13 +4,16 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactResource\Pages;
 use App\Filament\Resources\ContactResource\RelationManagers;
+use App\Filament\Resources\ContactResource\Widgets\ExportWidget;
 use App\Models\Contact;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -53,7 +56,12 @@ class ContactResource extends Resource
             ->columns([
                 TextColumn::make('name')->label('Nome'),
                 TextColumn::make('email')->label('Email'),
-                TextColumn::make('phone')->label('Telefone')
+                TextColumn::make('phone')->label('Telefone'),
+                TextColumn::make('form')->label('Formulário que foi enviado')
+                    ->enum([
+                        'form-peca-a-sua' => 'Form Peça a sua Maquinha',
+                        'form-venda-pela-internet' => 'Form Venda pela Internet'
+                    ]),
             ])
             ->filters([
                 //
@@ -70,6 +78,13 @@ class ContactResource extends Resource
     {
         return [
             //
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            ExportWidget::class,
         ];
     }
 

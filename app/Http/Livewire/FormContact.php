@@ -10,20 +10,25 @@ class FormContact extends Component
     public $name;
     public $email;
     public $phone;
-    public $mobileOptIn;
-    public $emailOptIn;
+    public $quero_maquininha;
+    public $quero_vender_online;
+    public $form;
 
     public $open = false;
     public $success = false;
+
+    public function mount($form = Contact::FORM_PECA_SUA)
+    {
+        $this->form = $form;
+    }
 
     protected $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
         'phone' => 'required|min:4',
-        'mobileOptIn' => 'nullable',
-        'emailOptIn' => 'nullable'
+        'quero_maquininha' => 'nullable',
+        'quero_vender_online' => 'nullable'
     ];
-
     protected $messages = [
         'name.required' => 'O nome é obrigatório',
         'email.required' => 'O email é obrigatório',
@@ -39,8 +44,9 @@ class FormContact extends Component
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'mobileOptIn' => $this->mobileOptIn ?: 'no',
-            'emailOptIn' => $this->emailOptIn ?: 'no'
+            'quero_maquininha' => $this->quero_maquininha ?: 'no',
+            'quero_vender_online' => $this->quero_vender_online ?: 'no',
+            'form' => $this->form
         ]);
 
         $this->success = true;

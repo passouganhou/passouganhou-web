@@ -6,6 +6,7 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
+    safelist: ["bg-white", "bg-passou-magenta"],
 
     theme: {
         container: {

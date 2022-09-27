@@ -44,7 +44,7 @@
                     <div class="flex flex-wrap">
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="Enjoy" image="{{ Vite::asset('resources/images/machine-enjoy.png') }}">
-                                <x-slot name="list" class="md:left-16">
+                                <x-slot name="list" class="bg-passou-magenta md:left-16">
                                     <ul class="list-disc  md:whitespace-nowrap text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight">Maquininha leve e portátil</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Não precisa de celular</li>
@@ -57,7 +57,7 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="Revolution" image="{{ Vite::asset('resources/images/machine-revolution.png') }}">
-                                <x-slot name="list" class="md:left-0">
+                                <x-slot name="list" class="bg-passou-magenta md:left-0">
                                     <ul class="list-disc  text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Imprime comprovante</li>
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por aproximação</li>
@@ -69,7 +69,7 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="Ultra" image="{{ Vite::asset('resources/images/machine-ultra.png') }}">
-                                <x-slot name="list" class="md:-left-6">
+                                <x-slot name="list" class="bg-passou-magenta md:-left-6">
                                     <ul class="list-disc text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Design compacto e moderno</li>
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
@@ -82,7 +82,7 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="TEF" image="{{ Vite::asset('resources/images/machine-tef.png') }}">
-                                <x-slot name="list" class="2xl:-left-20 md:-left-80">
+                                <x-slot name="list" class="bg-passou-magenta 2xl:-left-20 md:-left-80">
                                     <ul class="list-disc text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>

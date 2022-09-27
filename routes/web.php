@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\PecaMaquininhaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,16 @@ Route::get('/', function () {
 });
 
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
+
+Route::get('peca-a-sua', function () {
+    return view('pages.peca-maquininha');
+})->name('peca-maquininha.index');
+
+
+Route::get('venda-pela-internet', function () {
+    return view('pages.venda-pela-internet');
+})->name('venda-pela-internet.index');
+
+Route::middleware('auth')->group(function () {
+    Route::post('export-contacts', [ExportController::class, 'export'])->name('export.contacts');
+});

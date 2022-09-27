@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('mobileOptIn');
-            $table->string('emailOptIn');
+            $table->string('quero_maquininha');
+            $table->string('quero_vender_online');
+            $table->string('form');
             $table->timestamps();
         });
     }

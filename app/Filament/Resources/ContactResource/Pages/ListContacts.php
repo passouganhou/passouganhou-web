@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ContactResource\Pages;
 
 use App\Filament\Resources\ContactResource;
+use App\Filament\Resources\ContactResource\Widgets\ExportWidget;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
@@ -14,6 +15,13 @@ class ListContacts extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            ExportWidget::class
         ];
     }
 }

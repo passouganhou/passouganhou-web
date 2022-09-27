@@ -16,7 +16,6 @@
     <body class="antialiased" id="body">
 
        <x-header />
-        <livewire:form-contact />
         <main>
             {{ $main }}
         </main>
