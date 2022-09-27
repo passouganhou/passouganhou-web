@@ -19,7 +19,7 @@
                                         <li class="md:text-lg md:leading-tight leading-tight">Maquininha leve e portátil</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Não precisa de celular</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Bateria de longa duração</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Envio de compravante por SMS</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Envio de comprovante por SMS</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -31,7 +31,7 @@
                                     <ul class="list-disc  text-passou-magenta font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Imprime comprovante</li>
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por aproximação</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absoluta: ideal para pagamento dentro e fora do estabelecimento.</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -43,7 +43,7 @@
                                     <ul class="list-disc text-passou-magenta font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Design compacto e moderno</li>
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absoluta: ideal para pagamento dentro e fora do estabelecimento.</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Conectividade total: 4G, Wi-Fi</li>
                                     </ul>
                                 </x-slot>
@@ -52,11 +52,11 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="TEF" image="{{ Vite::asset('resources/images/machine-tef.png') }}" white>
-                                <x-slot name="list" class="bg-white 2xl:-left-20 md:-left-80">
+                                <x-slot name="list" class="bg-white 2xl:-left-52 md:-left-96">
                                     <ul class="list-disc text-passou-magenta font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">eita para garantir total segurança em todas as transações.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Feita para garantir total segurança em todas as transações.</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>

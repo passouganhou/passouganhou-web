@@ -11,7 +11,7 @@
             (max-width: 1024px) 1024px,
             (max-width: 1280px) 1280px,
             1281px"
-            class="w-full"
+            class="w-full 2xl:min-h-[900px] object-center object-cover"
             src="{{ Vite::asset('resources/images/banner-home.jpg') }}"
             alt="Banner Passou Ganhou">
             <div class="inset-0 absolute 2xl:pt-32 xl:pt-20 lg:pt-16 md:pt-12 sm:pt-10 pt-6">
@@ -27,12 +27,12 @@
                         exclusivos e, claro, as melhores taxas.
                     </h2>
 
-                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6 open-contact-form">Peça a sua</x-btn-magenta>
+                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6">Peça a sua</x-btn-magenta>
                 </div>
             </div>
         </div>
 
-        <section class="pt-10 2xl:pt-20 bg-[length:320px] bg-maquininhas bg-no-repeat lg:bg-[url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})]">
+        <section class="pt-10 2xl:pt-20 2xl:bg-[length:320px] bg-[length: 270px] bg-maquininhas bg-no-repeat" style="background-image: url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})">
             <div class="container mx-auto px-4">
                 <div class="mb-20">
                     <h2 class="md:text-3xl text-2xl leading-tight text-center text-passou-magenta mb-6 font-segoe-ui">
@@ -49,7 +49,7 @@
                                         <li class="md:text-lg md:leading-tight leading-tight">Maquininha leve e portátil</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Não precisa de celular</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Bateria de longa duração</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Envio de compravante por SMS</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Envio de comprovante por SMS</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -61,7 +61,7 @@
                                     <ul class="list-disc  text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Imprime comprovante</li>
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por aproximação</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absoluta: ideal para pagamento dentro e fora do estabelecimento.</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -73,7 +73,7 @@
                                     <ul class="list-disc text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Design compacto e moderno</li>
                                         <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absolute: ideal para pagamento dentro e fora do estabelecimento.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absoluta: ideal para pagamento dentro e fora do estabelecimento.</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Conectividade total: 4G, Wi-Fi</li>
                                     </ul>
                                 </x-slot>
@@ -82,11 +82,11 @@
 
                         <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
                             <x-maquininha name="TEF" image="{{ Vite::asset('resources/images/machine-tef.png') }}">
-                                <x-slot name="list" class="bg-passou-magenta 2xl:-left-20 md:-left-80">
+                                <x-slot name="list" class="bg-passou-magenta 2xl:-left-52 md:-left-96">
                                     <ul class="list-disc text-white font-medium">
                                         <li class="md:text-lg md:leading-tight leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
                                         <li class="md:text-lg md:leading-tight leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">eita para garantir total segurança em todas as transações.</li>
+                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Feita para garantir total segurança em todas as transações.</li>
                                     </ul>
                                 </x-slot>
                             </x-maquininha>
@@ -94,8 +94,8 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center flex-wrap">
-                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" :chevronRight="true" :bg="true" class="open-contact-form lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
+                <div class="flex justify-center flex-wrap pt-10">
+                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
                         Peça pelo Site
                     </x-btn-magenta>
                     <x-btn-default href="https://api.whatsapp.com/send?phone=5561996044061&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Bem-vindo%20%C3%A0%20PASSOU%20GANHOU.%20Meu%20nome%20%C3%A9%20Charles%2C%20do%20time%20de%20novos%20neg%C3%B3cios.%20Conta%20pra%20mim%20seu%20nome%2C%20por%20favor%3F" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
@@ -122,10 +122,10 @@
                     <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/aura-brand.png') }}" alt="Bandeira Aura">
                     <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/jcb-brand.png') }}" alt="Bandeira JCB">
                 </div>
-                <p class="font-segoe-ui text-sm text-center text-white leading-snug">
+                {{-- <p class="font-segoe-ui text-sm text-center text-white leading-snug">
                     Bandeiras: Mastercard, Visa e Elo nas funções crédito e débito,<br>
                     nos chips; Amex, Dinners, Aura e JCB; crédito à vistta, crédito parcelado emissor e débito
-                </p>
+                </p> --}}
             </div>
         </section>
 
@@ -144,7 +144,7 @@
                 </p>
 
                 <p class="max-w-2xl font-segoe-ui text-[#451d50] tracking-tight">
-                    A cada um Real gasto na sua loja, seu cliente ganha 1 ponto, que pode ser trocado por descontos exclusivos. A cada um Real vendido na <b>PASSOU, GANHOU</b>, você, lojista, também ganha pontos e consegue exibir seus descontos exclusivos no <b>APP PASSOU GANHOU. EM BREVE!</b>
+                    A cada um Real gasto na sua loja, seu cliente ganha 1 ponto, que pode ser trocado por descontos exclusivos. A cada um Real vendido na <b>PASSOU GANHOU</b>, você, lojista, também ganha pontos e consegue exibir seus descontos exclusivos no <b>APP PASSOU GANHOU. EM BREVE!</b>
                 </p>
             </div>
         </section>
@@ -182,7 +182,7 @@
                 </div>
 
                 <div class="text-center">
-                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="open-contact-form sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
+                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
                             <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
@@ -201,20 +201,18 @@
                         <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
                         <a href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
-                                <img class="absolute top-8 left-8 z-10 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200 " loading="lazy" src="{{ Vite::asset('resources/images/logo-ebw.png') }}" alt="Logo EBW Bank">
                                 <img loading="lazy" class="rounded-3xl shadow-[25px_15px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/portal-do-investidor.jpg') }}" alt="Portal do Investidor">
                             </div>
                         </a>
                         <x-btn-default href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="px-8 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true">
-                            Portal do Investidor
+                            Portal do Empreendedor
                         </x-btn-default>
                     </div>
 
                     <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0 relative">
-                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
+                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 px-16">Conheça o grande banco por trás da incrível maquinha Passou Ganhou</h3>
                         <a  href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
-                                <img class="absolute top-8 left-8 z-10 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200 " loading="lazy" src="{{ Vite::asset('resources/images/logo-ebw.png') }}" alt="Logo EBW Bank">
                                 <img loading="lazy" class="rounded-3xl shadow-[25px_15px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/conheca-a-ebw.jpg') }}" alt="Conheça a EBW">
                             </div>
                         </a>
@@ -313,7 +311,7 @@
                                 </p>
                                 <p class="text-passou-magenta-800">
                                     Horário de atendimento: <br>
-                                    <span class="font-bold">Segunda a Sexta - 8h às 18h, Sábado - 8h às 13h</span>
+                                    <span class="font-bold">Segunda a Sexta - 8h às 18h</span>
                                 </p>
                             </div>
                             <div class="">

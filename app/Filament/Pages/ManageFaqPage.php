@@ -34,6 +34,9 @@ class ManageFaqPage extends SettingsPage
                             TextInput::make('description')
                                 ->label('Texto Descritivo')
                                 ->required(),
+                            TextInput::make('sub_title')
+                                ->label('Subtítulo')
+                                ->required(),
                             Repeater::make('operation')
                                 ->label('Funcionamento')
                                 ->schema([

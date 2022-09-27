@@ -48,11 +48,11 @@
         <section class="pt-20 pb-16">
             @if($maquininhas)
                 <div class="container">
-                    <h2 class="text-passou-magenta-700 font-bold text-center font-montserrat text-3xl mb-12">Está com dúvidas sobre o funcionamento<br> das maquininhas passou ganhou? Clique na sua e saiba mais.</h2>
+                    <h2 class="text-passou-magenta-700 font-bold text-center font-montserrat text-3xl mb-12">Está com dúvidas sobre o funcionamento<br> das maquininhas PASSOU GANHOU? Clique na sua e saiba mais.</h2>
 
-                    <div class="flex justify-between -mx-4">
+                    <div class="flex lg:justify-between justify-center -mx-4 flex-wrap">
                         @foreach ($maquininhas as $maquininha)
-                            <div class="w-1/3 px-4"
+                            <div class="lg:w-1/3 sm:w-1/2 px-4 lg:mb-0 mb-10"
                             x-data="{show: false}"
                             x-init="
                                 $watch('show', function(bool) {
@@ -65,9 +65,9 @@
                                     }
                                 })
                             ">
-                                <div class="border-4 w-60 border-passou-magenta-700 pt-6 pb-10 rounded-5xl relative flex flex-col items-center justify-center px-16">
-                                    <img src="{{ Storage::url($maquininha['featured_image']) }}" alt="Maquininha {{ $maquininha['name'] }}">
-                                    <h3 class="text-4xl text-passou-magenta-700 font-semibold mt-6">{{ $maquininha['name'] }}</h3>
+                                <div class="border-4 w-[230px] border-passou-magenta-700 pt-6 pb-12 rounded-5xl relative flex flex-col items-center justify-center px-16 mx-auto {{ $loop->index === 0 ? 'lg:mr-auto lg:ml-0' : '' }} {{ $loop->index === 2 ? 'lg:ml-auto lg:mr-0' : '' }}">
+                                    <img class="max-w-90" src="{{ Storage::url($maquininha['featured_image']) }}" alt="Maquininha {{ $maquininha['name'] }}">
+                                    <h3 class="text-4xl text-passou-magenta-700 font-semibold mt-4">{{ $maquininha['name'] }}</h3>
                                     <button
                                     class="bg-passou-cyan rounded-full absolute bottom-0 translate-y-1/2 py-2 pl-7 pr-4 uppercase text-white font-medium flex items-center hover:bg-passou-magenta transition-all"
                                     x-on:click="show = !show">
@@ -99,16 +99,9 @@
                                                         {{ $operation['title'] }}
                                                         <x-icons name="chevron-right" class="inline-block transition-all" x-bind:class="open ? 'fill-passou-magenta rotate-90' : 'fill-passou-gray'"/>
                                                     </span>
-                                                    <ul class="text-base text-passou-magenta tracking-tight font-montserrat overflow-hidden transition-all" x-ref="list" style="max-height: 0;">
-                                                        @php
-                                                            preg_match_all("#<li>(.+?)</li>#", $operation['items'], $matches );
-                                                        @endphp
-                                                        @foreach ($matches[0] as $item)
-                                                            <li class="pb-1 pt-1 first-of-type:pt-4">
-                                                                {{ $loop->index + 1 }} - {{ strip_tags($item) }}
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
+                                                    <div class="list-maquininhas" x-ref="list" style="max-height: 0;">
+                                                        {!! $operation['items'] !!}
+                                                    </div>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -121,39 +114,31 @@
                 </div>
             @endif
             <div class="container pt-20">
-                <h3 class="font-semibold font-montserrat text-center text-passou-magenta-700 text-5xl mb-16 tracking-tighter">Ainda precisa de ajuda?</h3>
+                <h3 class="font-semibold font-montserrat text-center text-passou-magenta-700 md:text-5xl text-3xl mb-16 tracking-tighter">Ainda precisa de ajuda?</h3>
 
-                <div class="flex -mx-4">
-                    <div class="w-1/4 px-4 text-center">
+                <div class="flex -mx-4 justify-center flex-wrap">
+                    <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
                         <a href="#" class="group">
-                            <div class="bg-passou-magenta w-24 h-24 rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
+                            <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-email.png') }}" alt="Email">
                             </div>
                             <span class="mt-3 leading-tight inline-block font-semibold text-passou-magenta text-lg font-montserrat tracking-tight group-hover:underline">E-mail</span>
                         </a>
                     </div>
-                    <div class="w-1/4 px-4 text-center">
+                    <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
                         <a href="#" class="group">
-                            <div class="bg-passou-magenta w-24 h-24 rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
+                            <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-central.png') }}" alt="Central de Relacionamento">
                             </div>
                             <span class="mt-3 leading-tight inline-block font-semibold text-passou-magenta text-lg font-montserrat tracking-tight group-hover:underline">Central de <br>Relacionamento</span>
                         </a>
                     </div>
-                    <div class="w-1/4 px-4 text-center">
+                    <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
                         <a href="#" class="group">
-                            <div class="bg-passou-magenta w-24 h-24 rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
+                            <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-whatsapp.png') }}" alt="Whatsapp">
                             </div>
                             <span class="mt-3 leading-tight inline-block font-semibold text-passou-magenta text-lg font-montserrat tracking-tight group-hover:underline">Whatsapp</span>
-                        </a>
-                    </div>
-                    <div class="w-1/4 px-4 text-center">
-                        <a href="#" class="group">
-                            <div class="bg-passou-magenta w-24 h-24 rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
-                                <img src="{{ Vite::asset('resources/images/icon-atendimento.png') }}" alt="Atendimento deficientes auditivos ou de fala">
-                            </div>
-                            <span class="mt-3 leading-tight inline-block font-semibold text-passou-magenta text-lg font-montserrat tracking-tight group-hover:underline">Atendimento<br> deficientes auditivos<br> ou de fala</span>
                         </a>
                     </div>
                 </div>

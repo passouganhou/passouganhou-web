@@ -43,15 +43,3 @@ Alpine.start();
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
-
-window.addEventListener("DOMContentLoaded", function () {
-    const buttons = Array.from(document.querySelectorAll(".open-contact-form"));
-    buttons.forEach((button) => {
-        button.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.dispatchEvent(
-                new CustomEvent("open-contact-form", { bubbles: true })
-            );
-        });
-    });
-});

@@ -4,7 +4,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
     <header x-ref="header-menu"
         class="top-0 left-0 right-0 z-40 transition-all duration-300 fixed bg-passou-magenta shadow-md py-4"
         x-bind:class="floatingMenu ? 'fixed bg-passou-magenta shadow-md' : 'relative'">
-        <nav class="container mx-auto px-4 hidden xl:block py-2">
+        <nav class="container mx-auto hidden xl:block py-2">
             <div class="flex justify-between items-center">
                 <a class="flex justify-center" href="{{ route('home') }}">
                     <img x-bind:class="floatingMenu ? 'max-w-ss' : 'max-w-xxs'"
@@ -16,7 +16,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                     <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
                     <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#portal-do-empreendedor" class="page-scroller">Portal do Empreendedor
+                    <x-nav-link href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}">FAQ
@@ -24,7 +24,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                     </x-nav-link>
                 </ul>
 
-                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form">Peça Agora</x-btn-default>
+                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui">Peça Agora</x-btn-default>
             </div>
         </nav>
 
@@ -41,14 +41,14 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                     <x-nav-link type="item-mobile" href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link>
-                    <x-nav-link type="item-mobile" href="{{ route('home') }}#portal-do-empreendedor" class="page-scroller">Portal do Empreendedor
+                    <x-nav-link type="item-mobile" href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('faq.index') }}">FAQ
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
-                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui open-contact-form mt-1">Peça Agora</x-btn-default>
+                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui mt-1">Peça Agora</x-btn-default>
             </div>
         </nav>
         <div class="xl:hidden flex justify-between container">

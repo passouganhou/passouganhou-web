@@ -69,7 +69,7 @@
             window.location = this.href;
             return;
         }
-        const offTopHash = document.querySelector(hash).offsetTop;
+        const offTopHash = document.querySelector(hash).offsetTop - 120;
         scrollTo(offTopHash, 1200, "easeOutSine");
     }
 

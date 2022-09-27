@@ -20,7 +20,7 @@
             </div>
             <div class="lg:w-6/12 md:w-1/2 w-full  lg:mb-0 mb-8">
                 <div class="flex md:justify-center justify-start sm:flex-row flex-col">
-                    <h3 class="font-segoe-ui text-lg font-bold text-white mr-3">Escritório:</h3>
+                    <h3 class="font-segoe-ui text-lg font-bold text-white mr-5 mt-1">Escritório:</h3>
                     <p class="leading-tight font-segoe-ui text-white">
                         Brasília<br>
                         Ed. Prime Business Setor Bancário Sul, Q 2<br>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="lg:w-3/12 w-full flex flex-col lg:items-end items-start">
-                <h3 class="font-bold text-lg text-white mb-3">Siga a Passou, Ganhou</h3>
+                <h3 class="font-bold text-lg text-white mb-3">Siga a Passou Ganhou</h3>
 
                 <div class="flex items-center justify-center">
                     <a href="https://www.facebook.com/passouganhou/" class="mx-3" target="_blank" rel="noopener noreferrer">
@@ -40,12 +40,12 @@
                     <a href="https://instagram.com/passouganhou?igshid=YmMyMTA2M2Y=" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="instagram" class="fill-white" width="24" height="24" />
                     </a>
-                    <a href="https://twitter.com/ebwbank " class="mx-3" target="_blank" rel="noopener noreferrer">
+                    {{-- <a href="https://twitter.com/ebwbank " class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="twitter" class="fill-white" width="24" height="24" />
-                    </a>
-                    <a href="https://youtube.com/channel/UCYIV1S3aPZ0OZ2WL_MTg3yg " class="mx-3" target="_blank" rel="noopener noreferrer">
+                    </a> --}}
+                    {{-- <a href="https://youtube.com/channel/UCYIV1S3aPZ0OZ2WL_MTg3yg " class="mx-3" target="_blank" rel="noopener noreferrer">
                         <x-icons name="youtube" class="fill-white" width="24" height="24" />
-                    </a>
+                    </a> --}}
                     {{-- <a href="https://twitter.com/ebwbank" class="mx-3" target="_blank" rel="noopener noreferrer">
                         <div class="w-[22px] h-[22px] bg-white rounded-sm flex justify-center items-center">
                             <x-icons name="tiktok" class="fill-passou-magenta-800" />
@@ -56,7 +56,7 @@
         </div>
 
         <div class="border-b-2 border-white pb-8 pt-32">
-            <p class="text-white text-xs font-segoe-ui">© PASSOU GANHOU. Todos os direitos reservados. EBW BANK | CNPJ 31.663.601/0001-08</p>
+            <p class="text-white text-xs font-segoe-ui">© PASSOU GANHOU. Todos os direitos reservados. CNPJ 31.663.601/0001-08</p>
         </div>
     </div>
 </footer>

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
 const theme = require("tailwindcss/defaultTheme");
 module.exports = {
     content: [
@@ -6,7 +7,13 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-    safelist: ["bg-white", "bg-passou-magenta"],
+    safelist: [
+        "bg-white",
+        "bg-passou-magenta",
+        "items-center",
+        "items-end",
+        "mx-auto",
+    ],
 
     theme: {
         container: {
@@ -17,7 +24,7 @@ module.exports = {
                 sm: "40rem",
                 md: "48rem",
                 lg: "64rem",
-                xl: "80rem",
+                xl: "79rem",
                 // "2xl": "96rem",
             },
         },
@@ -38,7 +45,7 @@ module.exports = {
                 montserrat: ["Montserrat", "system-ui", "sans-serif"],
             },
             backgroundPosition: {
-                maquininhas: "left 85%",
+                maquininhas: "left 45%",
             },
             minHeight: {
                 160: "40rem",
@@ -55,5 +62,9 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        plugin(function ({ addVariant }) {
+            addVariant("nth-child-2", "&:nth-child(2)");
+        }),
+    ],
 };

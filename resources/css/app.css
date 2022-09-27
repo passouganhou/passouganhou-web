@@ -81,3 +81,25 @@
     margin-bottom: 0.5rem;
     font-size: 18px;
 }
+.list-maquininhas {
+    font-size: 1rem;
+    color: rgb(122 55 138);
+    letter-spacing: -0.025rem;
+    font-family: 'Montserrat';
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.list-maquininhas ol {
+    list-style-type: decimal;
+    padding-left: 1.2rem;
+}
+.list-maquininhas ol ol {
+    list-style: lower-alpha;
+}
+.list-maquininhas li {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+.list-maquininhas li:first-of-type {
+    padding-top: 1rem;
+}

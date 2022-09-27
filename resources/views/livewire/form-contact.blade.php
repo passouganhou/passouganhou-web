@@ -18,15 +18,15 @@
                         @error('name') <span class="text-red-700 text-sm">{{ $message }}</span> @enderror
                     </div>
 
-                    <div class="flex -mx-3">
-                        <div class="mt-4 px-3 w-8/12">
+                    <div class="flex -mx-3 flex-wrap">
+                        <div class="mt-4 px-3 md:w-8/12 w-full">
                             <input
                                 class="py-5 text-neutral-800 px-8 focus:border-cyan-400 focus:ring focus:ring-cyan-400 focus:outline-none focus:ring-opacity-50 mt-1 block w-full"
                                 wire:model.defer="email" id="email" type="text" name="email" placeholder="E-mail:">
                             @error('email') <span class="text-red-700 text-sm">{{ $message }}</span> @enderror
                         </div>
 
-                        <div class="mt-4 px-3 w-4/12">
+                        <div class="mt-4 px-3 md:w-4/12 w-full">
                             <input
                                 class="py-5 text-neutral-800 px-8 focus:border-cyan-400 focus:ring focus:ring-cyan-400 focus:outline-none focus:ring-opacity-50 mt-1 block w-full"
                                 wire:model.defer="phone" id="phone" type="text" name="phone" placeholder="Telefone com DDD:" x-mask="(99) 99999-9999">
@@ -34,13 +34,13 @@
                         </div>
                     </div>
 
-                    <div class="mt-4 flex justify-center">
-                        <div class="px-8 cursor-pointer">
+                    <div class="mt-4 flex justify-center flex-wrap">
+                        <div class="px-8 cursor-pointer mb-4">
                             <input type="checkbox" id="chkquero_maquininha" wire:model.defer="quero_maquininha" name="quero_maquininha" value="yes">
                             <label class="text-passou-magenta font-medium tracking-tight" for="chkquero_maquininha">Quero minha maquininha</label>
                         </div>
 
-                        <div class="px-8 cursor-pointer">
+                        <div class="px-8 cursor-pointer mb-4">
                             <input type="checkbox" id="chkquero_vender_online" wire:model.defer="quero_vender_online" name="quero_vender_online" value="yes">
                             <label class="text-passou-magenta font-medium tracking-tight" for="chkquero_vender_online">Quero vender online</label>
                         </div>
