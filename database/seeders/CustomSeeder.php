@@ -34,7 +34,7 @@ class CustomSeeder extends Seeder
         ]);
         Faq::create([
             'question' => 'Quais os canais de contato com a PASSOU GANHOU',
-            'answer' => 'A PASSOU GANHOU oferece vários canais de comunicação com o cliente. Nosso atendimento é totalmente humanizado. Aqui, você não será atendido por um robe. O primeiro deles é o 0800-000-1678. Mas se você prefere conversar pelo WhatsApp, basta entrar em contato pelo (61) 9.9604-4061. O nosso atendimento é sempre de segunda a sexta-feira, das 8h às 18h. Você também pode pedir a sua maquininha pelo e-mail: <a href="mailto:vendas@passouganhou.com.br" class="underline" style="color: blue" >vendas@passouganhou.com.br</a>.'
+            'answer' => 'A PASSOU GANHOU oferece vários canais de comunicação com o cliente. Nosso atendimento é totalmente humanizado. Aqui, você não será atendido por um robô. O primeiro deles é o 0800-000-1678. Mas se você prefere conversar pelo WhatsApp, basta entrar em contato pelo (61) 9.9604-4061. O nosso atendimento é sempre de segunda a sexta-feira, das 8h às 18h. Você também pode pedir a sua maquininha pelo e-mail: <a href="mailto:vendas@passouganhou.com.br" class="underline" style="color: blue" >vendas@passouganhou.com.br</a>.'
         ]);
         Faq::create([
             'question' => 'Estou enfrentando problemas técnicos com a maquininha. O que fazer?',
@@ -61,7 +61,7 @@ class CustomSeeder extends Seeder
                         "name": "C680",
                         "operation": [
                             {
-                                "items": "<ol><li>Digite o valor da venda e aperta a tecla <strong>verde</strong></li><li>Selecione a opção Crédito ou Débito</li><li>Insira o cartão</li><li>Venda Débito - Digite senha e aperta a seta <strong>verde</strong></li><li>Venda Crédito - escolha a opção <strong>\"À VISTA\" ou \"PARCELADO\"</strong></li><li>Na opção \"À VISTA\", digite senha e aperta a tecla <strong>verde</strong></li><li>Se a taxa de juros for cobrada do cliente, use a opção <strong>\"PARCELADO PELA ADM\"</strong></li></ol>",
+                                "items": "<ol><li>Digite o valor da venda e aperte a tecla <strong>verde</strong></li><li>Selecione a opção Crédito ou Débito</li><li>Insira o cartão</li><li>Venda Débito - Digite a senha e aperte a seta <strong>verde</strong></li><li>Venda Crédito – escolha a opção <strong>“À VISTA” ou “PARCELADO”</strong></li><li>Na opção <strong>“À VISTA”</strong>, digite a senha e aperte a tecla <strong>verde</strong></li><li>No <strong>“PARCELADO”</strong> (estabelecimento), digite a quantidade de parcelas, a senha e confirme na tecla verde</li><li>Se a taxa de juros for cobrada do cliente, use a opção <strong>“PARCELADO PELA ADM”</strong></li></ol>",
                                 "title": "Primeira Venda"
                             },
                             {
@@ -89,7 +89,7 @@ class CustomSeeder extends Seeder
                         "name": "S920",
                         "operation": [
                             {
-                                "items": "<ol><li>Digite o valor da venda e aperta a tecla <strong>verde</strong></li><li>Selecione a opção Crédito ou Débito</li><li>Insira o cartão</li><li>Em caso de venda no Crédito, escolha a opção <strong>“À VISTA” ou “PARCELADO”</strong></li><li>Se a escolha for por venda no Débito, digite a senha e aperte a seta <strong>verde&nbsp;</strong></li><li>Na opção “<strong>À VISTA”</strong>, digite a senha e aperte a tecla <strong>verde</strong></li><li>No <strong>“PARCELADO”</strong>, o estabelecimento digita a quantidade de parcelas. Cliente coloca a senha e a operação deve ser confirmada na tecla <strong>verde</strong></li><li>Se a taxa de juros for cobrada do cliente, use a opção <strong>“PARCELADO PELA ADM”</strong></li></ol>",
+                                "items": "<ol><li>Digite o valor da venda e aperte a tecla <strong>verde</strong></li><li>Selecione a opção Crédito ou Débito</li><li>Insira o cartão</li><li>Em caso de venda no Crédito, escolha a opção <strong>“À VISTA” ou “PARCELADO”</strong></li><li>Se a escolha for por venda no Débito, digite a senha e aperte a seta <strong>verde&nbsp;</strong></li><li>Na opção “<strong>À VISTA”</strong>, digite a senha e aperte a tecla <strong>verde</strong></li><li>No <strong>“PARCELADO”</strong>, o estabelecimento digita a quantidade de parcelas. Cliente coloca a senha e a operação deve ser confirmada na tecla <strong>verde</strong></li><li>Se a taxa de juros for cobrada do cliente, use a opção <strong>“PARCELADO PELA ADM”</strong></li></ol>",
                                 "title": "Primeira Venda"
                             },
                             {
@@ -117,7 +117,7 @@ class CustomSeeder extends Seeder
                         "name": "A910",
                         "operation": [
                             {
-                                "items": "<ol><li>Digite o valor da venda e aperta a tecla <strong>verde</strong></li><li>Selecione a opção Crédito ou Débito</li><li>Insira o cartão</li><li>Em caso de venda no Crédito, escolha a opção <strong>“À VISTA” ou “PARCELADO”</strong></li><li>Se a escolha for pela venda no Débito, digite a senha e aperte a seta <strong>verde</strong></li><li>Na opção <strong>“À VISTA”</strong>, digite a senha e aperte a tecla <strong>verde</strong></li><li>No <strong>“PARCELADO”</strong> estabelecimento digite a quantidade de parcelas, a senha e confirme na tecla verde.</li><li>Se a taxa de juros for cobrada do cliente, use a opção<strong> “PARCELADO PELA ADM”</strong></li></ol>",
+                                "items": "<ol><li>Digite o valor da venda e aperte a tecla <strong>verde</strong></li><li>Selecione a opção Crédito ou Débito</li><li>Insira o cartão</li><li>Em caso de venda no Crédito, escolha a opção <strong>“À VISTA” ou “PARCELADO”</strong></li><li>Se a escolha for pela venda no Débito, digite a senha e aperte a seta <strong>verde</strong></li><li>Na opção <strong>“À VISTA”</strong>, digite a senha e aperte a tecla <strong>verde</strong></li><li>No <strong>“PARCELADO”</strong> estabelecimento digite a quantidade de parcelas, a senha e confirme na tecla verde.</li><li>Se a taxa de juros for cobrada do cliente, use a opção<strong> “PARCELADO PELA ADM”</strong></li></ol>",
                                 "title": "Primeira Venda"
                             },
                             {

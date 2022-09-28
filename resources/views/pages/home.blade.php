@@ -16,18 +16,22 @@
             alt="Banner Passou Ganhou">
             <div class="inset-0 absolute 2xl:pt-32 xl:pt-20 lg:pt-16 md:pt-12 sm:pt-10 pt-6">
                 <div class="container">
-                    <h1 class="2xl:text-6xl xl:text-5xl md:text-4xl sm:text-2xl text-xl text-passou-magenta md:mb-5 mb-3">
-                        Para <span class="font-bold">empreendedor</span><br>
-                        que quer <span class="font-bold">crescer</span> com<br>
-                        a <span class="font-bold">Passou Ganhou.</span>
-                    </h1>
-
-                    <h2 class="text-white xl:text-3xl md:text-2xl sm:text-lg text-sm xl:mb-40 md:mb-32 sm:mb-20 mb-4">
-                        Soluções inteligentes, benefícios<br>
-                        exclusivos e, claro, as melhores taxas.
+                    <h1 class="2xl:text-4xl xl:text-4xl font-bold sm:text-2xl text-xl text-passou-magenta md:mb-5 mb-3">Negocie suas taxas.</h1>
+                    <h2 class="2xl:text-6xl xl:text-5xl md:text-4xl font-semibold sm:text-2xl text-xl text-passou-magenta md:mb-12 mb-5">
+                        Cada <b>cliente</b> é único.<br>
+                        <b>Nossa proposta</b><br>
+                        <b>também</b>
                     </h2>
 
-                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="font-montserrat lg:text-2xl md:text-xl text-lg font-semibold md:px-10 px-6">Peça a sua</x-btn-magenta>
+                    <h3 class="text-white xl:text-3xl md:text-2xl sm:text-lg text-sm md:mb-12 mb-5">
+                        Comece agora<br>
+                        a <b>negociar</b> com<br>
+                        a <b>PASSOU GANHOU.</b>
+                    </h3>
+
+                    <a href="{{ route('peca-maquininha.index') }}" class="font-semibold text-sm px-6 bg-passou-magenta text-white py-3 uppercase transition-all duration-200 cursor-pointer hover:bg-passou-cyan">
+                        Quero negociar minhas taxas
+                    </a>
                 </div>
             </div>
         </div>
@@ -132,7 +136,7 @@
         <section class="bg-cover bg-center bg-no-repeat md:pt-40 pt-20 md:pb-20 pb-12 min-h-160" style="background-image: url({{ Vite::asset('resources/images/banner-sacolas.jpg') }})">
             <div class="container">
                 <h2 class="md:text-4xl sm:text-2xl text-lg tracking-tight text-passou-magenta font-segoe-ui mb-10 leading-snug">
-                    Vendas com a <span class="font-bold uppercase">Passou Ganhou</span><br>
+                    Venda com a <span class="font-bold uppercase">Passou Ganhou</span><br>
                     e transforme seus clientes em fãs
                 </h2>
 
