@@ -2,18 +2,16 @@
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
         <div class="relative">
-            <img
-            srcset="{{ Vite::asset('resources/images/banner-home-xs.jpg') }} 640w,
-            {{ Vite::asset('resources/images/banner-home-md.jpg') }} 1024w,
-            {{ Vite::asset('resources/images/banner-home-lg.jpg') }} 1280w,
-            {{ Vite::asset('resources/images/banner-home.jpg') }} 1281w"
-            {{-- sizes="(max-width: 640px) 640px,
-            (max-width: 1024px) 1024px,
-            (max-width: 1280px) 1280px,
-            1281px" --}}
-            class="w-full 2xl:min-h-[900px] object-center object-cover"
-            src="{{ Vite::asset('resources/images/banner-home.jpg') }}"
-            alt="Banner Passou Ganhou">
+            <picture>
+                <source media="(max-width: 600px)" srcset="{{ Vite::asset('resources/images/banner-home-600w.jpg') }}">
+                <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/banner-home-1024w.jpg') }}">
+                <source media="(max-width: 1280px)" srcset="{{ Vite::asset('resources/images/banner-home-1767w.jpg') }}">
+                <source media="(min-width: 1281px)" srcset="{{ Vite::asset('resources/images/banner-home.jpg') }}">
+                <img
+                class="w-full 2xl:min-h-[900px] object-center object-cover"
+                src="{{ Vite::asset('resources/images/banner-home.jpg') }}"
+                alt="Banner Passou Ganhou">
+            </picture>
             <div class="inset-0 absolute 2xl:pt-32 xl:pt-20 lg:pt-16 md:pt-12 sm:pt-10 pt-6">
                 <div class="container">
                     <h1 class="2xl:text-4xl xl:text-4xl font-bold sm:text-2xl text-xl text-passou-magenta md:mb-5 mb-3">Negocie suas taxas.</h1>
