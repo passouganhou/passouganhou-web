@@ -2,7 +2,7 @@
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
         <div class="relative">
-            <img loading="lazy"
+            <img
             srcset="{{ Vite::asset('resources/images/banner-home-xs.jpg') }} 640w,
             {{ Vite::asset('resources/images/banner-home-md.jpg') }} 1024w,
             {{ Vite::asset('resources/images/banner-home-lg.jpg') }} 1280w,
