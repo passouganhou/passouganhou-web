@@ -7,10 +7,10 @@
             {{ Vite::asset('resources/images/banner-home-md.jpg') }} 1024w,
             {{ Vite::asset('resources/images/banner-home-lg.jpg') }} 1280w,
             {{ Vite::asset('resources/images/banner-home.jpg') }} 1281w"
-            sizes="(max-width: 640px) 640px,
+            {{-- sizes="(max-width: 640px) 640px,
             (max-width: 1024px) 1024px,
             (max-width: 1280px) 1280px,
-            1281px"
+            1281px" --}}
             class="w-full 2xl:min-h-[900px] object-center object-cover"
             src="{{ Vite::asset('resources/images/banner-home.jpg') }}"
             alt="Banner Passou Ganhou">
