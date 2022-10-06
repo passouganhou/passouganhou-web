@@ -3,6 +3,8 @@
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PecaMaquininhaController;
+use App\Models\Contact;
+use App\Services\CrmService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // $contact = Contact::first();
+    // $data = $contact->only([
+    //     'name',
+    //     'email',
+    //     'phone',
+    //     'quero_maquininha',
+    //     'quero_vender_online',
+    //     'form'
+    // ]);
+    // $service = new CrmService($data);
+    // $service->serviceId('asd')->send();
     return view('pages.home');
 })->name('home');
 

@@ -27,7 +27,7 @@
                         a <b>PASSOU GANHOU.</b>
                     </h3>
 
-                    <a href="{{ route('peca-maquininha.index') }}" class="font-semibold text-sm px-6 bg-passou-magenta text-white py-3 uppercase transition-all duration-200 cursor-pointer hover:bg-passou-cyan">
+                    <a href="{{ route('peca-maquininha.index') }}" class="font-semibold text-sm sm:px-6 px-3 sm:shadow-none shadow-md bg-passou-magenta text-white py-3 uppercase transition-all duration-200 cursor-pointer hover:bg-passou-cyan">
                         Quero negociar minhas taxas
                     </a>
                 </div>

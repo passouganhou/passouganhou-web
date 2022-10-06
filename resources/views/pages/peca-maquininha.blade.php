@@ -72,7 +72,7 @@
                 <h3 class="bg-passou-soft-cyan text-2xl -translate-y-1/2 font-semibold text-white uppercase px-10 py-2">Peça a sua</h3>
             </div>
             <div class="container pt-12 mb-10">
-                <h2 class="text-center text-passou-magenta-700 uppercase text-4xl font-semibold">Preencha seus dados e peça a sua Passou Ganhou</h2>
+                <h2 class="text-center text-passou-magenta-700 uppercase sm:text-4xl text-2xl font-semibold">Preencha seus dados e peça a sua Passou Ganhou</h2>
             </div>
 
             <livewire:form-contact/>
