@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Settings\GeneralSettings;
 use Illuminate\View\Component;
 
 class BaseLayout extends Component
@@ -11,9 +12,8 @@ class BaseLayout extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public GeneralSettings $settings)
     {
-        //
     }
 
     /**

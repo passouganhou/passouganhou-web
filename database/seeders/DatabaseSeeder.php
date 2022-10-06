@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
         ]);
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'admin@evolutap.com.br',
-            'password' => \bcrypt('homolog123')
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'admin@evolutap.com.br',
+        //     'password' => \bcrypt('homolog123')
+        // ]);
     }
 }

@@ -44,7 +44,7 @@
 
         <x-footer />
 
-        <a href="https://api.whatsapp.com/send/?phone=556196044061&text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Passou+Ganhou.&type=phone_number&app_absent=0" class="fixed z-50 cursor-pointer right-7 bottom-24">
+        <a href="{{ $settings->whatsapp }}" class="fixed z-50 cursor-pointer right-7 bottom-24">
             <div class="bg-gradient-to-b from-[#61fd7d] to-[#2bb826] rounded-lg shadow-md" style="height:50px; width:50px;">
                 <svg style="pointer-events:none; display:block; height:50px; width:50px;" width="50px" height="50px" viewBox="0 0 1024 1024">
                     <g>
