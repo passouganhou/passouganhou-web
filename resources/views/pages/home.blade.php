@@ -199,26 +199,26 @@
         <section class="pt-20 bg-[#eaddd7] pb-20">
             <div class="container px-6" id="portal-do-empreendedor">
                 <div class="flex -mx-6 flex-wrap justify-center">
-                    <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0 relative">
-                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 px-16">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
+                    <div class="lg:w-1/2 sm:w-10/12 w-full px-6 mb-12 lg:mb-0 relative">
+                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-10 sm:px-16 px-0">Quer um portal com informações para alavancar seu negócio? Acompanhe nossos artigos e podcasts.</h3>
                         <a href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
-                                <img loading="lazy" class="rounded-3xl shadow-[25px_15px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/portal-do-investidor.jpg') }}" alt="Portal do Investidor">
+                                <img loading="lazy" class="rounded-3xl sm:shadow-[25px_15px_0_0_#461d52] shadow-[4px_4px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 sm:-translate-x-6 sm:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/portal-do-investidor.jpg') }}" alt="Portal do Investidor">
                             </div>
                         </a>
-                        <x-btn-default href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="px-8 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true">
+                        <x-btn-default href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="sm:px-8 px-4 whitespace-nowrap absolute bottom-0 font-bold sm:text-xl text-base font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true">
                             Portal do Empreendedor
                         </x-btn-default>
                     </div>
 
-                    <div class="lg:w-1/2 w-10/12 px-6 mb-12 lg:mb-0 relative">
-                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 px-16">Conheça o grande banco por trás da incrível maquinha Passou Ganhou</h3>
+                    <div class="lg:w-1/2 sm:w-10/12 w-full px-6 mb-12 lg:mb-0 relative">
+                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 sm:px-16 px-0">Conheça o grande banco por trás da incrível maquinha Passou Ganhou</h3>
                         <a  href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
-                                <img loading="lazy" class="rounded-3xl shadow-[25px_15px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 -translate-x-6 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/conheca-a-ebw.jpg') }}" alt="Conheça a EBW">
+                                <img loading="lazy" class="rounded-3xl sm:shadow-[25px_15px_0_0_#461d52] shadow-[4px_4px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 sm:-translate-x-6 sm:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/conheca-a-ebw.jpg') }}" alt="Conheça a EBW">
                             </div>
                         </a>
-                        <x-btn-default href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="px-12 whitespace-nowrap absolute bottom-0 font-bold text-xl font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" >
+                        <x-btn-default href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="px-12 whitespace-nowrap absolute bottom-0 font-bold sm:text-xl text-base font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" >
                            Conheça a EBW
                         </x-btn-default>
                     </div>
