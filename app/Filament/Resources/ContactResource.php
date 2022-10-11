@@ -15,6 +15,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -41,11 +42,14 @@ class ContactResource extends Resource
                 TextInput::make('phone')
                     ->label('Telefone')
                     ->disabled(),
-                TextInput::make('mobileOptIn')
-                    ->label('Aceita receber comunicação por celular')
+                TextInput::make('form')
+                    ->label('Formulário que foi enviado')
                     ->disabled(),
-                TextInput::make('emailOptIn')
-                    ->label('Aceita receber comunicação por email')
+                TextInput::make('quero_maquininha')
+                    ->label('Quero a minha maquininha')
+                    ->disabled(),
+                TextInput::make('quero_vender_online')
+                    ->label('Quero vender pela Internet')
                     ->disabled(),
             ]);
     }
@@ -59,15 +63,32 @@ class ContactResource extends Resource
                 TextColumn::make('phone')->label('Telefone'),
                 TextColumn::make('form')->label('Formulário que foi enviado')
                     ->enum([
-                        'form-peca-a-sua' => 'Form Peça a sua Maquinha',
-                        'form-venda-pela-internet' => 'Form Venda pela Internet'
+                        'form-peca-a-sua' => 'Peça a sua Maquinha',
+                        'form-venda-pela-internet' => 'Venda pela Internet'
                     ]),
             ])
             ->filters([
-                //
+                Filter::make('form')
+                    ->form([
+                        Select::make('form')
+                            ->label('Formulário')
+                            ->options([
+                                Contact::FORM_PECA_SUA => 'Peça a sua Maquininha',
+                                Contact::FORM_VENDA_PELA_INTERNET => 'Venda pela Internet'
+
+                            ])
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['form'],
+                                fn (Builder $query, $value): Builder => $query->where('form', $value),
+                            );
+                    }),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -94,6 +115,7 @@ class ContactResource extends Resource
             'index' => Pages\ListContacts::route('/'),
             'create' => Pages\CreateContact::route('/create'),
             'edit' => Pages\EditContact::route('/{record}/edit'),
+            'view' => Pages\ViewContact::route('/{record}'),
         ];
     }
 }
