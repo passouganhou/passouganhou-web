@@ -45,12 +45,9 @@ class ContactResource extends Resource
                 TextInput::make('form')
                     ->label('Formulário que foi enviado')
                     ->disabled(),
-                TextInput::make('quero_maquininha')
-                    ->label('Quero a minha maquininha')
-                    ->disabled(),
-                TextInput::make('quero_vender_online')
-                    ->label('Quero vender pela Internet')
-                    ->disabled(),
+                TextInput::make('type')
+                    ->label('Interesse do contato')
+                    ->disabled()
             ]);
     }
 
@@ -61,6 +58,7 @@ class ContactResource extends Resource
                 TextColumn::make('name')->label('Nome'),
                 TextColumn::make('email')->label('Email'),
                 TextColumn::make('phone')->label('Telefone'),
+                TextColumn::make('type')->label('Interesse do contato'),
                 TextColumn::make('form')->label('Formulário que foi enviado')
                     ->enum([
                         'form-peca-a-sua' => 'Peça a sua Maquinha',

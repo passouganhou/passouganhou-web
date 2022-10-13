@@ -9,16 +9,13 @@ class CrmService
 {
     protected $configs = [
         'serviceId' => '',
-        'landingPageId' => ''
+        'rulerId' => '326DDC56-C915-48CB-A0B0-7D823CBE3131'
     ];
 
-    public function __construct(protected array $data, $serviceId = '', $landingPageId = '')
+    public function __construct(protected array $data, $serviceId = '')
     {
         if ($serviceId) {
             $this->configs['serviceId'] = $serviceId;
-        }
-        if ($landingPageId) {
-            $this->configs['landingPageId'] = $landingPageId;
         }
     }
 
@@ -29,18 +26,9 @@ class CrmService
         return $this;
     }
 
-    public function landingPageId($landingPageId)
-    {
-        $this->configs['landingPageId'] = $landingPageId;
-
-        return $this;
-    }
-
     public function send()
     {
         $data = array_merge($this->data, $this->configs);
-
-        dd($data);
 
         $response = Http::ebw_crm()->post('/target/register', $data);
 
@@ -49,7 +37,7 @@ class CrmService
         }
 
         if ($response->failed()) {
-            Log::channel('ebw-crm')->warning($response->body(), ['status' => $response->status(), 'form' => $this->data['form'], 'id' => $this->data['email']]);
+            Log::channel('ebw-crm')->warning($response->body(), ['status' => $response->status(), 'id' => $this->data['email']]);
             return;
         }
     }
