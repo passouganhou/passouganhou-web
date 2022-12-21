@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use App\Settings\FaqPageSettings;
+use App\Settings\GeneralSettings;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -13,10 +14,10 @@ class FaqController extends Controller
     // {
     //     dd($settings->maquininhas);
     // }
-    public function index(FaqPageSettings $settings)
+    public function index(FaqPageSettings $settings,  GeneralSettings $generalSettings)
     {
         $faqs = Faq::all();
 
-        return view('pages.faq', ['faqs' => $faqs, 'maquininhas' => $settings->maquininhas]);
+        return view('pages.faq', ['faqs' => $faqs, 'maquininhas' => $settings->maquininhas, 'generalSettings' => $generalSettings]);
     }
 }

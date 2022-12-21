@@ -134,7 +134,7 @@
                         </a>
                     </div>
                     <div class="md:w-1/4 sm:w-1/3 w-full sm:mb-0 mb-10 px-4 text-center">
-                        <a href="https://api.whatsapp.com/send?phone=5561996041988" target="_blank" rel="noopener noreferrer" class="group">
+                        <a href="{{ $generalSettings->whatsapp }}" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="bg-passou-magenta w-[90px] h-[90px] rounded-full flex justify-center items-center mx-auto group-hover:bg-passou-cyan transition-all duration-300">
                                 <img src="{{ Vite::asset('resources/images/icon-whatsapp.png') }}" alt="Whatsapp">
                             </div>

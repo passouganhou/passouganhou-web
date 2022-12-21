@@ -40,9 +40,9 @@ Route::get('peca-a-sua', function () {
 })->name('peca-maquininha.index');
 
 
-Route::get('venda-pela-internet', function () {
-    return view('pages.venda-pela-internet');
-})->name('venda-pela-internet.index');
+// Route::get('venda-pela-internet', function () {
+//     return view('pages.venda-pela-internet');
+// })->name('venda-pela-internet.index');
 
 Route::get('termos-e-condicoes-de-uso', function () {
     return view('pages.termos-condicoes-de-uso');

@@ -1,7 +1,82 @@
 <x-base-layout>
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
-        <div class="relative">
+        <div class="relative"
+        x-data="{playing: true, muted: true, show: false, canClose: true}"
+        x-on:mousemove.throttle="show = true"
+        x-on:click="show = true"
+        x-init="
+            $watch('show', function(v) {
+                if(v) {
+                    setTimeout(function() {
+                        if(canClose) {
+                            show = false;
+                        }
+                    }, 2000)
+                }
+            });
+            $watch('canClose', function(v) {
+                if(v) {
+                    setTimeout(function() {
+                        show = false;
+                    }, 2000)
+                }
+            });
+            $watch('playing', function(v) {
+                v ? $refs.video.play() : $refs.video.pause();
+            })
+            $watch('muted', function(v) {
+                $refs.video.muted = v;
+            })
+        ">
+            <div
+            x-show="show"
+            x-on:mouseenter="canClose = false"
+            x-on:mouseleave="canClose = true"
+            x-transition.opacity.500ms
+            class="absolute bg-black bg-opacity-40 top-2 left-2 flex px-4 py-3 rounded-lg z-10">
+                <button type="button"
+                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="playing = !playing"
+                >
+                    <x-icons name="pause" class="fill-white" width="22" height="22" x-show="playing"/>
+                    <x-icons name="play" class="fill-white" width="22" height="22" x-show="!playing" />
+                </button>
+                <button type="button"
+                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="muted = !muted">
+                    <x-icons name="volume-xmark" class="fill-white" width="22" height="22" x-show="muted" />
+                    <x-icons name="volume-high" class="fill-white" width="22" height="22" x-show="!muted"/>
+                </button>
+                <button type="button"
+                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="$refs.video.currentTime = 0"
+                >
+                    <x-icons name="clock-rotate-left" class="fill-white" width="22" height="22"/>
+                </button>
+                <button type="button"
+                class="p-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="openFullscreen($refs.video)">
+                    <x-icons name="expand" class="fill-white" width="22" height="22" />
+                </button>
+            </div>
+            <video class="w-full h-auto" autoplay muted loop x-ref="video">
+                <source src="{{ Vite::asset('resources/images/A910_Negocie_Taxas_Menor.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <script>
+                function openFullscreen(elem) {
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen();
+                    } else if (elem.webkitRequestFullscreen) { /* Safari */
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.msRequestFullscreen) { /* IE11 */
+                        elem.msRequestFullscreen();
+                    }
+                }
+            </script>
+        </div>
+        {{-- <div class="relative">
             <picture>
                 <source media="(max-width: 600px)" srcset="{{ Vite::asset('resources/images/banner-home-600w.jpg') }}">
                 <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/banner-home-1024w.jpg') }}">
@@ -32,7 +107,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <section class="pt-10 2xl:pt-20 2xl:bg-[length:320px] bg-[length: 270px] bg-maquininhas bg-no-repeat" style="background-image: url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})">
             <div class="container mx-auto px-4">
@@ -227,21 +302,24 @@
 
             <div class="container mx-auto px-4 pt-32" id="atendimento">
 
-                <div class=" mb-10">
-                    <img loading="lazy" class="mx-auto block" src="{{ Vite::asset('resources/images/icon-business.png') }}" alt="Negocie as suas taxas">
 
-                    <h4 class="text-passou-cyan font-bold text-center my-4 text-3xl">
-                        Negocie suas taxas.
-                    </h4>
-
-                    <p class="text-lg font-bold text-center text-passou-magenta-800">
-                        Com a PASSOU GANHOU, você tem o atendimento personalizado <br>
-                        que você merece e as taxas ideais para o seu negócio prosperar.
-                    </p>
-                </div>
 
                 <div class="flex flex-wrap justify-center -mx-4">
-                    <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
+                    <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4 pt-10">
+
+                        <img loading="lazy" class="mx-auto block" src="{{ Vite::asset('resources/images/icon-business.png') }}" alt="Negocie as suas taxas">
+
+                        <h4 class="text-passou-cyan font-bold my-4 text-3xl">
+                            Negocie suas taxas.
+                        </h4>
+
+                        <p class="text-lg text-passou-magenta-800">
+                            Com a <b>PASSOU GANHOU</b>, você tem o atendimento personalizado
+                            que você merece e as taxas ideais para o seu negócio prosperar.
+                        </p>
+
+                    </div>
+                    {{-- <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
                                 <p class="font-bold text-passou-cyan my-4 text-xl">
@@ -271,7 +349,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
@@ -305,15 +383,18 @@
                     <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
-                                <p class="font-bold text-passou-cyan my-4 text-xl">
+                                <p class="font-bold text-center text-passou-cyan my-4 text-xl">
                                     Fale conosco
                                 </p>
-                                <p class="font-bold mb-4 text-passou-magenta-800 text-2xl">
+                                <p class="font-bold mb-4 text-center text-passou-magenta-800 text-4xl">
                                     0800-0001-678
                                 </p>
-                                <p class="text-passou-magenta-800">
+                                <p class="text-passou-magenta-800 text-center">
                                     Horário de atendimento: <br>
-                                    <span class="font-bold">Segunda a Sexta - 8h às 18h</span>
+                                    <span class="font-bold">
+                                        Segunda a Sexta-feira das 8h às 18h<br>
+                                        Sábadosdas 8h às 13h
+                                    </span>
                                 </p>
                             </div>
                             <div class="">
@@ -326,7 +407,7 @@
                                 </div>
                                 <div class="mb-4">
                                     <a href="tel:08000001678" target="_blank" rel="noopener noreferrer" class="flex w-full leading-none justify-center items-center border-2 border-passou-cyan bg-passou-cyan hover:bg-opacity-80 transition-opacity duration-300 text-white rounded-full py-5 font-bold text-lg font-segoe-ui">
-                                        0800-0001-678
+                                        Ligue 0800-0001-678
                                     </a>
                                 </div>
                             </div>

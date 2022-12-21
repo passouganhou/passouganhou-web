@@ -15,7 +15,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                 <ul class="flex flex-row items-center justify-center">
                     <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
-                    <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link>
+                    {{-- <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
                     <x-nav-link href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
@@ -40,7 +40,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                 <ul class="flex-1 flex flex-col items-center justify-center">
                     <x-nav-link type="item-mobile" href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
-                    <x-nav-link type="item-mobile" href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link>
+                    {{-- <x-nav-link type="item-mobile" href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
                     <x-nav-link type="item-mobile" href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
