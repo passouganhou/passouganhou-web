@@ -1,3 +1,7 @@
+@props([
+    'whatsapp' => null
+])
+
 <div x-data="{ openMenu: false, floatingMenu: false }"
 x-on:scroll.window.throttle.50ms="handleScroll">
 
@@ -24,7 +28,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                     </x-nav-link>
                 </ul>
 
-                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui">Peça Agora</x-btn-default>
+                <x-btn-default href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" class="px-8 font-bold font-segoe-ui">Peça Agora</x-btn-default>
             </div>
         </nav>
 
@@ -48,7 +52,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
-                <x-btn-default href="{{ route('peca-maquininha.index') }}" :chevronRight="true" class="px-8 font-bold font-segoe-ui mt-1">Peça Agora</x-btn-default>
+                <x-btn-default href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" class="px-8 font-bold font-segoe-ui mt-1">Peça Agora</x-btn-default>
             </div>
         </nav>
         <div class="xl:hidden flex justify-between container">

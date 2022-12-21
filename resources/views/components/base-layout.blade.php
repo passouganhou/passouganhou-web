@@ -37,7 +37,7 @@
     </head>
     <body class="antialiased" id="body">
 
-       <x-header />
+       <x-header :whatsapp="$settings->whatsapp" />
         <main>
             {{ $main }}
         </main>

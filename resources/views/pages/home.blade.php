@@ -1,8 +1,8 @@
 <x-base-layout>
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
-        <div class="relative"
-        x-data="{playing: true, muted: true, show: false, canClose: true}"
+        <div class="relative hidden sm:block"
+        x-data="{playing: true, muted: true, show: false, canClose: true }"
         x-on:mousemove.throttle="show = true"
         x-on:click="show = true"
         x-init="
@@ -60,23 +60,85 @@
                     <x-icons name="expand" class="fill-white" width="22" height="22" />
                 </button>
             </div>
-            <video class="w-full h-auto" autoplay muted loop x-ref="video">
-                <source src="{{ Vite::asset('resources/images/A910_Negocie_Taxas_Menor.mp4') }}" type="video/mp4">
+            <video class="w-full h-auto" autoplay muted loop x-ref="video" src={{ Vite::asset('resources/images/A910_Negocie_Taxas_Menor.mp4') }} type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <script>
-                function openFullscreen(elem) {
-                    if (elem.requestFullscreen) {
-                        elem.requestFullscreen();
-                    } else if (elem.webkitRequestFullscreen) { /* Safari */
-                        elem.webkitRequestFullscreen();
-                    } else if (elem.msRequestFullscreen) { /* IE11 */
-                        elem.msRequestFullscreen();
-                    }
-                }
-            </script>
         </div>
-        {{-- <div class="relative">
+        <div class="relative block sm:hidden"
+        x-data="{playing: true, muted: true, show: false, canClose: true }"
+        x-on:mousemove.throttle="show = true"
+        x-on:click="show = true"
+        x-init="
+            $watch('show', function(v) {
+                if(v) {
+                    setTimeout(function() {
+                        if(canClose) {
+                            show = false;
+                        }
+                    }, 2000)
+                }
+            });
+            $watch('canClose', function(v) {
+                if(v) {
+                    setTimeout(function() {
+                        show = false;
+                    }, 2000)
+                }
+            });
+            $watch('playing', function(v) {
+                v ? $refs.video.play() : $refs.video.pause();
+            })
+            $watch('muted', function(v) {
+                $refs.video.muted = v;
+            })
+        ">
+            <div
+            x-show="show"
+            x-on:mouseenter="canClose = false"
+            x-on:mouseleave="canClose = true"
+            x-transition.opacity.500ms
+            class="absolute bg-black bg-opacity-40 top-2 left-2 flex px-4 py-3 rounded-lg z-10">
+                <button type="button"
+                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="playing = !playing"
+                >
+                    <x-icons name="pause" class="fill-white" width="22" height="22" x-show="playing"/>
+                    <x-icons name="play" class="fill-white" width="22" height="22" x-show="!playing" />
+                </button>
+                <button type="button"
+                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="muted = !muted">
+                    <x-icons name="volume-xmark" class="fill-white" width="22" height="22" x-show="muted" />
+                    <x-icons name="volume-high" class="fill-white" width="22" height="22" x-show="!muted"/>
+                </button>
+                <button type="button"
+                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="$refs.video.currentTime = 0"
+                >
+                    <x-icons name="clock-rotate-left" class="fill-white" width="22" height="22"/>
+                </button>
+                <button type="button"
+                class="p-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
+                x-on:click="openFullscreen($refs.video)">
+                    <x-icons name="expand" class="fill-white" width="22" height="22" />
+                </button>
+            </div>
+            <video class="w-full h-auto" autoplay muted loop x-ref="video" src="{{ Vite::asset('resources/images/A910_Taxas-mobile.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <script>
+            function openFullscreen(elem) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            }
+        </script>
+        <div class="relative">
             <picture>
                 <source media="(max-width: 600px)" srcset="{{ Vite::asset('resources/images/banner-home-600w.jpg') }}">
                 <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/banner-home-1024w.jpg') }}">
@@ -102,12 +164,12 @@
                         a <b>PASSOU GANHOU.</b>
                     </h3>
 
-                    <a href="{{ route('peca-maquininha.index') }}" class="font-semibold text-sm sm:px-6 px-3 sm:shadow-none shadow-md bg-passou-magenta text-white py-3 uppercase transition-all duration-200 cursor-pointer hover:bg-passou-cyan">
+                    <a href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" class="font-semibold text-sm sm:px-6 px-3 sm:shadow-none shadow-md bg-passou-magenta text-white py-3 uppercase transition-all duration-200 cursor-pointer hover:bg-passou-cyan">
                         Quero negociar minhas taxas
                     </a>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
         <section class="pt-10 2xl:pt-20 2xl:bg-[length:320px] bg-[length: 270px] bg-maquininhas bg-no-repeat" style="background-image: url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})">
             <div class="container mx-auto px-4">
@@ -175,7 +237,7 @@
                     <x-btn-magenta href="{{ route('peca-maquininha.index') }}" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
                         Peça pelo Site
                     </x-btn-magenta>
-                    <x-btn-default href="https://api.whatsapp.com/send?phone=5561996044061&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Bem-vindo%20%C3%A0%20PASSOU%20GANHOU.%20Meu%20nome%20%C3%A9%20Charles%2C%20do%20time%20de%20novos%20neg%C3%B3cios.%20Conta%20pra%20mim%20seu%20nome%2C%20por%20favor%3F" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
+                    <x-btn-default href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
                         Peça pelo Whats
                     </x-btn-default>
                 </div>
@@ -259,7 +321,7 @@
                 </div>
 
                 <div class="text-center">
-                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
+                    <x-btn-magenta href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
                             <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
@@ -287,7 +349,7 @@
                     </div>
 
                     <div class="lg:w-1/2 sm:w-10/12 w-full px-6 mb-12 lg:mb-0 relative">
-                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 sm:px-16 px-0">Conheça o grande banco por trás da incrível maquinha Passou Ganhou</h3>
+                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 sm:px-16 px-0">Vem conhecer a EBW Bank e amplie suas oportunidades de negócio</h3>
                         <a  href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
                                 <img loading="lazy" class="rounded-3xl sm:shadow-[25px_15px_0_0_#461d52] shadow-[4px_4px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 sm:-translate-x-6 sm:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/conheca-a-ebw.jpg') }}" alt="Conheça a EBW">

@@ -1,10 +1,12 @@
 <?php
 
+use App\Filament\Pages\GeneralSettingsPage;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PecaMaquininhaController;
 use App\Models\Contact;
 use App\Services\CrmService;
+use App\Settings\GeneralSettings;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (GeneralSettings $settings) {
     // $contact = Contact::first();
     // $data = $contact->only([
     //     'name',
@@ -30,13 +32,13 @@ Route::get('/', function () {
     // ]);
     // $service = new CrmService($data);
     // $service->serviceId('asd')->send();
-    return view('pages.home');
+    return view('pages.home', compact('settings'));
 })->name('home');
 
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
 
-Route::get('peca-a-sua', function () {
-    return view('pages.peca-maquininha');
+Route::get('peca-a-sua', function (GeneralSettings $settings) {
+    return view('pages.peca-maquininha', compact('settings'));
 })->name('peca-maquininha.index');
 
 
