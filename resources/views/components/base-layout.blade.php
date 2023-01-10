@@ -44,7 +44,7 @@
 
         <x-footer />
 
-        <a href="{{ $settings->whatsapp }}" class="fixed z-50 cursor-pointer right-7 bottom-24">
+        <a href="{{ $settings->whatsapp }}" class="fixed z-50 cursor-pointer right-6 bottom-6">
             <div class="bg-gradient-to-b from-[#61fd7d] to-[#2bb826] rounded-lg shadow-md" style="height:50px; width:50px;">
                 <svg style="pointer-events:none; display:block; height:50px; width:50px;" width="50px" height="50px" viewBox="0 0 1024 1024">
                     <g>
@@ -109,7 +109,7 @@
                 }
             </script>
         </div>
-        <script type="text/javascript">
+        {{-- <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -119,7 +119,7 @@
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
             })();
-        </script>
+        </script> --}}
         @livewireScripts
         @vite(['resources/js/app.js'])
     </body>
