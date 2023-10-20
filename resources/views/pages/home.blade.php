@@ -1,297 +1,120 @@
 <x-base-layout>
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
-        <div class="relative hidden sm:block"
-        x-data="{playing: true, muted: true, show: false, canClose: true }"
-        x-on:mousemove.throttle="show = true"
-        x-on:click="show = true"
-        x-init="
-            $watch('show', function(v) {
-                if(v) {
-                    setTimeout(function() {
-                        if(canClose) {
-                            show = false;
-                        }
-                    }, 2000)
-                }
-            });
-            $watch('canClose', function(v) {
-                if(v) {
-                    setTimeout(function() {
-                        show = false;
-                    }, 2000)
-                }
-            });
-            $watch('playing', function(v) {
-                v ? $refs.video.play() : $refs.video.pause();
-            })
-            $watch('muted', function(v) {
-                $refs.video.muted = v;
-            })
-        ">
-            <div
-            x-show="show"
-            x-on:mouseenter="canClose = false"
-            x-on:mouseleave="canClose = true"
-            x-transition.opacity.500ms
-            class="absolute bg-black bg-opacity-40 top-2 left-2 flex px-4 py-3 rounded-lg z-10">
-                <button type="button"
-                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="playing = !playing"
-                >
-                    <x-icons name="pause" class="fill-white" width="22" height="22" x-show="playing"/>
-                    <x-icons name="play" class="fill-white" width="22" height="22" x-show="!playing" />
-                </button>
-                <button type="button"
-                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="muted = !muted">
-                    <x-icons name="volume-xmark" class="fill-white" width="22" height="22" x-show="muted" />
-                    <x-icons name="volume-high" class="fill-white" width="22" height="22" x-show="!muted"/>
-                </button>
-                <button type="button"
-                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="$refs.video.currentTime = 0"
-                >
-                    <x-icons name="clock-rotate-left" class="fill-white" width="22" height="22"/>
-                </button>
-                <button type="button"
-                class="p-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="openFullscreen($refs.video)">
-                    <x-icons name="expand" class="fill-white" width="22" height="22" />
-                </button>
-            </div>
-            <video class="w-full h-auto" autoplay muted loop x-ref="video" src={{ Vite::asset('resources/images/A910_Negocie_Taxas_Menor.mp4') }} type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="relative block sm:hidden"
-        x-data="{playing: true, muted: true, show: false, canClose: true }"
-        x-on:mousemove.throttle="show = true"
-        x-on:click="show = true"
-        x-init="
-            $watch('show', function(v) {
-                if(v) {
-                    setTimeout(function() {
-                        if(canClose) {
-                            show = false;
-                        }
-                    }, 2000)
-                }
-            });
-            $watch('canClose', function(v) {
-                if(v) {
-                    setTimeout(function() {
-                        show = false;
-                    }, 2000)
-                }
-            });
-            $watch('playing', function(v) {
-                v ? $refs.video.play() : $refs.video.pause();
-            })
-            $watch('muted', function(v) {
-                $refs.video.muted = v;
-            })
-        ">
-            <div
-            x-show="show"
-            x-on:mouseenter="canClose = false"
-            x-on:mouseleave="canClose = true"
-            x-transition.opacity.500ms
-            class="absolute bg-black bg-opacity-40 top-2 left-2 flex px-4 py-3 rounded-lg z-10">
-                <button type="button"
-                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="playing = !playing"
-                >
-                    <x-icons name="pause" class="fill-white" width="22" height="22" x-show="playing"/>
-                    <x-icons name="play" class="fill-white" width="22" height="22" x-show="!playing" />
-                </button>
-                <button type="button"
-                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="muted = !muted">
-                    <x-icons name="volume-xmark" class="fill-white" width="22" height="22" x-show="muted" />
-                    <x-icons name="volume-high" class="fill-white" width="22" height="22" x-show="!muted"/>
-                </button>
-                <button type="button"
-                class="p-2 mr-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="$refs.video.currentTime = 0"
-                >
-                    <x-icons name="clock-rotate-left" class="fill-white" width="22" height="22"/>
-                </button>
-                <button type="button"
-                class="p-2 cursor-pointer hover:bg-opacity-10 hover:scale-110 bg-white bg-opacity-0 transition-all duration-200 rounded-md"
-                x-on:click="openFullscreen($refs.video)">
-                    <x-icons name="expand" class="fill-white" width="22" height="22" />
-                </button>
-            </div>
-            <video class="w-full h-auto" autoplay muted loop x-ref="video" src="{{ Vite::asset('resources/images/A910_Taxas-mobile.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <script>
-            function openFullscreen(elem) {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                }
-            }
-        </script>
-        <div class="relative">
+        <section class="relative">
             <picture>
-                <source media="(max-width: 600px)" srcset="{{ Vite::asset('resources/images/banner-home-600w.jpg') }}">
-                <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/banner-home-1024w.jpg') }}">
-                <source media="(max-width: 1280px)" srcset="{{ Vite::asset('resources/images/banner-home-1767w.jpg') }}">
-                <source media="(min-width: 1281px)" srcset="{{ Vite::asset('resources/images/banner-home.jpg') }}">
+                <source media="(max-width: 600px)" srcset="{{ Vite::asset('resources/images/banner-new-home-600w.jpg') }}">
+                <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/banner-new-home-1024w.jpg') }}">
+                <source media="(max-width: 1280px)" srcset="{{ Vite::asset('resources/images/banner-new-home-1767w.jpg') }}">
+                <source media="(min-width: 1281px)" srcset="{{ Vite::asset('resources/images/banner-new-home.jpg') }}">
                 <img
-                class="w-full 2xl:min-h-[900px] object-center object-cover"
+                class="w-full xl:min-h-[900px] object-center object-cover"
                 src="{{ Vite::asset('resources/images/banner-home.jpg') }}"
                 alt="Banner Passou Ganhou">
             </picture>
-            <div class="inset-0 absolute 2xl:pt-32 xl:pt-20 lg:pt-16 md:pt-12 sm:pt-10 pt-6">
-                <div class="container">
-                    <h1 class="2xl:text-4xl xl:text-4xl font-bold sm:text-2xl text-xl text-passou-magenta md:mb-5 mb-3">Negocie suas taxas.</h1>
-                    <h2 class="2xl:text-6xl xl:text-5xl md:text-4xl font-semibold sm:text-2xl text-xl text-passou-magenta md:mb-12 mb-5">
-                        Cada <b>cliente</b> é único.<br>
-                        <b>Nossa proposta</b><br>
-                        <b>também</b>
-                    </h2>
-
-                    <h3 class="text-white xl:text-3xl md:text-2xl sm:text-lg text-sm md:mb-12 mb-5">
-                        Comece agora<br>
-                        a <b>negociar</b> com<br>
-                        a <b>PASSOU GANHOU.</b>
-                    </h3>
-
-                    <a href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" class="font-semibold text-sm sm:px-6 px-3 sm:shadow-none shadow-md bg-passou-magenta text-white py-3 uppercase transition-all duration-200 cursor-pointer hover:bg-passou-cyan">
-                        Quero negociar minhas taxas
-                    </a>
+            <div class="inset-0 absolute xl:pt-32 lg:pt-16 md:pt-12 sm:pt-10 pt-2">
+                <div class="container xl:gap-4">
+                    <div class="2xl:1/2 xl:w-7/12 lg:w-1/2 md:w-8/12 sm:w-7/12">
+                        <h1 class="2xl:text-5xl xl:text-5xl md:text-4xl font-normal sm:text-2xl text-2xl text-passou-magenta md:mb-5 mb-2">
+                            Primeiro <b>app de descontos</b> que garante benefícios de <b>forma gratuita</b>, sem exigir cartão de crédito.
+                        </h1>
+                    </div>
+                    <div class="2xl:4/12 xl:w-5/12 lg:w-6/12 md:w-8/12 sm:w-9/12">
+                        <h2 class="md:mb-12 mb-5">
+                            <span class="sm:bg-white md:bg-inherit 2xl:text-2xl xl:text-2xl md:text-4xl lg:text-2xl font-medium sm:text-lg text-md text-passou-cyan">
+                                                            Peça sua maquininha de anúncios inteligentes e ofereça essa vantagem exclusiva aos seus clientes.
+                            </span>
+                        </h2>
+                    </div>
                 </div>
             </div>
+        </section>
+        <div class="bg-passou-magenta text-white py-12 flex">
+            <a href="{{ $settings->whatsapp }}" class="mx-auto text-2xl font-medium">Peça sua Passou Ganhou!
+                <x-icons name="arrow-right" class="fill-white inline mb-1" width="24" height="24" />
+            </a>
         </div>
 
-        <section class="pt-10 2xl:pt-20 2xl:bg-[length:320px] bg-[length: 270px] bg-maquininhas bg-no-repeat" style="background-image: url({{ Vite::asset('resources/images/detalhe-maquininhas.png') }})">
-            <div class="container mx-auto px-4">
-                <div class="mb-20">
-                    <h2 class="md:text-3xl text-2xl leading-tight text-center text-passou-magenta mb-6 font-segoe-ui">
-                        A <span class="text-passou-cyan font-bold">maquininha ideal</span> para o micro, pequeno, médio e gigante.
-                    </h2>
+        <section class="bg-passou-light pb-16">
+            <div class="container flex flex-col justify-center">
+                <div class="text-center w-11/12 sm:w-8/12 self-center py-12">
+                    <h2 class="text-3xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-5xl text-passou-magenta">Passou Ganhou é um jeito novo de <b>vender e comprar</b></h2>
                 </div>
+                <div class="py-2">
+                    <picture>
+                        <source media="(max-width: 639px)" srcset="{{ Vite::asset('resources/images/mockup-flow-600w.png') }}"> {{--600w--}}
+                        <source media="(min-width: 640px)" srcset="{{ Vite::asset('resources/images/mockup-flow.png') }}">
+                        <img loading="lazy" src="{{ Vite::asset('resources/images/mockup-flow.png') }}" class="" alt="Vantagens Passou Ganhou">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        <section class="pt-10 2xl:pt-20 bg-white pb-16 text-center sm:text-start">
+            <div class="container flex flex-col sm:flex-row text-white md:px-20">
+                <div class="bg-passou-cyan-400 flex flex-col justify-between p-3 sm:p-6 w-full sm:w-1/2">
+                    <div class="flex flex-col justify-between gap-6 p-1 sm:p-8">
+                        <h2 class="text-3xl sm:text-[2.5rem] leading-none font-bold">Divulge seu produto sem gastar com anúncios</h2>
+                        <p class="text-2xl sm:text-3xl">Solicite sua MAI-910 (Maquininha de Anúncios Inteligentes)</p>
+                        <p class="text-2xl sm:text-3xl">Baixe o app da “Passou Ganhou Estabelecimento” na PlayStore.</p>
+                        <p class="text-2xl sm:text-3xl">Ative as campanhas de anúncios e venda mais. </p>
+                    </div>
+                    <div class="flex justify-end pt-8 sm:pt-0">
+                        <a href="{{ $settings->whatsapp }}" class="text-xl font-bold">Venda com desconto
+                            <x-icons name="arrow-right" class="fill-white inline mb-1" width="16" height="16" />
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-passou-magenta flex flex-col justify-between p-3 sm:p-6 w-full sm:w-1/2">
+                    <div class="flex flex-col justify-between gap-6 p-1 sm:p-8">
+                        <h2 class="text-3xl sm:text-[2.5rem] leading-none font-bold">Compre com seu cartão de débito ou crédito na MAI 910</h2>
+                        <p class="text-2xl sm:text-3xl">Acumule pontos e troque por descontos e promoções</p>
+                        <p class="text-2xl sm:text-3xl">Baixe o app Passou Ganhou e acompanhe as ofertas exclusivas perto de você.</p>
+                    </div>
+                    <div class="flex justify-end pt-8 sm:pt-0">
+                        <a href="{{ $settings->whatsapp }}" class="text-xl font-bold">Compre com desconto
+                            <x-icons name="arrow-right" class="fill-white inline mb-1" width="16" height="16" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="mb-40">
-                    <div class="flex flex-wrap">
-                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <x-maquininha name="Enjoy" image="{{ Vite::asset('resources/images/machine-enjoy.png') }}">
-                                <x-slot name="list" class="bg-passou-magenta md:left-16">
-                                    <ul class="list-disc  md:whitespace-nowrap text-white font-medium">
-                                        <li class="md:text-lg md:leading-tight leading-tight">Maquininha leve e portátil</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Não precisa de celular</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Bateria de longa duração</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Envio de comprovante por SMS</li>
-                                    </ul>
-                                </x-slot>
-                            </x-maquininha>
+        <section class="pt-10 2xl:pt-20 bg-passou-magenta-850">
+            <div class="container flex flex-col">
+                <div class="w-full sm:w-7/12 mx-auto text-white">
+                    <h2 class="text-3xl sm:text-4xl leading-normal text-center">Acompanhe o <b>crescimento das suas vendas</b> com a Tecnologia financeira certa e Gratuita!</h2>
+                </div>
+                <div class="sm:px-24 my-8 sm:my-2 flex flex-row">
+                    <div class="block sm:hidden lg:block -mr-8 z-[1]">
+                        <img loading="lazy" src="{{ Vite::asset('resources/images/mockup-pg.png') }}" class="w-11/12 sm:w-full" alt="Aplicativo Passou Ganhou">
+                    </div>
+                    <div class="flex flex-col gap-4 justify-center">
+                        <div class="bg-white px-6 sm:px-12 py-3 sm:py-6 rounded-2xl">
+                            <h3 class="text-passou-cyan-400 text-2xl sm:text-4xl font-bold">Geração de valor</h3>
+                            <span class="text-passou-magenta-800">(Benefícios exclusivos para todos os participantes da nossa rede)</span>
                         </div>
-
-                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <x-maquininha name="Revolution" image="{{ Vite::asset('resources/images/machine-revolution.png') }}">
-                                <x-slot name="list" class="bg-passou-magenta md:left-0">
-                                    <ul class="list-disc  text-white font-medium">
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Imprime comprovante</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por aproximação</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absoluta: ideal para pagamento dentro e fora do estabelecimento.</li>
-                                    </ul>
-                                </x-slot>
-                            </x-maquininha>
+                        <div class="bg-white px-6 sm:px-12 py-3 sm:py-6 rounded-2xl">
+                            <h3 class="text-passou-cyan-400 text-2xl sm:text-4xl font-bold">Consumo consciente</h3>
+                            <span class="text-passou-magenta-800">(Compre mais, pague menos e economize)</span>
                         </div>
-
-                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <x-maquininha name="Ultra" image="{{ Vite::asset('resources/images/machine-ultra.png') }}">
-                                <x-slot name="list" class="bg-passou-magenta md:-left-6">
-                                    <ul class="list-disc text-white font-medium">
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Design compacto e moderno</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Permite pagamento por QRCode e aproximação</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Portabilidade absoluta: ideal para pagamento dentro e fora do estabelecimento.</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Conectividade total: 4G, Wi-Fi</li>
-                                    </ul>
-                                </x-slot>
-                            </x-maquininha>
-                        </div>
-
-                        <div class="w-full sm:w-6/12 lg:w-3/12 lg:mb-0 mb-20">
-                            <x-maquininha name="TEF" image="{{ Vite::asset('resources/images/machine-tef.png') }}">
-                                <x-slot name="list" class="bg-passou-magenta 2xl:-left-52 md:-left-96">
-                                    <ul class="list-disc text-white font-medium">
-                                        <li class="md:text-lg md:leading-tight leading-tight">Utilizada para TEF ou soluções de pagamentos proprietários, como bancos ou cooperativas.</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight">Possui processador de alta performace, leitores de tarja magnéticos, smart card e, ainda, cabo DUAL (SERIAL + USB).</li>
-                                        <li class="md:text-lg md:leading-tight leading-tight md:whitespace-nowrap">Feita para garantir total segurança em todas as transações.</li>
-                                    </ul>
-                                </x-slot>
-                            </x-maquininha>
+                        <div class="bg-white px-6 sm:px-12 py-3 sm:py-6 rounded-2xl z-[1] sm:z-[0]">
+                            <h3 class="text-passou-cyan-400 text-2xl sm:text-4xl font-bold">Inclusão financeira</h3>
+                            <span class="text-passou-magenta-800">(Você não precisa de cartão de crédito para participar)</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="flex justify-center flex-wrap pt-10">
-                    <x-btn-magenta href="{{ route('peca-maquininha.index') }}" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 lg:mb-0 mb-5  font-bold font-segoe-ui pb-4 sm:px-10 px-8 sm:text-2xl text-lg">
-                        Peça pelo Site
-                    </x-btn-magenta>
-                    <x-btn-default href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" :bg="true" class="lg:mx-20 sm:mx-4 sm:px-10 px-8 font-segoe-ui font-bold sm:text-2xl text-lg pb-4">
-                        Peça pelo Whats
-                    </x-btn-default>
+                <div class="flex py-8 sm:py-16 text-white">
+                    <a href="{{ $settings->whatsapp }}" class="mx-auto text-2xl font-medium">Peça sua Passou Ganhou!
+                        <x-icons name="arrow-right" class="fill-white inline mb-1" width="24" height="24" />
+                    </a>
                 </div>
-
-            </div>
-
-            <div class="pt-24 flex justify-center items-start">
-                <img loading="lazy" src="{{ Vite::asset('resources/images/machine-collection.png') }}" class="-mb-28" alt="Máquininhas Passou Ganhou">
             </div>
         </section>
 
-        <section class="bg-passou-magenta-800 pt-48 pb-24">
-            <div class="container">
-                <h2 class="sm:text-3xl text-xl text-center text-passou-cyan font-segoe-ui">Todas as bandeiras que você precisa</h2>
-                <div class="flex justify-center items-center flex-wrap pt-10 mb-10">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/mastercard-brand.png') }}" alt="Bandeira Mastercard">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/visa-brand.png') }}" alt="Bandeira Visa">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/elo-brand.png') }}" alt="Bandeira Elo">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/american-express-brand.png') }}" alt="Bandeira Amex">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/dinners-club-international-brand.png') }}" alt="Bandeira Dinners">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/aura-brand.png') }}" alt="Bandeira Aura">
-                    <img loading="lazy" class="mx-6 mb-5" src="{{ Vite::asset('resources/images/jcb-brand.png') }}" alt="Bandeira JCB">
-                </div>
-                {{-- <p class="font-segoe-ui text-sm text-center text-white leading-snug">
-                    Bandeiras: Mastercard, Visa e Elo nas funções crédito e débito,<br>
-                    nos chips; Amex, Dinners, Aura e JCB; crédito à vistta, crédito parcelado emissor e débito
-                </p> --}}
-            </div>
-        </section>
-
-        <section class="bg-cover bg-center bg-no-repeat md:pt-40 pt-20 md:pb-20 pb-12 min-h-160" style="background-image: url({{ Vite::asset('resources/images/banner-sacolas.jpg') }})">
-            <div class="container">
-                <h2 class="md:text-4xl sm:text-2xl text-lg tracking-tight text-passou-magenta font-segoe-ui mb-10 leading-snug">
-                    Venda com a <span class="font-bold uppercase">Passou Ganhou</span><br>
-                    e transforme seus clientes em fãs
-                </h2>
-
-                <p class="md:text-4xl sm:text-2xl text-lg tracking-tight text-passou-magenta font-segoe-ui md:mb-108 mb-40 leading-snug">
-                    Quem é <span class="font-bold uppercase">Passou Ganhou</span> sai na frente.<br>
-                    Não tem essa de plano de fidelidade ou<br>
-                    metas de vendas. É o atendimento sem<br>
-                    complicação que você merece.
-                </p>
-
-                <p class="max-w-2xl font-segoe-ui text-[#451d50] tracking-tight">
-                    A cada um Real gasto na sua loja, seu cliente ganha 1 ponto, que pode ser trocado por descontos exclusivos. A cada um Real vendido na <b>PASSOU GANHOU</b>, você, lojista, também ganha pontos e consegue exibir seus descontos exclusivos no <b>APP PASSOU GANHOU. EM BREVE!</b>
-                </p>
-            </div>
-        </section>
-
-        <section class="bg-[#e9ded7] pt-16 pb-20">
+        <section class="bg-white pt-16 pb-20">
             <div class="container lg:px-10 px-4">
-                <h2 class="md:text-2.5xl text-xl font-bold text-passou-magenta-800 text-center font-segoe-ui tracking-tight mb-3">Com a gente não tem essa de metas de venda, plano de fidelidade ou domícilio bancário.</h2>
-                <h3 class="md:text-5xl text-2xl text-center font-segoe-ui font-bold tracking-tight text-passou-magenta-800">Resumindo: sem complicação.</h3>
+                <h2 class="md:text-2.5xl text-xl font-bold text-passou-magenta-850 text-center font-segoe-ui tracking-tight mb-3">Com a gente não tem essa de metas de venda, plano de fidelidade ou domícilio bancário.</h2>
+                <h3 class="md:text-5xl text-2xl text-center font-segoe-ui font-bold tracking-tight text-passou-magenta-850">Resumindo: sem complicação.</h3>
 
                 <div class="flex flex-wrap justify-between items-start lg:-mx-10 px-4 pt-20">
                     <div class="md:w-4/12 sm:w-1/2 w-full mb-16 lg:px-10 px-4 flex flex-col items-center justify-start">
@@ -320,8 +143,8 @@
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <x-btn-magenta href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui normal-case mb-5" :bg="true">
+                <div class="text-center uppercase">
+                    <x-btn-magenta href="{{ $settings->whatsapp }}" target="_blank" rel="noopener noreferrer" class="sm:pl-12 pl-6 sm:pr-10 pr-5 font-bold pt-5 pb-6 sm:text-2xl text-lg font-segoe-ui mb-5" :bg="true">
                         Peça sua maquininha
                        <x-slot name="icon">
                             <x-icons name="chevron-right" class="fill-white group-hover:fill-white transition-all duration-200 sm:ml-10 ml-4" width="20" height="20"/>
@@ -333,7 +156,7 @@
             </div>
         </section>
 
-        <section class="pt-20 bg-[#eaddd7] pb-20">
+        <section class="py-12">
             <div class="container px-6" id="portal-do-empreendedor">
                 <div class="flex -mx-6 flex-wrap justify-center">
                     <div class="lg:w-1/2 sm:w-10/12 w-full px-6 mb-12 lg:mb-0 relative">
@@ -344,44 +167,44 @@
                             </div>
                         </a>
                         <x-btn-default href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="sm:px-8 px-4 whitespace-nowrap absolute bottom-0 font-bold sm:text-xl text-base font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true">
-                            Portal do Empreendedor
+                            Portal do Investidor
                         </x-btn-default>
                     </div>
 
                     <div class="lg:w-1/2 sm:w-10/12 w-full px-6 mb-12 lg:mb-0 relative">
-                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 sm:px-16 px-0">Vem conhecer a EBW Bank e amplie suas oportunidades de negócio</h3>
+                        <h3 class="text-2xl font-segoe-ui font-bold text-passou-magenta tracking-tighter text-center leading-none mb-16 sm:px-16 px-0">Conheça o grande banco por trás da incrível maquininha Passou Ganhou</h3>
                         <a  href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="group">
                             <div class="relative">
                                 <img loading="lazy" class="rounded-3xl sm:shadow-[25px_15px_0_0_#461d52] shadow-[4px_4px_0_0_#461d52] group-hover:shadow-[0px_0px_0_0_#461d52] transition-all duration-200 sm:-translate-x-6 sm:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0" src="{{ Vite::asset('resources/images/conheca-a-ebw.jpg') }}" alt="Conheça a EBW">
                             </div>
                         </a>
-                        <x-btn-default href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="px-12 whitespace-nowrap absolute bottom-0 font-bold sm:text-xl text-base font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" >
+                        <x-btn-default href="https://ebwbank.com.br" target="_blank" rel="noopener noreferrer" class="px-12 whitespace-nowrap absolute bottom-0 font-bold sm:text-xl text-base bg-passou-cyan text-white font-segoe-ui left-1/2 -translate-x-1/2 translate-y-1/2" :chevronRight="true" >
                            Conheça a EBW
                         </x-btn-default>
                     </div>
                 </div>
             </div>
 
-            <div class="container mx-auto px-4 pt-32" id="atendimento">
+            <div class="container bg-[#eaddd7] mx-auto px:8 sm:px-12 pb-12 sm:pb-24 pt-8 sm:pt-16 mt-12 sm:mt-16" id="atendimento">
 
+                <div class="w-full md:w-10/12 lg:w-8/12 my-4 lg:my-0 pb-10 text-center mx-auto">
 
+                    <img loading="lazy" class="mx-auto block" src="{{ Vite::asset('resources/images/icon-business.png') }}" alt="Negocie as suas taxas">
+
+                    <h4 class="text-passou-cyan font-bold my-4 text-3xl">
+                        Negocie suas taxas.
+                    </h4>
+
+                    <p class="text-lg text-passou-magenta-800">
+                        Com a <b>PASSOU GANHOU</b>, você tem o atendimento personalizado
+                        que você merece e as taxas ideais para o seu negócio prosperar.
+                    </p>
+
+                </div>
 
                 <div class="flex flex-wrap justify-center -mx-4">
-                    <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4 pt-10">
 
-                        <img loading="lazy" class="mx-auto block" src="{{ Vite::asset('resources/images/icon-business.png') }}" alt="Negocie as suas taxas">
-
-                        <h4 class="text-passou-cyan font-bold my-4 text-3xl">
-                            Negocie suas taxas.
-                        </h4>
-
-                        <p class="text-lg text-passou-magenta-800">
-                            Com a <b>PASSOU GANHOU</b>, você tem o atendimento personalizado
-                            que você merece e as taxas ideais para o seu negócio prosperar.
-                        </p>
-
-                    </div>
-                    {{-- <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
+                    <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
                                 <p class="font-bold text-passou-cyan my-4 text-xl">
@@ -411,8 +234,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
-                    {{-- <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
+                    </div>
+                    <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
                                 <p class="font-bold text-passou-cyan my-4 text-xl">
@@ -441,21 +264,20 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="w-full md:w-6/12 lg:w-4/12 my-4 lg:my-0 px-4">
                         <div class="sm:p-6 p-4 bg-white rounded-xl flex flex-col h-full justify-between">
                             <div class="mb-8">
-                                <p class="font-bold text-center text-passou-cyan my-4 text-xl">
+                                <p class="font-bold text-passou-cyan my-4 text-xl">
                                     Fale conosco
                                 </p>
-                                <p class="font-bold mb-4 text-center text-passou-magenta-800 text-4xl">
-                                    0800-0001-678
+                                <p class="font-bold mb-4 text-passou-magenta-800 text-2xl">
+                                    0800-894-3000
                                 </p>
-                                <p class="text-passou-magenta-800 text-center">
+                                <p class="text-passou-magenta-800">
                                     Horário de atendimento: <br>
                                     <span class="font-bold">
-                                        Segunda a Sexta-feira das 8h às 18h<br>
-                                        Sábadosdas 8h às 13h
+                                        Segunda a Sexta - 8h às 18h Sábados das 8h às 13h
                                     </span>
                                 </p>
                             </div>

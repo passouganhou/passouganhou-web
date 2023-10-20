@@ -6,13 +6,13 @@
 x-on:scroll.window.throttle.50ms="handleScroll">
 
     <header x-ref="header-menu"
-        class="top-0 left-0 right-0 z-40 transition-all duration-300 fixed bg-passou-magenta shadow-md py-4"
-        x-bind:class="floatingMenu ? 'fixed bg-passou-magenta shadow-md' : 'relative'">
+        class="top-0 left-0 right-0 z-40 transition-all duration-300 fixed bg-passou-light py-4"
+        x-bind:class="floatingMenu ? 'fixed bg-passou-light shadow-md' : 'relative'">
         <nav class="container mx-auto hidden xl:block py-2">
             <div class="flex justify-between items-center">
                 <a class="flex justify-center" href="{{ route('home') }}">
                     <img x-bind:class="floatingMenu ? 'max-w-ss' : 'max-w-xxs'"
-                        src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}" alt="Passou Ganhou Logo"
+                        src="{{ Vite::asset('resources/images/logo-passou-ganhou-inverted.svg') }}" alt="Passou Ganhou Logo"
                         class="max-w-ss">
                 </a>
 
@@ -21,14 +21,17 @@ x-on:scroll.window.throttle.50ms="handleScroll">
                     <x-nav-link href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
                     {{-- <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
                     <x-nav-link href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor
-                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                        <x-icons name="chevron-right" class="fill-passou-magenta inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}">FAQ
-                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                        <x-icons name="chevron-right" class="fill-passou-magenta inline mb-1" width="14" height="14" />
                     </x-nav-link>
                 </ul>
 
-                <x-btn-default href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" class="px-8 font-bold font-segoe-ui">Peça Agora</x-btn-default>
+                <a class="flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-passou-cyan hover:bg-white hover:text-passou-magenta px-8 font-bold font-segoe-ui" href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer">
+                    <span class="mr-2">Peça Agora</span>
+                    <x-icons name="arrow-right" class="fill-passou-cyan group-hover:fill-passou-magenta transition-all duration-200" />
+                </a>
             </div>
         </nav>
 
@@ -38,7 +41,7 @@ x-on:scroll.window.throttle.50ms="handleScroll">
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="display: none;">
             <div class="flex flex-col justify-center items-center">
                 <a class="flex justify-center mb-6" href="/">
-                    <img src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}" alt="Passou Ganhou Logo">
+                    <img src="{{ Vite::asset('resources/images/logo-passou-ganhou-inverted.svg') }}" alt="Passou Ganhou Logo">
                 </a>
 
                 <ul class="flex-1 flex flex-col items-center justify-center">
@@ -57,15 +60,15 @@ x-on:scroll.window.throttle.50ms="handleScroll">
         </nav>
         <div class="xl:hidden flex justify-between container">
             <a class="flex justify-center" href="{{ route('home') }}">
-                <img src="{{ Vite::asset('resources/images/logo-passou-ganhou.png') }}"
+                <img src="{{ Vite::asset('resources/images/logo-passou-ganhou-inverted.svg') }}"
                     alt="Passou Ganhou Logo"
                     class="w-28">
             </a>
             <button type="button" aria-label="Open Menu"
-                class="z-50 flex justify-center items-center border-2 border-white rounded-lg w-10 h-10 overflow-hidden"
+                class="z-50 flex justify-center items-center border-2 border-black rounded-lg w-10 h-10 overflow-hidden"
                 x-on:click="openMenu = !openMenu">
                 <span x-show="!openMenu" x-cloak x-transition>
-                    <x-icons name="bars" class="fill-white" width="24" height="24" />
+                    <x-icons name="bars" class="fill-black" width="24" height="24" />
                 </span>
                 <span x-show="openMenu" x-cloak x-transition>
                     <x-icons name="times"  class="fill-white" width="24" height="24" />

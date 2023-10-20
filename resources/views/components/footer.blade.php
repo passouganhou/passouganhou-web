@@ -22,7 +22,7 @@
                 <div class="flex md:justify-center justify-start sm:flex-row flex-col">
                     <h3 class="font-segoe-ui text-lg font-bold text-white mr-5 mt-1">Escritório:</h3>
                     <p class="leading-tight font-segoe-ui text-white">
-                        Brasília<br>
+                        BRASÍLIA<br>
                         Ed. Prime Business Setor Bancário Sul, Q 2<br>
                         Salas 09/10 Asa Sul - CEP: 70.070-120
                     </p>

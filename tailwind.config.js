@@ -52,10 +52,17 @@ module.exports = {
             },
             colors: {
                 passou: {
+                    "magenta-300": "#bf53d9",
+                    "magenta-400": "#8C37A0",
                     magenta: "#7a378a",
                     "magenta-700": "#662583",
+                    "magenta-750": "#5F2879",
                     "magenta-800": "#461d52",
+                    "magenta-850": "#451D50",
                     cyan: "#00ab97",
+                    "cyan-300": "#00c4a9",
+                    "cyan-400": "#41A997",
+                    light: "#F3F3F3",
                     "soft-cyan": "#6cdbd4",
                     gray: "#a7a6a7",
                 },
