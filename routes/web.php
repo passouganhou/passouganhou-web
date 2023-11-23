@@ -32,7 +32,7 @@ Route::get('/', function (GeneralSettings $settings) {
     // ]);
     // $service = new CrmService($data);
     // $service->serviceId('asd')->send();
-    return view('pages.home', compact('settings'));
+    return view('pages.home-bf', compact('settings'));
 })->name('home');
 
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');

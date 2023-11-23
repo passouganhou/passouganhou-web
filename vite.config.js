@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
-
+//define target host and port
 export default defineConfig({
     plugins: [
         laravel({

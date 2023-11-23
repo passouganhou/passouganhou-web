@@ -37,12 +37,12 @@
     </head>
     <body class="antialiased" id="body">
 
-       <x-header :whatsapp="'$settings->whatsapp'" />
+       <x-bf-header :whatsapp="'$settings->whatsapp'" />
         <main>
             {{ $main }}
         </main>
 
-        <x-footer />
+        <x-bf-footer />
 
         <a href="{{ '$settings->whatsapp' }}" class="fixed z-50 cursor-pointer right-6 bottom-6">
             <div class="bg-gradient-to-b from-[#61fd7d] to-[#2bb826] rounded-lg shadow-md" style="height:50px; width:50px;">

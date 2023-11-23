@@ -65,6 +65,7 @@ module.exports = {
                     light: "#F3F3F3",
                     "soft-cyan": "#6cdbd4",
                     gray: "#a7a6a7",
+                    dark: "#333333",
                 },
             },
         },
