@@ -180,12 +180,8 @@
                 </div>
             </div>
         </section>
-        <section class="relative container bg-white flex flex-col sm:flex-row sm:max-h-[100vh] {{$sectionVerticalPadding}}" id="exclusivePromotionsSection">
-            <!--
-                1 seção branca, com texto a esquerda e imagem a direita
-                No lado esquerdo há um ícone do play store e um botão para baixar o app
-            -->
-                <!-- Fundo branco -->
+        <section class="bg-white relative" id="exclusivePromotionsSection">
+            <div class="flex flex-col sm:flex-row sm:max-h-[100vh] {{$sectionVerticalPadding}} container">
                 <div class="w-full sm:w-6/12 flex flex-col">
                     <h2 class="text-3xl sm:text-4xl w-full sm:w-10/12 font-bold"><span class="overline decoration-passou-magenta decoration-8" id="promocoes">Promo</span>ções exclusivas para você!</h2>
                     <p class="text-xl py-4">
@@ -208,14 +204,15 @@
                 <div class="w-full sm:w-6/12">
                     <img src="{{Vite::asset('resources/images/bf/Mockup_Iphone_app.png')}}" class="max-h-[60vh] sm:max-h-[90vh]" id="mockupIphoneApp" alt=""  style="translate: none; rotate: none; scale: none; transform: translate(0px, 50%);">
                 </div>
-            <div class="w-full sm:hidden flex flex-col">
-                <x-btn-magenta id="mockupDownloadAppBtn" href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
-                    <div class="inline-flex justify-between gap-8">
-                        <svg class="h-10 self-center" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg>
-                        <span class="self-center">Baixe o app agora!</span>
-                    </div>
-                </x-btn-magenta>
-                <img class="w-36 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="">
+                <div class="w-full sm:hidden flex flex-col">
+                    <x-btn-magenta id="mockupDownloadAppBtn" href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
+                        <div class="inline-flex justify-between gap-8">
+                            <svg class="h-10 self-center" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg>
+                            <span class="self-center">Baixe o app agora!</span>
+                        </div>
+                    </x-btn-magenta>
+                    <img class="w-36 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="">
+                </div>
             </div>
         </section>
         <section class="relative bg-gray-200 {{$sectionVerticalPadding}} sm:px-0 px-6">
