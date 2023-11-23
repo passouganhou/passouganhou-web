@@ -43,6 +43,7 @@ class CrmService
 
     public function send()
     {
+        $client = new \GuzzleHttp\Client();
         $data = array_merge($this->data, $this->configs);
         try {
             if (empty($data['rulerId'])) {
@@ -53,10 +54,14 @@ class CrmService
                 unset($data['serviceId']);
             }
 
-            $response = Http::post($this->baseUrl . '/target/register', $data, [
-                'Content-Type' => 'application/x-www-form-urlencoded',
-                'Authorization' => $this->bearerToken
+            $response = $client->post($this->baseUrl . '/target/register', [
+                'headers' => [
+                    'Content-Type' => 'application/x-www-form-urlencoded',
+                    'Authorization' => $this->bearerToken
+                ],
+                'form_params' => $data
             ]);
+
             return $response;
         } catch (\Exception $e) {
             Log::channel('ebw-crm')->warning($e->getMessage(), ['status' => $e->getCode(), 'id' => $this->data['email']]);
