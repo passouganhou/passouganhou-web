@@ -302,7 +302,8 @@ class Dynamic extends Component
             24 => 'Varejista',
             25 => 'Atacadista',
             26 => 'Construção',
-            27 => 'Móveis / Decoração'
+            27 => 'Móveis / Decoração',
+            28 => 'Outros'
         );
 
         $this->mccList = $areasAtuacao;

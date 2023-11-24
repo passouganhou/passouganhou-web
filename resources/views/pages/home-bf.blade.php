@@ -2,79 +2,106 @@
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
         @php($sectionVerticalPadding = 'pt-24 pb-8')
-        <section class="relative sm:max-h-[1080px] bg-fixed bg-black bg-center bg-no-repeat bg-cover text-white pt-8 sm:pt-16 pb-4 sm:pb-36" style="background-image: url({{Vite::asset('resources/images/bf/bg-black.png')}}) ;overflow-x: clip;">
-            <div class="container flex flex-col sm:flex-row justify-between {{$sectionVerticalPadding}} pb-5">
-                <div class="sm:w-6/12 w-10/12 sm:flex sm:flex-col sm:justify-evenly">
-                    <div class="sm:pr-10">
-                        <h1 class="font-bold text-3xl sm:text-7xl sm:py-2">Black Friday Real Oficial</h1>
-                        <p class="text-sm sm:text-3xl sm:py-2" id="text">Promoção de verdade você só encontra na Passou Ganhou.</p>
+        <section class="overflow-hidden pt-8 sm:pt-16 pb-4 sm:pb-12 lg:py-48 xl:py-64 2xl:py-40 bg-fixed bg-black bg-center bg-no-repeat bg-cover text-white" style="background-image: url({{Vite::asset('resources/images/bf/bg-black.webp')}});">
+            <div class="container flex flex-col lg:flex-row justify-between {{$sectionVerticalPadding}} pb-5">
+                <div class="lg:w-6/12 md:text-center lg:text-start">
+                    <div class="md:pr-10 lg:pr-4">
+                        <h1 class="font-bold text-5xl sm:text-7xl md:text-8xl lg:text-6xl xl:text-7xl sm:py-2">Black Friday Real Oficial</h1>
+                        <p class="text-xl sm:text-3xl sm:py-2" id="text">Promoção de verdade você só encontra na Passou Ganhou.</p>
                     </div>
-                    <div class="flex flex-col w-full sm:w-10/12">
+                    <div class="flex flex-col w-full sm:w-10/12 lg:w-full">
                         <a href="#promova" class="inline-flex my-2 border border-white py-1 pr-2 pl-1 gap-3 hover:gap-6 hover:bg-passou-cyan transition-all">
                             <img class="self-center w-12 sm:w-16 bg-passou-cyan px-2 py-1" src="{{Vite::asset('resources/images/icon-coin-hand.svg')}}" alt="">
-                            <span class="self-center text-base sm:text-3xl">Promo pra quem vende</span>
+                            <span class="self-center text-xl sm:text-3xl">Promo pra quem vende</span>
                         </a>
                         <a href="#promocoes" class="inline-flex my-2 border border-white py-1 pr-2 pl-1 gap-3 hover:gap-6 hover:bg-passou-magenta transition-all group">
                             <img class="self-center w-12 sm:w-16 bg-passou-magenta px-2 py-1" src="{{Vite::asset('resources/images/icon-coins-stars.svg')}}" alt="">
-                            <span class="self-center text-base sm:text-3xl">Promo pra quem compra</span>
+                            <span class="self-center text-xl sm:text-3xl">Promo pra quem compra</span>
                         </a>
                     </div>
                 </div>
-                <div class="sm:w-6/12 w-full sm:fixed sm:float-right sm:right-0 sm:top-0 -mb-5 sm:mb-0 flex flex-row justify-center">
-                    {{--<img class="self-center p-8" src="{{Vite::asset('resources/images/bf/hero-section-fit.png')}}"
-                            alt="">--}}
-                    <img class="self-center -mx-[50%]" src="{{Vite::asset('resources/images/bf/App_Mockup_1.png')}}" id="hero-section-mockup-1" alt="">
-                    <img class="self-center -mx-[50%]" src="{{Vite::asset('resources/images/bf/App_Mockup_2.png')}}" id="hero-section-mockup-2" alt="">
+                <div class="lg:w-6/12 lg:flex lg:flex-col">
+                    <div class="flex flex-row lg:fixed pt-20">
+                        <picture
+                            id="hero-section-mockup-1"
+                            class="self-center relative bottom-0 lg:-m-20 2xl:-m-10"
+                            transform: translate3d(0px, 0px, 10px);>
+                            <source media="(max-width: 640px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_1.webp') }}">
+                            <source media="(max-width: 768px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_1.webp') }}">
+                            <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_1.webp') }}">
+                            <source media="(min-width: 1025px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_1.webp') }}">
+                            <img
+                                class=""
+                                src="{{ Vite::asset('resources/images/bf/App_Mockup_1.webp') }}"
+                                alt="Mockup Passou Ganhou">
+                        </picture>
+                        <picture
+                            id="hero-section-mockup-2"
+                            class="self-center relative bottom-16 lg:-m-20 2xl:-m-10">
+                            <source media="(max-width: 640px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_2.webp') }}">
+                            <source media="(max-width: 768px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_2.webp') }}">
+                            <source media="(max-width: 1024px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_2.webp') }}">
+                            <source media="(min-width: 1025px)" srcset="{{ Vite::asset('resources/images/bf/App_Mockup_2.webp') }}">
+                            <img
+                                class=""
+                                src="{{ Vite::asset('resources/images/bf/App_Mockup_2.webp') }}"
+                                alt="Mockup Passou Ganhou">
+                        </picture>
+                    </div>
                 </div>
             </div>
-            <marquee hspace="0" class="absolute bottom-[20%] ml-[-1rem] uppercase border border-passou-cyan py-1 text-base sm:text-lg" style="width: 110vw; transform: rotate(-8deg);">
+
+            <marquee hspace="0"
+                     class="absolute bottom-[25%] sm:bottom-[5%] lg:bottom-[15%] xl:bottom-[12%] 2xl:bottom-[20%] ml-[-1rem] uppercase border-y border-passou-cyan py-1 text-base sm:text-lg"
+                     style="transform: rotate(-7.5deg);">
                 <div class="ml-[-60%]">
                     @for($i = 0; $i < 16; $i++)
-                        <span class="drop-shadow-xl font-bold text-passou-cyan">Black Friday</span>
-                        <span class="drop-shadow-xl">Real Oficial</span>
+                    <span class="drop-shadow-xl font-bold text-passou-cyan">Black Friday</span>
+                    <span class="drop-shadow-xl">Real Oficial</span>
                     @endfor
                 </div>
             </marquee>
+
         </section>
         <section class="relative">
-            <div class="bg-white text-black {{$sectionVerticalPadding}}">
+            <div class="bg-white text-black pt-20 lg:pb-20 xl:pt-24 xl:pb-28">
                 <div class="container">
-                    <div class="w-full sm:w-6/12 text-center sm:text-start">
-                        <h2 class="text-3xl sm:text-4xl font-bold"><span class="overline decoration-passou-cyan decoration-8">Quem</span> vende, lucra.<br> Quem compra, economiza.</h2>
-                        <p class="py-5 text-xl sm:text-2xl">
+                    <div class="w-full lg:w-6/12 xl:w-7/12 text-center md:text-start">
+                        <h2 class="text-3xl sm:text-4xl xl:text-5xl font-bold"><span class="overline decoration-passou-cyan decoration-8">Quem</span> vende, lucra.<br> Quem compra, economiza.</h2>
+                        <p class="py-5 text-xl sm:text-2xl xl:text-3xl">
                             É real, oficial! Passou Ganhou é a primeira plataforma que conecta lojas e clientes, do digital ao físico.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="sm:container bg-white">
-                <div id="section2Bg" class="relative sm:w-[500px] sm:h-[600px] sm:-mt-[25%] sm:float-right bg-no-repeat bg-contain" style="background-image: url('{{ Vite::asset('resources/images/logo-simplificada.svg') }}')">
-                    <img class="" src="{{Vite::asset('resources/images/bf/section-2-front.png')}}" id="section2Image">
+            <div class="md:container bg-white">
+                <div id="section2Bg" class="relative md:p-24 lg:p-0 md:mb-12 lg:mb-0 lg:w-[500px] md:h-[500px] lg:h-[600px] lg:-mt-[25%] lg:float-right bg-no-repeat bg-contain" style="background-image: url('{{ Vite::asset('resources/images/logo-simplificada.svg') }}')">
+                    <img class="" src="{{Vite::asset('resources/images/bf/section-2-front.webp')}}" id="section2Image" loading="lazy">
                 </div>
             </div>
             <div class="bg-black bg-fixed bg-cover text-white py-8" style="background-image: url('{{Vite::asset('resources/images/bf/Lines_Faixa3.svg')}}')">
                 <!-- Fundo preto -->
                 <div class="container">
-                    <div class="w-full sm:w-6/12 py-4 sm:py-8">
+                    <div class="w-full lg:w-6/12 py-4 sm:py-8">
                         <!-- Texto, ocupar somente o lado esquerdo -->
-                        <h2 class="text-2xl h-24 sm:text-4xl font-bold w-10/12 sm:w-full">Passou Ganhou é <span id="typewitterOne"></span></h2>
-                        <p class="py-5 text-base sm:text-2xl">
+                        <h2 class="text-2xl xl:text-4xl h-24 sm:text-4xl font-bold w-10/12 sm:w-full">Passou Ganhou é <span id="typewitterOne"></span></h2>
+                        <p class="py-5 text-base sm:text-2xl xl:text-3xl">
                             A tecnologia exclusiva e disruptiva, CND-RS, impulsiona o empreendedorismo, gerando valor aos estabelecimentos comerciais, promove a inclusão financeira e fomenta o consumo consciente.
                         </p>
                     </div>
                 </div>
-                <div class="container text-center sm:text-start text-black flex flex-col sm:flex-row gap-4 py-4 sm:py-8 justify-center items-center sm:justify-between">
-                    <div class="bg-white p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-5/12 justify-between">
-                        <h3 class="text-lg sm:text-3xl font-bold">Para o comerciante:</h3>
-                        <p class="text-sm sm:text-xl">Anuncie seus produtos, alcance e fidelize novos clientes, com a Máquina de Anúncios Inteligentes (MAI-910).</p>
+                <div class="container md:h-[30rem] lg:h-[28rem] text-center sm:text-start text-black flex flex-col md:flex-row gap-4 py-4 md:py-8 justify-center items-center sm:justify-between">
+                    <div class="bg-white h-full p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-10/12 md:w-1/2 lg:w-5/12 justify-between">
+                        <h3 class="text-lg sm:text-3xl xl:text-4xl font-bold">Para o comerciante:</h3>
+                        <p class="text-sm sm:text-xl xl:text-2xl">Anuncie seus produtos, alcance e fidelize novos clientes, com a Máquina de Anúncios Inteligentes (MAI-910).</p>
                         <x-btn-default href="https://api.whatsapp.com/send?phone=558000001678&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Maquininha%20de%20An%C3%BAncios%20Inteligentes%2C%20como%20fa%C3%A7o%20para%20come%C3%A7ar%20a%20usar%3F" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pb-5 sm:text-2xl text-sm font-segoe-ui rounded-none" :bg="true">
                             Peça a sua!
                         </x-btn-default>
                     </div>
-                    <div class="bg-white p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-5/12 justify-between">
-                        <img class="w-5/12 sm:w-3/12 self-center" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="">
-                        <h3 class="text-lg sm:text-3xl font-bold">Para o consumidor:</h3>
-                        <p class="text-sm sm:text-xl">Compre com descontos exclusivos pelo App Passou Ganhou.</p>
+                    <div class="bg-white h-full p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-10/12 md:w-1/2 lg:w-5/12 justify-between">
+                        <img class="w-5/12 sm:w-6/12 lg:w-4/12 self-center" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="" loading="lazy">
+                        <h3 class="text-lg sm:text-3xl xl:text-4xl font-bold">Para o consumidor:</h3>
+                        <p class="text-sm sm:text-xl xl:text-2xl">Compre com descontos exclusivos pelo App Passou Ganhou.</p>
                         <x-btn-magenta href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pb-5 sm:text-2xl text-sm font-segoe-ui rounded-none" :bg="true">
                             Baixe agora!
                         </x-btn-magenta>
@@ -82,43 +109,43 @@
                 </div>
             </div>
         </section>
-        <section class="relative py-20 bg-white">
+        <section class="relative py-20 bg-white overflow-hidden">
             <!--
                 2 seções, uma branca e uma preta
                 Na seção de cima há um formulário de cadastro a direita e um texto a esquerda
                 Na seção de baixo, há um texto a esquerda e uma imagem a direita. Há uma imagem entre as seções para transição
             -->
-            <div class="flex flex-col sm:flex-row justify-between container pb-12">
+            <div class="flex flex-col lg:flex-row justify-between container pb-12">
                 <!-- Fundo branco -->
-                <div class="flex flex-col gap-4 sm:gap-8 w-full sm:w-1/2">
-                    <div class="w-full sm:w-10/12">
-                        <h2 class="text-3xl sm:text-4xl font-bold"><span id="promova" class="overline decoration-passou-cyan decoration-8">Promo</span>(va)<br>sua empresa<br>Peça a sua MAI-910<br>e anuncie grátis!</h2>
-                        <p class="text-base sm:text-xl py-4">
+                <div class="flex flex-col gap-4 md:gap-8 w-full  py-0 md:py-8 lg:py-0 lg:w-1/2">
+                    <div class="w-full lg:w-10/12">
+                        <h2 class="text-3xl sm:text-4xl xl:text-5xl xl:pt-3 font-bold"><span id="promova" class="overline decoration-passou-cyan decoration-8">Promo</span>(va)<br>sua empresa<br>Peça a sua MAI-910<br>e anuncie grátis!</h2>
+                        <p class="text-base sm:text-xl xl:text-2xl py-4">
                             Viva no clima de Black Friday o ano todo, com a Maquininha de Anúncios Inteligentes (MAI-910). Anuncie seus produtos e serviços gratuitamente no app Passou Ganhou Empresas, para potencializar seus lucros.
                         </p>
                     </div>
                     <div class="w-12/12 flex flex-col gap-6">
-                        <div class="ml-4 bg-black inline-flex px-3 py-3 sm:py-1 sm:px-6 my-1 w-10/12"  id="parallax-element-1" style="translate: none; rotate: none; scale: none; transform: translate(-16px, 0px);">
+                        <div class="ml-4 xl:ml-3 bg-black inline-flex px-3 py-3 sm:py-1 sm:px-6 my-1 w-10/12"  id="parallax-element-1" style="translate: none; rotate: none; scale: none; transform: translate(-16px, 0px);">
                             <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">1</span>
                             <p class="text-sm sm:text-base text-white self-center leading-none sm:leading-normal">Anúncios por geolocalização: alcance e atraia pessoas que estão próximas à sua loja.</p>
                         </div>
-                        <div class="ml-8 bg-black inline-flex px-3 py-3 sm:py-1 sm:px-6 my-1 w-10/12"  id="parallax-element-2" style="translate: none; rotate: none; scale: none; transform: translate(-18px, 0px);">
+                        <div class="ml-8 xl:ml-6 bg-black inline-flex px-3 py-3 sm:py-1 sm:px-6 my-1 w-10/12"  id="parallax-element-2" style="translate: none; rotate: none; scale: none; transform: translate(-18px, 0px);">
                             <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">2</span>
                             <p class="text-sm sm:text-base text-white self-center leading-none sm:leading-normal">Oportunidade de negócio: aumente seus lucros, reduza estoque e melhore o movimento em dias ociosos, criando anúncios exclusivos.</p>
                         </div>
-                        <div class="ml-12 bg-black inline-flex px-3 py-3 sm:py-1 sm:px-6 my-1 w-10/12"  id="parallax-element-3" style="translate: none; rotate: none; scale: none; transform: translate(-20px, 0px);">
+                        <div class="ml-12 xl:ml-9 bg-black inline-flex px-3 py-3 sm:py-1 sm:px-6 my-1 w-10/12"  id="parallax-element-3" style="translate: none; rotate: none; scale: none; transform: translate(-20px, 0px);">
                             <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">3</span>
                             <p class="text-sm sm:text-base text-white self-center leading-none sm:leading-normal">Programa de pontos: fidelize clientes, trocando pontos acumulados no app, por descontos.</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col py-8 sm:py-0 w-full sm:w-5/12">
+                <div class="flex flex-col py-8 md:py-0 w-full lg:w-6/12">
                     <div class="p-3 border border-gray-900 bg-white">
                         <div class="bg-black flex flex-col px-8 py-4">
                             <div>
                                 <div class="inline-flex text-white gap-4">
                                     <div class="self-center">
-                                        <img src="{{ Vite::asset('resources/images/logo-simplificada.svg') }}" alt="Passou Ganhou Logo" class="p-1 max-w-ss">
+                                        <img src="{{ Vite::asset('resources/images/logo-simplificada.svg') }}" alt="Passou Ganhou Logo" class="p-1 max-w-ss" loading="lazy">
                                     </div>
                                     <p class="self-center">
                                         Preencha o formulário<br>e garanta já a sua!
@@ -130,51 +157,51 @@
                     </div>
                 </div>
             </div>
-            <div id="partnerDiv" class="bg-black bg-cover bg-fixed {{$sectionVerticalPadding}}" style="background-image: url('{{Vite::asset('resources/images/bf/Lines_Faixa5.svg')}}')">
-                <div class="container flex flex-col-reverse sm:flex-row justify-between">
-                    <div class="flex flex-col w-full sm:w-6/12 h-100 justify-between">
+            <div id="partnerDiv" class="bg-black bg-cover bg-fixed {{$sectionVerticalPadding}}" style="background-image: url('{{Vite::asset('resources/images/bf/Lines_Faixa5.svg')}}')" loading="lazy">
+                <div class="container flex flex-col-reverse md:flex-row justify-between">
+                    <div class="flex flex-col w-full md:w-6/12 h-100 justify-between">
                         <div class="text-white h-full flex flex-col justify-evenly py-8">
-                            <h2 class="text-3xl sm:text-4xl font-bold">Somos a real parceira de quem empreende!</h2>
-                            <p class="text-base sm:text-xl py-4">
+                            <h2 class="text-3xl md:text-4xl xl:text-5xl font-bold">Somos a real parceira de quem empreende!</h2>
+                            <p class="text-base md:text-xl xl:text-2xl py-4">
                                 Juntos, vamos fazer uma Black Friday diferente de tudo que você já vendeu antes.
                             </p>
                         </div>
                         <div class="flex flex-col" id="partnershipSection" style="translate: none; rotate: none; scale: none; transform: translate(16px, -8px);">
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
                                 <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">1</span>
-                                <p class="text-black text-sm sm:text-base self-center">As melhores taxas do mercado.</p>
+                                <p class="text-black text-sm sm:text-base xl:text-xl self-center">As melhores taxas do mercado.</p>
                             </div>
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
                                 <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">2</span>
-                                <p class="text-black text-sm sm:text-base self-center">Sistema de pontos exclusivo e livre taxa adicional.</p>
+                                <p class="text-black text-sm sm:text-base xl:text-xl self-center">Sistema de pontos exclusivo e livre taxa adicional.</p>
                             </div>
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
                                 <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">3</span>
-                                <p class="text-black text-sm sm:text-base self-center">Plataforma de anúncios.</p>
+                                <p class="text-black text-sm sm:text-base xl:text-xl self-center">Plataforma de anúncios.</p>
                             </div>
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
                                 <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">4</span>
-                                <p class="text-black text-sm sm:text-base self-center">Parcele em até 12x no crédito.</p>
+                                <p class="text-black text-sm sm:text-base xl:text-xl self-center">Parcele em até 12x no crédito.</p>
                             </div>
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
                                 <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">5</span>
-                                <p class="text-black text-sm sm:text-base self-center">Aceite as principais bandeiras e carteiras digitais.</p>
+                                <p class="text-black text-sm sm:text-base xl:text-xl self-center">Aceite as principais bandeiras e carteiras digitais.</p>
                             </div>
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
                                 <span class="text-4xl sm:text-6xl text-passou-cyan font-bold px-3 self-center">6</span>
-                                <p class="text-black text-sm sm:text-base self-center">Sem burocracia, plano de vendas ou domicílio bancário.</p>
+                                <p class="text-black text-sm sm:text-base xl:text-xl self-center">Sem burocracia, plano de vendas ou domicílio bancário.</p>
                             </div>
                             <x-btn-default href="#promova" rel="noopener noreferrer" class="mt-16 mb-8 normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
                                 Peça sua MAI-910 e anuncie grátis
                             </x-btn-default>
                         </div>
                     </div>
-                    <div class="flex flex-col w-10/12 sm:w-5/12 self-center items-start justify-start mt-[-11rem] gap-4">
+                    <div class="flex flex-col w-10/12 md:w-5/12 self-center items-start justify-start mt-[-11rem] gap-4">
                         <div class="">
-                            <img src="{{Vite::asset('resources/images/bf/maquininha.png')}}" alt="" id="section3Image">
+                            <img src="{{Vite::asset('resources/images/bf/maquininha.webp')}}" alt="" id="section3Image">
                         </div>
                         <div class="hidden sm:block px-12">
-                            <img src="{{Vite::asset('resources/images/bf/venda.jpg')}}" alt="">
+                            <img src="{{Vite::asset('resources/images/bf/venda.webp')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -182,27 +209,27 @@
         </section>
         <section class="bg-white relative" id="exclusivePromotionsSection">
             <div class="flex flex-col sm:flex-row sm:max-h-[100vh] {{$sectionVerticalPadding}} container">
-                <div class="w-full sm:w-6/12 flex flex-col">
-                    <h2 class="text-3xl sm:text-4xl w-full sm:w-10/12 font-bold"><span class="overline decoration-passou-magenta decoration-8" id="promocoes">Promo</span>ções exclusivas para você!</h2>
-                    <p class="text-xl py-4">
+                <div class="w-full sm:w-6/12 xl:w-7/12 flex flex-col">
+                    <h2 class="text-3xl sm:text-4xl xl:text-5xl w-full sm:w-10/12 font-bold"><span class="overline decoration-passou-magenta decoration-8" id="promocoes">Promo</span>ções exclusivas para você!</h2>
+                    <p class="text-xl xl:text-2xl py-4">
                         Confira o app Passou Ganhou, seu app de descontos, e economize!
                     </p>
-                    <p class="text-xl py-4">
+                    <p class="text-xl xl:text-2xl py-4">
                         Com a Passou Ganhou <strong>é Black Friday o ano todo!</strong><br>Baixe o aplicativo e confira ofertas exclusivas.
                     </p>
-                    <p class="text-xl py-4">
+                    <p class="text-xl xl:text-2xl py-4">
                         Acumule pontos a cada compra e troque por descontos. Não é cashback. É promoção real oficial! A maior e melhor Black Friday de todos os tempos acontece aqui.
                     </p>
-                    <img class="hidden sm:block w-36 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="">
+                    <img class="hidden sm:block w-36 xl:w-48 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="" loading="lazy">
                     <x-btn-magenta
                         id="mockupDownloadAppBtn"
                         href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer"
-                        class="hidden max-w-[75%] sm:block normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
+                        class="hidden text-center max-w-[75%] sm:block normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pl-2 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
                         Baixe o app agora!
                     </x-btn-magenta>
                 </div>
                 <div class="w-full sm:w-6/12">
-                    <img src="{{Vite::asset('resources/images/bf/Mockup_Iphone_app.png')}}" class="max-h-[60vh] sm:max-h-[90vh]" id="mockupIphoneApp" alt=""  style="translate: none; rotate: none; scale: none; transform: translate(0px, 50%);">
+                    <img src="{{Vite::asset('resources/images/bf/Mockup_Iphone_app.webp')}}" class="max-h-[60vh] sm:max-h-[90vh]" id="mockupIphoneApp" alt=""  style="translate: none; rotate: none; scale: none; transform: translate(0px, 50%);">
                 </div>
                 <div class="w-full sm:hidden flex flex-col">
                     <x-btn-magenta id="mockupDownloadAppBtn" href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
@@ -211,14 +238,14 @@
                             <span class="self-center">Baixe o app agora!</span>
                         </div>
                     </x-btn-magenta>
-                    <img class="w-36 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="">
+                    <img class="w-36 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" loading="lazy" alt="">
                 </div>
             </div>
         </section>
         <section class="relative bg-gray-200 {{$sectionVerticalPadding}} sm:px-0 px-6">
             <div class="flex flex-col sm:flex-row container sm:justify-between sm:gap-0 gap-4">
                 <div class="flex flex-col w-full sm:w-5/12">
-                    <img src="{{Vite::asset('resources/images/bf/img-ebw-call.jpg')}}" alt="">
+                    <img src="{{Vite::asset('resources/images/bf/img-ebw-call.webp')}}" loading="lazy" alt="">
                 </div>
                 <div class="flex flex-col w-full sm:w-6/12 text-center sm:text-start sm:justify-evenly">
                     <div>
@@ -238,7 +265,7 @@
                 Seção preta com texto centralizado, e na parte inferior os contatos
             -->
             <!-- Fundo preto -->
-            <div class="container w-full sm:w-6/12">
+            <div class="container w-full lg:w-9/12">
                 <div class="my-8 flex flex-col gap-10">
                     <h2 class="text-3xl sm:text-4xl font-bold">Precisou? É só chamar!</h2>
                     <hr class="border-t-8 border-passou-cyan w-32 self-center text-center">
@@ -258,7 +285,7 @@
                     <p>Sábados, domingos e feriados - 10h às 16h</p>
                 </div>
             </div>
-            <div class="container flex flex-col sm:flex-row gap-4 sm:gap-0 justify-around mt-8 pb-12" id="contactsWrapper">
+            <div class="container flex flex-col lg:flex-row gap-4 lg:gap-0 justify-around mt-8 pb-12" id="contactsWrapper">
                 <!-- Botões de contato -->
                 <a href="mailto:vendas@passouganhou.com.br" class="bg-black border border-white px-8 py-4" id="contactVendas">vendas@passouganhou.com.br</a>
                 <a href="mailto:suporte@passouganhou.com.br" class="bg-black border border-white px-8 py-4" id="contactSuporte">suporte@passouganhou.com.br</a>
