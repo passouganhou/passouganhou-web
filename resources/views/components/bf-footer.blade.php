@@ -54,7 +54,17 @@
                 </div>
             </div>
         </div>
+        <div class="flex flex-wrap justify-center u-bg-folk-white pb-6 pt-10">
+            <div class="w-full lg:w-8/12 flex flex-col lg:flex-row justify-center items-center mb-4 px-4">
+                <a class="w-6/12 lg:w-3/12 my-4 lg:my-0 mx-5" href="https://www.cerc.inf.br/" target="_blank" rel="noopener noreferrer">
+                    <img loading="lazy" src="{{ Vite::asset('resources/images/logo-cerci.png') }}" alt="Logo Cerci">
+                </a>
 
+                <a class="w-6/12 lg:w-3/12 my-4 lg:my-0 mx-5" href="https://www.pcisecuritystandards.org/" target="_blank" rel="noreferrer noopenner">
+                    <img loading="lazy" src="{{ Vite::asset('resources/images/logo-pci.png') }}" alt="Logo PCI">
+                </a>
+            </div>
+        </div>
         <div class="border-b-2 border-black pb-8 pt-32">
             <p class="text-black text-xs font-segoe-ui">© PASSOU GANHOU. Todos os direitos reservados. CNPJ 31.663.601/0001-08</p>
         </div>
