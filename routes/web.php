@@ -41,6 +41,9 @@ Route::get('peca-a-sua', function (GeneralSettings $settings) {
     return view('pages.peca-maquininha', compact('settings'));
 })->name('peca-maquininha.index');
 
+Route::get('dev/poc', function () {
+   return view('pages.dev.poc');
+});
 
 // Route::get('venda-pela-internet', function () {
 //     return view('pages.venda-pela-internet');
