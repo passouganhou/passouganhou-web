@@ -3,11 +3,10 @@
     <x-slot name="main">
         @php($sectionVerticalPadding = 'pt-24 pb-8')
         <section class="overflow-hidden pt-8 sm:pt-16 pb-4 sm:pb-12 lg:py-48 xl:py-64 2xl:py-40 bg-fixed bg-black bg-center bg-no-repeat bg-cover text-white" style="background-image: url({{Vite::asset('resources/images/bf/bg-black.webp')}});">
-            <div class="container flex flex-col lg:flex-row justify-between {{$sectionVerticalPadding}} pb-5">
+            <div class="container flex flex-col lg:flex-row justify-between {{$sectionVerticalPadding}}">
                 <div class="lg:w-6/12 md:text-center lg:text-start">
                     <div class="md:pr-10 lg:pr-4">
-                        <h1 class="font-bold text-5xl sm:text-7xl md:text-8xl lg:text-6xl xl:text-7xl sm:py-2">Black Friday Real Oficial</h1>
-                        <p class="text-xl sm:text-3xl sm:py-2" id="text">Promoção de verdade você só encontra na Passou Ganhou.</p>
+                        <h1 class="font-bold text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl sm:py-2">Promoção de verdade você só encontra na Passou Ganhou.</h1>
                     </div>
                     <div class="flex flex-col w-full sm:w-10/12 lg:w-full">
                         <a href="#promova" class="inline-flex my-2 border border-white py-1 pr-2 pl-1 gap-3 hover:gap-6 hover:bg-passou-cyan transition-all">
@@ -56,8 +55,8 @@
                      style="transform: rotate(-7.5deg);">
                 <div class="ml-[-60%]">
                     @for($i = 0; $i < 16; $i++)
-                    <span class="drop-shadow-xl font-bold text-passou-cyan">Black Friday</span>
-                    <span class="drop-shadow-xl">Real Oficial</span>
+                    <span class="drop-shadow-xl font-bold text-passou-cyan">Baixe o app</span>
+                    <span class="drop-shadow-xl">Baixe o app</span>
                     @endfor
                 </div>
             </marquee>
@@ -91,20 +90,24 @@
                     </div>
                 </div>
                 <div class="container md:h-[30rem] lg:h-[28rem] text-center sm:text-start text-black flex flex-col md:flex-row gap-4 py-4 md:py-8 justify-center items-center sm:justify-between">
-                    <div class="bg-white h-full p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-10/12 md:w-1/2 lg:w-5/12 justify-between">
+                    <div class="bg-white h-full sm:h-auto xl:h-full p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-10/12 md:w-1/2 lg:w-5/12 justify-between">
                         <h3 class="text-lg sm:text-3xl xl:text-4xl font-bold">Para o comerciante:</h3>
                         <p class="text-sm sm:text-xl xl:text-2xl">Anuncie seus produtos, alcance e fidelize novos clientes, com a Máquina de Anúncios Inteligentes (MAI-910).</p>
                         <x-btn-default href="https://api.whatsapp.com/send?phone=558000001678&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Maquininha%20de%20An%C3%BAncios%20Inteligentes%2C%20como%20fa%C3%A7o%20para%20come%C3%A7ar%20a%20usar%3F" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pb-5 sm:text-2xl text-sm font-segoe-ui rounded-none" :bg="true">
                             Peça a sua!
                         </x-btn-default>
                     </div>
-                    <div class="bg-white h-full p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-10/12 md:w-1/2 lg:w-5/12 justify-between">
-                        <img class="w-5/12 sm:w-6/12 lg:w-4/12 self-center" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="" loading="lazy">
+                    <div class="bg-white h-full sm:h-auto xl:h-full p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 w-9/12 sm:w-10/12 md:w-1/2 lg:w-5/12 justify-between text-center">
                         <h3 class="text-lg sm:text-3xl xl:text-4xl font-bold">Para o consumidor:</h3>
                         <p class="text-sm sm:text-xl xl:text-2xl">Compre com descontos exclusivos pelo App Passou Ganhou.</p>
-                        <x-btn-magenta href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pb-5 sm:text-2xl text-sm font-segoe-ui rounded-none" :bg="true">
-                            Baixe agora!
-                        </x-btn-magenta>
+                        <div class="flex flex-col gap-2 items-center justify-center w-full py-8">
+                            <a class="w-fit" href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank">
+                                <img class="w-70 sm:w-50 xl:w-60" src="{{Vite::asset('resources/images/bf/googleplay2.svg')}}" alt="" loading="lazy">
+                            </a>
+                            <a class="w-fit" href="https://apps.apple.com/br/app/passou-ganhou/id6472958736" target="_blank">
+                                <img class="w-70 sm:w-50 xl:w-60" src="{{Vite::asset('resources/images/bf/appstore.svg')}}" alt="" loading="lazy">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -121,7 +124,7 @@
                     <div class="w-full lg:w-10/12">
                         <h2 class="text-3xl sm:text-4xl xl:text-5xl xl:pt-3 font-bold"><span id="promova" class="overline decoration-passou-cyan decoration-8">Promo</span>(va)<br>sua empresa<br>Peça a sua MAI-910<br>e anuncie grátis!</h2>
                         <p class="text-base sm:text-xl xl:text-2xl py-4">
-                            Viva no clima de Black Friday o ano todo, com a Maquininha de Anúncios Inteligentes (MAI-910). Anuncie seus produtos e serviços gratuitamente no app Passou Ganhou Empresas, para potencializar seus lucros.
+                            Anuncie seus produtos e serviços gratuitamente no app Passou Ganhou Empresas, para potencializar seus lucros.
                         </p>
                     </div>
                     <div class="w-12/12 flex flex-col gap-6">
@@ -162,9 +165,6 @@
                     <div class="flex flex-col w-full md:w-6/12 h-100 justify-between">
                         <div class="text-white h-full flex flex-col justify-evenly py-8">
                             <h2 class="text-3xl md:text-4xl xl:text-5xl font-bold">Somos a real parceira de quem empreende!</h2>
-                            <p class="text-base md:text-xl xl:text-2xl py-4">
-                                Juntos, vamos fazer uma Black Friday diferente de tudo que você já vendeu antes.
-                            </p>
                         </div>
                         <div class="flex flex-col" id="partnershipSection" style="translate: none; rotate: none; scale: none; transform: translate(16px, -8px);">
                             <div class="bg-white inline-flex px-6 my-2 w-fit">
@@ -209,36 +209,33 @@
         </section>
         <section class="bg-white relative" id="exclusivePromotionsSection">
             <div class="flex flex-col sm:flex-row sm:max-h-[100vh] {{$sectionVerticalPadding}} container">
-                <div class="w-full sm:w-6/12 xl:w-7/12 flex flex-col">
-                    <h2 class="text-3xl sm:text-4xl xl:text-5xl w-full sm:w-10/12 font-bold"><span class="overline decoration-passou-magenta decoration-8" id="promocoes">Promo</span>ções exclusivas para você!</h2>
-                    <p class="text-xl xl:text-2xl py-4">
-                        Confira o app Passou Ganhou, seu app de descontos, e economize!
-                    </p>
-                    <p class="text-xl xl:text-2xl py-4">
-                        Com a Passou Ganhou <strong>é Black Friday o ano todo!</strong><br>Baixe o aplicativo e confira ofertas exclusivas.
-                    </p>
-                    <p class="text-xl xl:text-2xl py-4">
-                        Acumule pontos a cada compra e troque por descontos. Não é cashback. É promoção real oficial! A maior e melhor Black Friday de todos os tempos acontece aqui.
-                    </p>
-                    <img class="hidden sm:block w-36 xl:w-48 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" alt="" loading="lazy">
-                    <x-btn-magenta
-                        id="mockupDownloadAppBtn"
-                        href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer"
-                        class="hidden text-center max-w-[75%] sm:block normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pl-2 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
-                        Baixe o app agora!
-                    </x-btn-magenta>
+                <div class="w-full sm:w-6/12 xl:w-7/12 flex flex-col justify-around">
+
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl xl:text-5xl w-full sm:w-10/12 font-bold"><span class="overline decoration-passou-magenta decoration-8" id="promocoes">Promo</span>ções exclusivas para você!</h2>
+                        <p class="text-xl xl:text-2xl py-4">
+                            Confira o app Passou Ganhou, seu app de descontos, e economize!
+                        </p>
+                        <p class="text-xl xl:text-2xl py-4">
+                            Baixe o aplicativo e confira ofertas exclusivas.
+                        </p>
+                        <p class="text-xl xl:text-2xl py-4">
+                            Acumule pontos a cada compra e troque por descontos. Não é cashback. É promoção real oficial!
+                        </p>
+                    </div>
+
+                    <div class="flex flex-row gap-2 justify-around">
+                        <a class="w-fit" href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank">
+                            <img class="w-40 md:w-60 xl:w-10/12" src="{{Vite::asset('resources/images/bf/googleplay2.svg')}}" alt="" loading="lazy">
+                        </a>
+                        <a class="w-fit" href="https://apps.apple.com/br/app/passou-ganhou/id6472958736" target="_blank">
+                            <img class="w-40 md:w-60 xl:w-10/12" src="{{Vite::asset('resources/images/bf/appstore.svg')}}" alt="" loading="lazy">
+                        </a>
+                    </div>
+
                 </div>
                 <div class="w-full sm:w-6/12">
                     <img src="{{Vite::asset('resources/images/bf/Mockup_Iphone_app.webp')}}" class="max-h-[60vh] sm:max-h-[90vh]" id="mockupIphoneApp" alt=""  style="translate: none; rotate: none; scale: none; transform: translate(0px, 50%);">
-                </div>
-                <div class="w-full sm:hidden flex flex-col">
-                    <x-btn-magenta id="mockupDownloadAppBtn" href="https://play.google.com/store/apps/details?id=passou.ganhou.personal" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none" :bg="true">
-                        <div class="inline-flex justify-between gap-8">
-                            <svg class="h-10 self-center" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg>
-                            <span class="self-center">Baixe o app agora!</span>
-                        </div>
-                    </x-btn-magenta>
-                    <img class="w-36 self-start mt-8 mb-12" src="{{Vite::asset('resources/images/bf/googleplay.svg')}}" loading="lazy" alt="">
                 </div>
             </div>
         </section>
@@ -438,11 +435,11 @@
 
         </script>
         <script>
-            window.addEventListener('load', function () {
+            /*window.addEventListener('load', function () {
                 //const texts  = ["Promoção de verdade você só encontra na Passou Ganhou.", "Aqui é Black Friday o ano todo!", "Só aqui você encontra descontos reais e ofertas exclusivas."];
                 //typeWritterEffectMultiple(texts, 'text');
                 typeWritterEffect("Promoção de verdade você só encontra na Passou Ganhou.", 'text')
-            })
+            })*/
             function typeWritterEffect(text, element) {
                 let index = 0;
                 const typingEffect = setInterval(() => {
