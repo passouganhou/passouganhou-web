@@ -2,7 +2,7 @@
     <x-slot name="title">Home</x-slot>
     <x-slot name="main">
         @php($sectionVerticalPadding = 'pt-24 pb-8')
-        <section class="overflow-hidden pt-8 sm:pt-16 pb-4 sm:pb-12 lg:py-48 xl:py-64 2xl:py-40 bg-fixed bg-black bg-center bg-no-repeat bg-cover text-white" style="background-image: url({{Vite::asset('resources/images/bf/bg-black.webp')}});">
+        <section class="overflow-hidden pt-8 sm:pt-16 pb-4 sm:pb-12 lg:py-48 xl:py-64 2xl:py-40 bg-fixed bg-black bg-center bg-no-repeat bg-cover text-white">
             <div class="container flex flex-col lg:flex-row justify-between {{$sectionVerticalPadding}}">
                 <div class="lg:w-6/12 md:text-center lg:text-start">
                     <div class="md:pr-10 lg:pr-4">
