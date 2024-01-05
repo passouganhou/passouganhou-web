@@ -7,3 +7,4 @@
 
     gtag('config', '{{$id}}');
 </script>
+<script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/a3fe278f-e7c0-4201-9ac2-7b7334f5e4ca-loader.js" ></script>

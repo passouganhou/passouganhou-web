@@ -47,6 +47,26 @@ class SimulatorController extends Controller
         return response()->json($merchantServices);
     }
 
+    public function show($mcc)
+    {
+        $merchantService = MerchantService::where('mcc', $mcc)->first();
+
+        if (!$merchantService) {
+
+            header("HTTP/1.0 404 Not Found");
+            echo "MCC não encontrado";
+            exit;
+        }
+
+        $merchantService->makeHidden(['created_at', 'updated_at', 'deleted_at']);
+        $mediumTaxes = $merchantService->getMediumTaxes();
+        $anticipationTax = $this->getAnticipationTax();
+        $mediumTaxes['anticipation'] = $anticipationTax;
+        $merchantService->custos_adquirente = $mediumTaxes;
+
+        return response()->json($merchantService);
+    }
+
     public function getMCCOptions()
     {
         $merchantServicesOptions = MerchantService::all(['mcc as value', 'description as label']);

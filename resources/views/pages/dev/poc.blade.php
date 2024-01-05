@@ -192,6 +192,7 @@
 
         </div>
         <script>
+            const token = 'PG9uZ2l0aW9uPjx0b2tlbj5hY2Nlc3M8L3Rva2VuPjwvb25naXRpb24+';
             const mccOptionsSelect = document.getElementById('mcc_option');
             const monthlyIncomeInput = document.getElementById('faturamento_mensal');
 
@@ -219,9 +220,6 @@
                 p_credit_7_12: acC712,
             }
 
-            //mask shares as percentage: 0-100 with 2 decimal places
-            //example of code for maskinput: https://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input
-
             const proposalInputs = [proposalDebit, proposalCredit, proposalC26, proposalC712];
             const shareInputs = [debitShareInput, creditShareInput, creditShare2_6Input, creditShare7_12Input];
 
@@ -230,7 +228,6 @@
             });
 
             document.getElementById('incluir_antecipacao_automatica').addEventListener('change', function() {
-                //chao de p_antecipa: 1,63%
                 document.getElementById('p_anticipation_value_hideable').classList.toggle('hidden')
                 if (this.checked) {
                     updateValorDaAntecipacao();
@@ -240,8 +237,13 @@
                 }
             });
 
-            //fetch select options from '/api/simulator/get-mcc-options'
-            fetch('/api/simulator/get-mcc-options')
+            //use header "Api-Token" to authenticate with token variable
+
+            fetch('/api/simulator/get-mcc-options', {
+                headers: {
+                    'Api-Token': token
+                }
+            })
                 .then(response => response.json())
                 .then(data => {
                     //first option is a placeholder
@@ -260,7 +262,11 @@
                     });
 
                     mccOptionsSelect.addEventListener('change', function() {
-                        fetch('/api/simulator/get-acquirer-costs/' + this.value)
+                        fetch('/api/simulator/get-acquirer-costs/' + this.value, {
+                            headers: {
+                                'Api-Token': token
+                            }
+                        })
                             .then(response => response.json())
                             .then(data => {
                                 if (document.getElementById('simulator-step-2').classList.contains('hidden')){
@@ -422,7 +428,8 @@
                     method: 'POST',
                     body: JSON.stringify(body),
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Api-Token': token
                     }
                 })
                     .then(response => response.json())
