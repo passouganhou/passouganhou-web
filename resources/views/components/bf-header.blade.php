@@ -2,10 +2,11 @@
     'whatsapp' => null
 ])
 
-<div>
+<div x-data="{ openMenu: false, floatingMenu: false }"
+     x-on:scroll.window.throttle.50ms="handleScroll">
 
     <header x-ref="header-menu"
-        class="top-0 left-0 right-0 z-40 transition-all duration-300 py-4 absolute"
+            class="top-0 left-0 right-0 z-40 transition-all duration-300 fixed bg-black py-2"
         x-bind:class="floatingMenu ? 'shadow-md' : 'relative'">
         <nav class="container mx-auto hidden xl:block py-2">
             <div class="flex justify-between items-center">
@@ -19,14 +20,22 @@
                     <x-nav-link href="{{ route('home') }}" color="text-white">Home</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#atendimento" color="text-white" class="page-scroller">Atendimento</x-nav-link>
                     {{-- <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
-                    <x-nav-link href="https://ebwbank.com.br/portal-do-empreendedor" color="text-white" target="_blank" rel="noopener noreferrer">Portal do Empreendedor</x-nav-link>
+                    <x-nav-link href="https://ebwbank.com.br/portal-do-empreendedor" color="text-white" target="_blank" rel="noopener noreferrer">Blog</x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}" color="text-white">FAQ</x-nav-link>
+                    <x-nav-link href="{{ route('noticias-em-destaque') }}" color="text-white">Notícias em Destaque</x-nav-link>
                 </ul>
 
-                <a class="flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-passou-cyan hover:bg-white hover:text-passou-magenta px-8 font-bold font-segoe-ui" href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer">
-                    <span class="mr-2">Peça Agora</span>
-                    <x-icons name="arrow-right" class="fill-passou-cyan group-hover:fill-passou-magenta transition-all duration-200" />
-                </a>
+                <div class="flex gap-1">
+                    <a class="flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-passou-cyan hover:bg-white hover:text-passou-magenta px-8 font-bold font-segoe-ui" href="https://portal.passouganhou.com.br/login" target="_blank" rel="noopener noreferrer">
+                        <span class="mr-2">Área do empreendedor</span>
+                    </a>
+
+                    <a class="hover:scale-105 flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-white bg-passou-cyan hover:bg-passou-magenta hover:text-white px-8 font-bold font-segoe-ui" href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer">
+                        <span class="mr-2">Peça Agora</span>
+                        <x-icons name="arrow-right" class="fill-white group-hover:fill-passou-cyan transition-all duration-200" />
+                    </a>
+                </div>
+
             </div>
         </nav>
 
@@ -43,13 +52,22 @@
                     <x-nav-link type="item-mobile" href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
                     {{-- <x-nav-link type="item-mobile" href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
-                    <x-nav-link type="item-mobile" href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Portal do Empreendedor
+                    <x-nav-link type="item-mobile" href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Blog
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('faq.index') }}">FAQ
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
+                    <x-nav-link type="item-mobile" href="{{ route('noticias-em-destaque') }}">Notícias em Destaque
+                        <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
+                    </x-nav-link>
+
                 </ul>
+
+                <a class="flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-passou-cyan hover:bg-white hover:text-passou-magenta px-8 font-bold font-segoe-ui" href="https://portal.passouganhou.com.br/login" target="_blank" rel="noopener noreferrer">
+                    <span class="mr-2">Área do empreendedor</span>
+                </a>
+
                 <x-btn-default href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" class="px-8 font-bold font-segoe-ui mt-1">Peça Agora</x-btn-default>
             </div>
         </nav>
@@ -60,10 +78,10 @@
                     class="w-28">
             </a>
             <button type="button" aria-label="Open Menu"
-                class="z-50 flex justify-center items-center border-2 border-black rounded-lg w-10 h-10 overflow-hidden"
+                class="z-50 flex justify-center items-center border-2 border-white rounded-lg w-10 h-10 overflow-hidden"
                 x-on:click="openMenu = !openMenu">
                 <span x-show="!openMenu" x-cloak x-transition>
-                    <x-icons name="bars" class="fill-black" width="24" height="24" />
+                    <x-icons name="bars" class="fill-white" width="24" height="24" />
                 </span>
                 <span x-show="openMenu" x-cloak x-transition>
                     <x-icons name="times"  class="fill-white" width="24" height="24" />

@@ -35,6 +35,8 @@ Route::get('/', function (GeneralSettings $settings) {
     return view('pages.home-bf', compact('settings'));
 })->name('home');
 
+Route::get('blog/noticias', [\App\Http\Controllers\SocialMedia\ArticleController::class, 'feed'])->name('noticias-em-destaque');
+
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('peca-a-sua', function (GeneralSettings $settings) {

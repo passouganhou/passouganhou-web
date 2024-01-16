@@ -235,26 +235,13 @@
 
                 </div>
                 <div class="w-full sm:w-6/12">
-                    <img src="{{Vite::asset('resources/images/bf/Mockup_Iphone_app.webp')}}" class="max-h-[60vh] sm:max-h-[90vh]" id="mockupIphoneApp" alt=""  style="translate: none; rotate: none; scale: none; transform: translate(0px, 50%);">
+                    <img src="{{Vite::asset('resources/images/bf/Mockup_Iphone_app.webp')}}" class="max-h-[60vh] sm:max-h-[90vh]" id="mockupIphoneApp" alt="" >
                 </div>
             </div>
         </section>
         <section class="relative bg-gray-200 {{$sectionVerticalPadding}} sm:px-0 px-6">
             <div class="flex flex-col sm:flex-row container sm:justify-between sm:gap-0 gap-4">
-                <div class="flex flex-col w-full sm:w-5/12">
-                    <img src="{{Vite::asset('resources/images/bf/img-ebw-call.webp')}}" loading="lazy" alt="">
-                </div>
-                <div class="flex flex-col w-full sm:w-6/12 text-center sm:text-start sm:justify-evenly">
-                    <div>
-                        <h2 class="text-3xl sm:text-4xl w-full sm:w-10/12 font-bold">Passou Ganhou é uma solução EBW Bank,</h2>
-                        <p class="text-2xl sm:text-4xl w-full sm:w-10/12 py-4">
-                            por isso, somos assim, diferentes.
-                        </p>
-                    </div>
-                    <x-btn-default href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer" class="normal-case whitespace-nowrap sm:pl-10 pl-5 sm:pr-8 pr-4 font-medium pt-4 pb-5 sm:text-2xl text-lg font-segoe-ui mb-4 rounded-none bg-red-600 hover:bg-red-700" :bg="true">
-                        Conheça a EBW Bank
-                    </x-btn-default>
-                </div>
+                <x-home.noticias-carousel />
             </div>
         </section>
         <section class="relative bg-black bg-fixed bg-cover text-white text-center flex flex-col pt-12 pb-8" id="contactSection" style="background-image: url('{{Vite::asset('resources/images/bf/Lines_Faixa8.svg')}}')">
@@ -289,6 +276,7 @@
                 <a href="mailto:cac@passouganhou.com.br" class="bg-black border border-white px-8 py-4" id="contactCac">cac@passouganhou.com.br</a>
             </div>
         </section>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -307,29 +295,6 @@
         <script>
             const isMobile = window.innerWidth < 768;
             gsap.registerPlugin(ScrollTrigger)
-            const mockTrigger = ScrollTrigger.create({
-                trigger: "#mockupDownloadAppBtn",
-                start: "top 90%",
-                end: "bottom 30%",
-                toggleActions: "play none none none",
-                onEnter: () => {
-                    gsap.to("#mockupIphoneApp", {
-                        y: 0,
-                        scrollTrigger: {
-                            trigger: "#mockupIphoneApp",
-                        },
-                    });
-                },
-                onLeaveBack: () => {
-                    gsap.to("#mockupIphoneApp", {
-                        //duration: 3 seconds,
-                        y: 100,
-                        scrollTrigger: {
-                            trigger: "#mockupIphoneApp",
-                        },
-                    });
-                },
-            });
 
             gsap.to("#contactsWrapper", {
                 y: "-50",
