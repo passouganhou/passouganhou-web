@@ -11,10 +11,15 @@ class NoticiasCarousel extends Component
 {
     public function render(): View
     {
-        $noticias = Article::all();
+        //\Cache::forget('noticias_carousel');
+        $noticias = \Cache::remember('noticias_carousel', now()->addMinutes(8), function (){
+            return Article::all();
+        });
+
         $noticias->map(function ($noticia) {
             $noticia->setCover();
         });
+
         $noticias = $noticias->shuffle();
         return view('components.home.noticias-carousel', compact('noticias'));
     }
