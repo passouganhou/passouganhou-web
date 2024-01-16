@@ -240,7 +240,11 @@
             </div>
         </section>
         <section class="relative bg-gray-200 {{$sectionVerticalPadding}} sm:px-0 px-6">
-            <div class="flex flex-col sm:flex-row container sm:justify-between sm:gap-0 gap-4">
+            <div class="flex flex-col container gap-4">
+                <h2 class="text-3xl sm:text-4xl xl:text-5xl font-bold text-center">Notícias em destaque</h2>
+                <p class="text-center">
+                    Fique por dentro de todas as notícias que estão na mídia sobre a Passou Ganhou.
+                </p>
                 <x-home.noticias-carousel />
             </div>
         </section>
