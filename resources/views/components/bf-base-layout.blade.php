@@ -41,6 +41,10 @@
         </style>
     </head>
     <body class="antialiased" id="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7CQCG2"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
        <x-bf-header :whatsapp="$settings->whatsapp" />
         <main>
