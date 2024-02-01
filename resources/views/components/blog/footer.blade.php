@@ -1,8 +1,8 @@
 <footer class="bg-white py-16 relative">
 
     <a
-    href="#body"
-    class="page-scroller absolute sm:bottom-20 bottom-40 sm:right-12 right-4 w-12 h-12 border border-black rounded-full flex justify-center items-center bg-black bg-opacity-0 hover:bg-opacity-25 transition-all">
+        href="#body"
+        class="page-scroller absolute sm:bottom-20 bottom-40 sm:right-12 right-4 w-12 h-12 border border-black rounded-full flex justify-center items-center bg-black bg-opacity-0 hover:bg-opacity-25 transition-all">
         <x-icons name="chevron-up" class="fill-black absolute mb-3" width="20" height="20" />
         <x-icons name="chevron-up" class="fill-black absolute -mb-3" width="20" height="20"  />
     </a>
@@ -29,30 +29,6 @@
                 </div>
 
             </div>
-
-                <div class="lg:w-3/12 w-full flex flex-col lg:items-end items-start">
-                    <h3 class="font-bold text-lg text-black mb-3">Siga a Passou Ganhou</h3>
-
-                    <div class="flex items-center justify-center">
-                        <a href="https://www.facebook.com/passouganhou/" class="mx-3" target="_blank" rel="noopener noreferrer">
-                            <x-icons name="facebook" class="fill-black" width="24" height="24" />
-                        </a>
-                        <a href="https://instagram.com/passouganhou?igshid=YmMyMTA2M2Y=" class="mx-3" target="_blank" rel="noopener noreferrer">
-                            <x-icons name="instagram" class="fill-black" width="24" height="24" />
-                        </a>
-                        {{-- <a href="https://twitter.com/ebwbank " class="mx-3" target="_blank" rel="noopener noreferrer">
-                            <x-icons name="twitter" class="fill-black" width="24" height="24" />
-                        </a> --}}
-                        {{-- <a href="https://youtube.com/channel/UCYIV1S3aPZ0OZ2WL_MTg3yg " class="mx-3" target="_blank" rel="noopener noreferrer">
-                            <x-icons name="youtube" class="fill-black" width="24" height="24" />
-                        </a> --}}
-                        {{-- <a href="https://twitter.com/ebwbank" class="mx-3" target="_blank" rel="noopener noreferrer">
-                            <div class="w-[22px] h-[22px] bg-black rounded-sm flex justify-center items-center">
-                                <x-icons name="tiktok" class="fill-passou-magenta-800" />
-                            </div>
-                        </a> --}}
-                    </div>
-                </div>
 
         </div>
         <div class="flex flex-wrap justify-center u-bg-folk-white pb-6 pt-10">

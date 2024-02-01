@@ -20,7 +20,7 @@
                     <x-nav-link href="{{ route('home') }}" color="text-white">Home</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#atendimento" color="text-white" class="page-scroller">Atendimento</x-nav-link>
                     {{-- <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
-                    <x-nav-link href="https://ebwbank.com.br/portal-do-empreendedor" color="text-white" target="_blank" rel="noopener noreferrer">Blog</x-nav-link>
+                    <x-nav-link href="{{route('publicacao-aqui')}}" color="text-white" target="_blank" rel="noopener noreferrer">Blog</x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}" color="text-white">FAQ</x-nav-link>
                     <x-nav-link href="{{ route('noticias-em-destaque') }}" color="text-white">Notícias em Destaque</x-nav-link>
                 </ul>
