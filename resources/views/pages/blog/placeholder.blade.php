@@ -1,7 +1,7 @@
 <x-blog.base-layout :metadata="$metadata">
     <x-slot name="title">{{$metadata->title}}</x-slot>
     <x-slot name="main">
-        <article class="container article py-1">
+        <article class="container article py-8">
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="w-full md:w-8/12 lg:w-7/12">
                     <header>
@@ -9,22 +9,32 @@
                         <h1>Carnaval empreendedor: estratégias de como aumentar as vendas</h1>
                         <p class="text-sm text-gray-500">Postado em 31 de janeiro de 2023</p>
                     </header>
-
                     <section class="flex flex-col gap-4">
                         <div class="w-full">
-                            <img src="https://img.freepik.com/fotos-gratis/pessoas-sorridentes-de-tiro-medio-dancando-ao-ar-livre_52683-93719.jpg?w=996&t=st=1706685390~exp=1706685990~hmac=68e6857c3a6eef264357b6426078708f9537e1647266bc8c0d098bf3616a0772" alt="">
+                            <figure>
+                                <img class="h-auto max-w-full rounded-md" src="{{Vite::asset('resources/images/posts/1/pessoas-sorridentes-de-tiro-medio-dancando-ao-ar-livre.webp')}}" alt="pessoas-alegres-no-carnaval">
+                                <figcaption class="py-1 text-xs text-center bg-gray-50 text-gray-500 dark:text-gray-400">
+                                    <a href="https://br.freepik.com/fotos-gratis/pessoas-sorridentes-de-tiro-medio-dancando-ao-ar-livre_31280836.htm#page=5&query=pessoas%20no%20carnaval&position=5&from_view=search&track=ais&uuid=dd011183-f977-4a9d-8ff1-22d4eb3b9b61">Imagem de pikisuperstar</a> no Freepik
+                                </figcaption>
+                            </figure>
                         </div>
-                        <p class="w-full">
-                            O Carnaval é considerado a maior festa popular brasileira, regado a uma explosão de cores, ritmos e celebrações que contagia multidões em várias cidades do país. E, para os empreendedores, é também uma excelente oportunidade para impulsionar as vendas e alavancar os resultados significativos.
-                            Por isso, vamos explorar estratégias eficazes e práticas de como aumentar as vendas durante o Carnaval, garantindo que o seu negócio não fique de fora da festa, mas também que tenha resultados significativos.
-                        </p>
+                        <div>
+                            <p>
+                                O Carnaval é considerado a maior festa popular brasileira, regado a uma explosão de cores, ritmos e celebrações que contagia multidões em várias cidades do país. E, para os empreendedores, é também uma excelente oportunidade para impulsionar as vendas e alavancar os resultados significativos.
+                            </p>
+                            <p>
+                                Por isso, vamos explorar estratégias eficazes e práticas de como aumentar as vendas durante o Carnaval, garantindo que o seu negócio não fique de fora da festa, mas também que tenha resultados significativos.
+                            </p>
+                        </div>
+
                     </section>
 
                     <section class="">
                         <h2>1. Use elementos visuais carnavalescos</h2>
                         <p>
                             Uma das estratégias para se destacar é usar elementos visuais na sua loja. Seja ela física ou virtual, você pode usar itens carnavalescos ao seu favor, integrando cores vibrantes em sua identidade visual ou, até mesmo, decorando seu espaço físico com serpentinas e confetes.
-
+                        </p>
+                        <p>
                             Dessa forma, você criará uma experiência de compra mais envolvente através de uma atmosfera alegre e festiva, atraindo a atenção do cliente para seu estabelecimento.
                         </p>
                         <h2>2. Desfile nas redes sociais</h2>

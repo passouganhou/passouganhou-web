@@ -48,20 +48,20 @@
 
         h2 {
             font-size: 1.5rem;
-            line-height: 2rem;
+            line-height: 1.75rem;
             font-weight: 600;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
         }
 
         h3 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
             line-height: 1.5;
         }
 
         h4 {
-            font-size: 1rem;
+            font-size: 1.25rem;
             font-weight: 600;
             line-height: 1.25;
         }
@@ -80,10 +80,11 @@
             border-style: solid;
             border-color: #e5e7eb;
             font-size: 0.875rem;
-            line-height: 1.35rem;
+            line-height: 1.15rem;
             color: rgb(31 41 55 / var(--tw-text-opacity));
             padding: 0.5rem 0 0.5rem 0;
         }
+
 
         /* Span */
 
@@ -99,6 +100,18 @@
             font-size: 0.75rem;
             font-weight: 400;
             line-height: 1.5;
+        }
+
+        a {
+            color: #00ab97;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1.5px;
+            font-weight: 500;
+        }
+
+        a:hover{
+            color: #007d6c;
         }
 
     </style>
