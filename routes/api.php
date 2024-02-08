@@ -28,6 +28,10 @@ Route::group(
     }
 );
 
+Route::prefix('/rd-webhook')->group(function () {
+    Route::post('/oportunities', [\App\Http\Controllers\Api\RDWebhookController::class, 'listenOportunities'])->name('rd-webhook.oportunities');
+    Route::get('/oportunities', [\App\Http\Controllers\Api\RDWebhookController::class, 'getOportunities'])->name('rd-webhook.getOportunities');
+});
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
