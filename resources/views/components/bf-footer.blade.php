@@ -17,6 +17,9 @@
                 <div class="pt-1">
                     <a class="font-segoe-ui text-lg hover:underline font-bold text-black" href="{{ route('termos-e-condicoes-de-uso') }}">Termos e Condições de Uso</a>
                 </div>
+                <div class="pt-1">
+                    <a class="font-segoe-ui text-lg hover:underline font-bold text-black" href="{{ route('canal-de-transparencia') }}">Canal de Transparência</a>
+                </div>
             </div>
             <div class="lg:w-6/12 md:w-1/2 w-full  lg:mb-0 mb-8">
                 <div class="flex md:justify-center justify-start sm:flex-row flex-col">

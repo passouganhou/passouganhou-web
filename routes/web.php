@@ -50,6 +50,10 @@ Route::get('peca-a-sua', function (GeneralSettings $settings) {
     return view('pages.peca-maquininha', compact('settings'));
 })->name('peca-maquininha.index');
 
+Route::get('canaldetransparencia', function () {
+    return view('pages.canal-de-transparencia');
+})->name('canal-de-transparencia');
+
 Route::get('dev/poc', function () {
    return view('pages.dev.poc');
 });
