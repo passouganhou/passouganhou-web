@@ -26,9 +26,6 @@
                 </ul>
 
                 <div class="flex gap-1">
-                    <a class="flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-passou-cyan hover:bg-white hover:text-passou-magenta px-8 font-bold font-segoe-ui" href="https://portal.passouganhou.com.br/login" target="_blank" rel="noopener noreferrer">
-                        <span class="mr-2">Área do empreendedor</span>
-                    </a>
 
                     <a class="hover:scale-105 flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-white bg-passou-cyan hover:bg-passou-magenta hover:text-white px-8 font-bold font-segoe-ui" href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer">
                         <span class="mr-2">Peça Agora</span>
