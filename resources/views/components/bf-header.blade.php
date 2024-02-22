@@ -61,9 +61,6 @@
 
                 </ul>
 
-                <a class="flex items-center justify-center rounded-full py-3 uppercase transition-all duration-200 group cursor-pointer text-passou-cyan hover:bg-white hover:text-passou-magenta px-8 font-bold font-segoe-ui" href="https://portal.passouganhou.com.br/login" target="_blank" rel="noopener noreferrer">
-                    <span class="mr-2">Área do empreendedor</span>
-                </a>
 
                 <x-btn-default href="{{ $whatsapp  }}" target="_blank" rel="noopener noreferrer" :chevronRight="true" class="px-8 font-bold font-segoe-ui mt-1">Peça Agora</x-btn-default>
             </div>
