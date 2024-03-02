@@ -30,7 +30,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/css/blog.css'])
     @livewireStyles
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 
@@ -40,79 +40,8 @@
         }
     </style>
     <style>
-        h1 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            line-height: 2.25rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            line-height: 1.75rem;
-            font-weight: 600;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.5;
-        }
-
-        h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            line-height: 1.25;
-        }
-
-        h5 {
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1;
-        }
-
-        /* P */
-
-        p{
-            box-sizing: border-box;
-            border-width: 0;
-            border-style: solid;
-            border-color: #e5e7eb;
-            font-size: 0.875rem;
-            line-height: 1.15rem;
-            color: rgb(31 41 55 / var(--tw-text-opacity));
-            padding: 0.5rem 0 0.5rem 0;
-        }
 
 
-        /* Span */
-
-        span {
-            font-size: inherit;
-            font-weight: inherit;
-            line-height: inherit;
-        }
-
-        /* Small */
-
-        small {
-            font-size: 0.75rem;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        a {
-            color: #00ab97;
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            text-decoration-thickness: 1.5px;
-            font-weight: 500;
-        }
-
-        a:hover{
-            color: #007d6c;
-        }
 
     </style>
 </head>

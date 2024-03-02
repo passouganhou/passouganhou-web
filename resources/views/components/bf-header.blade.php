@@ -20,7 +20,7 @@
                     <x-nav-link href="{{ route('home') }}" color="text-white">Home</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#atendimento" color="text-white" class="page-scroller">Atendimento</x-nav-link>
                     {{-- <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
-                    <x-nav-link href="{{route('publicacao-aqui')}}" color="text-white" target="_blank" rel="noopener noreferrer">Blog</x-nav-link>
+                    <x-nav-link href="{{route('blog.index')}}" color="text-white" target="_blank" rel="noopener noreferrer">Blog</x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}" color="text-white">FAQ</x-nav-link>
                     <x-nav-link href="{{ route('noticias-em-destaque') }}" color="text-white">Notícias em Destaque</x-nav-link>
                 </ul>
@@ -49,7 +49,7 @@
                     <x-nav-link type="item-mobile" href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('home') }}#atendimento" class="page-scroller">Atendimento</x-nav-link>
                     {{-- <x-nav-link type="item-mobile" href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
-                    <x-nav-link type="item-mobile" href="https://ebwbank.com.br/portal-do-empreendedor" target="_blank" rel="noopener noreferrer">Blog
+                    <x-nav-link type="item-mobile" href="{{route('blog.index')}}" target="_blank" rel="noopener noreferrer">Blog
                         <x-icons name="chevron-right" class="fill-white inline mb-1" width="14" height="14" />
                     </x-nav-link>
                     <x-nav-link type="item-mobile" href="{{ route('faq.index') }}">FAQ

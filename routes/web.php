@@ -35,15 +35,6 @@ Route::get('/', function (GeneralSettings $settings) {
     return view('pages.home-bf', compact('settings'));
 })->name('home');
 
-Route::get('blog/noticias', [\App\Http\Controllers\SocialMedia\ArticleController::class, 'feed'])->name('noticias-em-destaque');
-Route::get('blog/carnaval-empreendedor-estrategias-aumentar-vendas', function (){
-    $metadata = new stdClass();
-    $metadata->title = 'Carnaval empreendedor: estratégias de como aumentar as vendas';
-    $metadata->description = 'Descubra estratégias eficazes para impulsionar suas vendas durante o Carnaval. Aproveite as dicas para garantir resultados significativos e se destaque durante a folia.';
-    $metadata->keywords = 'carnaval; empreendedorismo; estratégias para aumentar vendas; passou ganhou; CND-RS';
-    return view('pages.blog.placeholder', compact('metadata'));
-})->name('publicacao-aqui');
-
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('peca-a-sua', function (GeneralSettings $settings) {
@@ -72,3 +63,6 @@ Route::get('politica-de-privacidade', function () {
 Route::middleware('auth')->group(function () {
     Route::post('export-contacts', [ExportController::class, 'export'])->name('export.contacts');
 });
+
+//include blog routes
+require __DIR__.'/blog.php';

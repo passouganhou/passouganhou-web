@@ -7,7 +7,7 @@
                     <header>
                         <span class="text-sm text-passou-cyan py-1 font-semibold">Negócios e Empreendedorismo</span>
                         <h1>Carnaval empreendedor: estratégias de como aumentar as vendas</h1>
-                        <p class="text-sm text-gray-500">Postado em 31 de janeiro de 2023</p>
+                        <p class="text-sm text-gray-500">Postado em 31 de janeiro de 2024</p>
                     </header>
                     <section class="flex flex-col gap-4">
                         <div class="w-full">
