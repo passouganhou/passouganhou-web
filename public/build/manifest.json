@@ -11,13 +11,13 @@
     "file": "assets/Montserrat-Black.81b55155.ttf",
     "src": "resources/fonts/Montserrat-Black.ttf"
   },
-  "resources/fonts/Montserrat-BlackItalic.woff": {
-    "file": "assets/Montserrat-BlackItalic.932262e3.woff",
-    "src": "resources/fonts/Montserrat-BlackItalic.woff"
-  },
   "resources/fonts/Montserrat-Black.woff2": {
     "file": "assets/Montserrat-Black.8fc754d0.woff2",
     "src": "resources/fonts/Montserrat-Black.woff2"
+  },
+  "resources/fonts/Montserrat-BlackItalic.woff": {
+    "file": "assets/Montserrat-BlackItalic.932262e3.woff",
+    "src": "resources/fonts/Montserrat-BlackItalic.woff"
   },
   "resources/fonts/Montserrat-BlackItalic.ttf": {
     "file": "assets/Montserrat-BlackItalic.ca954c8e.ttf",
@@ -43,13 +43,13 @@
     "file": "assets/Montserrat-BoldItalic.16bc0133.ttf",
     "src": "resources/fonts/Montserrat-BoldItalic.ttf"
   },
-  "resources/fonts/Montserrat-BoldItalic.woff": {
-    "file": "assets/Montserrat-BoldItalic.748dafe3.woff",
-    "src": "resources/fonts/Montserrat-BoldItalic.woff"
-  },
   "resources/fonts/Montserrat-BoldItalic.woff2": {
     "file": "assets/Montserrat-BoldItalic.99af417e.woff2",
     "src": "resources/fonts/Montserrat-BoldItalic.woff2"
+  },
+  "resources/fonts/Montserrat-BoldItalic.woff": {
+    "file": "assets/Montserrat-BoldItalic.748dafe3.woff",
+    "src": "resources/fonts/Montserrat-BoldItalic.woff"
   },
   "resources/fonts/Montserrat-ExtraBold.ttf": {
     "file": "assets/Montserrat-ExtraBold.d32934f8.ttf",
@@ -71,41 +71,37 @@
     "file": "assets/Montserrat-ExtraBoldItalic.f915f7d8.woff",
     "src": "resources/fonts/Montserrat-ExtraBoldItalic.woff"
   },
-  "resources/fonts/Montserrat-ExtraLight.woff": {
-    "file": "assets/Montserrat-ExtraLight.252f9285.woff",
-    "src": "resources/fonts/Montserrat-ExtraLight.woff"
-  },
   "resources/fonts/Montserrat-ExtraBoldItalic.woff2": {
     "file": "assets/Montserrat-ExtraBoldItalic.3cd92357.woff2",
     "src": "resources/fonts/Montserrat-ExtraBoldItalic.woff2"
-  },
-  "resources/fonts/Montserrat-ExtraLight.woff2": {
-    "file": "assets/Montserrat-ExtraLight.2fdcbc9f.woff2",
-    "src": "resources/fonts/Montserrat-ExtraLight.woff2"
-  },
-  "resources/fonts/Montserrat-ExtraLightItalic.woff": {
-    "file": "assets/Montserrat-ExtraLightItalic.84513c55.woff",
-    "src": "resources/fonts/Montserrat-ExtraLightItalic.woff"
   },
   "resources/fonts/Montserrat-ExtraLight.ttf": {
     "file": "assets/Montserrat-ExtraLight.bd28d1b7.ttf",
     "src": "resources/fonts/Montserrat-ExtraLight.ttf"
   },
-  "resources/fonts/Montserrat-ExtraLightItalic.woff2": {
-    "file": "assets/Montserrat-ExtraLightItalic.8c83b034.woff2",
-    "src": "resources/fonts/Montserrat-ExtraLightItalic.woff2"
+  "resources/fonts/Montserrat-ExtraLight.woff": {
+    "file": "assets/Montserrat-ExtraLight.252f9285.woff",
+    "src": "resources/fonts/Montserrat-ExtraLight.woff"
+  },
+  "resources/fonts/Montserrat-ExtraLight.woff2": {
+    "file": "assets/Montserrat-ExtraLight.2fdcbc9f.woff2",
+    "src": "resources/fonts/Montserrat-ExtraLight.woff2"
   },
   "resources/fonts/Montserrat-ExtraLightItalic.ttf": {
     "file": "assets/Montserrat-ExtraLightItalic.04a8e46e.ttf",
     "src": "resources/fonts/Montserrat-ExtraLightItalic.ttf"
   },
-  "resources/fonts/Montserrat-Italic.woff2": {
-    "file": "assets/Montserrat-Italic.153a45f2.woff2",
-    "src": "resources/fonts/Montserrat-Italic.woff2"
+  "resources/fonts/Montserrat-ExtraLightItalic.woff": {
+    "file": "assets/Montserrat-ExtraLightItalic.84513c55.woff",
+    "src": "resources/fonts/Montserrat-ExtraLightItalic.woff"
   },
-  "resources/fonts/Montserrat-Light.woff": {
-    "file": "assets/Montserrat-Light.86b67c91.woff",
-    "src": "resources/fonts/Montserrat-Light.woff"
+  "resources/fonts/Montserrat-ExtraLightItalic.woff2": {
+    "file": "assets/Montserrat-ExtraLightItalic.8c83b034.woff2",
+    "src": "resources/fonts/Montserrat-ExtraLightItalic.woff2"
+  },
+  "resources/fonts/Montserrat-Italic-VariableFont_wght.ttf": {
+    "file": "assets/Montserrat-Italic-VariableFont_wght.0a855909.ttf",
+    "src": "resources/fonts/Montserrat-Italic-VariableFont_wght.ttf"
   },
   "resources/fonts/Montserrat-Italic.ttf": {
     "file": "assets/Montserrat-Italic.98ebbaf5.ttf",
@@ -115,53 +111,61 @@
     "file": "assets/Montserrat-Italic.c3fea7c1.woff",
     "src": "resources/fonts/Montserrat-Italic.woff"
   },
-  "resources/fonts/Montserrat-Light.woff2": {
-    "file": "assets/Montserrat-Light.636ecb57.woff2",
-    "src": "resources/fonts/Montserrat-Light.woff2"
-  },
-  "resources/fonts/Montserrat-LightItalic.woff2": {
-    "file": "assets/Montserrat-LightItalic.e8b29502.woff2",
-    "src": "resources/fonts/Montserrat-LightItalic.woff2"
+  "resources/fonts/Montserrat-Italic.woff2": {
+    "file": "assets/Montserrat-Italic.153a45f2.woff2",
+    "src": "resources/fonts/Montserrat-Italic.woff2"
   },
   "resources/fonts/Montserrat-Light.ttf": {
     "file": "assets/Montserrat-Light.9c59d70b.ttf",
     "src": "resources/fonts/Montserrat-Light.ttf"
   },
-  "resources/fonts/Montserrat-Medium.ttf": {
-    "file": "assets/Montserrat-Medium.66c00b62.ttf",
-    "src": "resources/fonts/Montserrat-Medium.ttf"
+  "resources/fonts/Montserrat-Light.woff": {
+    "file": "assets/Montserrat-Light.86b67c91.woff",
+    "src": "resources/fonts/Montserrat-Light.woff"
   },
-  "resources/fonts/Montserrat-Italic-VariableFont_wght.ttf": {
-    "file": "assets/Montserrat-Italic-VariableFont_wght.0a855909.ttf",
-    "src": "resources/fonts/Montserrat-Italic-VariableFont_wght.ttf"
-  },
-  "resources/fonts/Montserrat-LightItalic.ttf": {
-    "file": "assets/Montserrat-LightItalic.55a35f20.ttf",
-    "src": "resources/fonts/Montserrat-LightItalic.ttf"
-  },
-  "resources/fonts/Montserrat-Medium.woff2": {
-    "file": "assets/Montserrat-Medium.d4d47669.woff2",
-    "src": "resources/fonts/Montserrat-Medium.woff2"
-  },
-  "resources/fonts/Montserrat-Medium.woff": {
-    "file": "assets/Montserrat-Medium.946757b7.woff",
-    "src": "resources/fonts/Montserrat-Medium.woff"
+  "resources/fonts/Montserrat-Light.woff2": {
+    "file": "assets/Montserrat-Light.636ecb57.woff2",
+    "src": "resources/fonts/Montserrat-Light.woff2"
   },
   "resources/fonts/Montserrat-LightItalic.woff": {
     "file": "assets/Montserrat-LightItalic.60d7fa1d.woff",
     "src": "resources/fonts/Montserrat-LightItalic.woff"
   },
+  "resources/fonts/Montserrat-LightItalic.ttf": {
+    "file": "assets/Montserrat-LightItalic.55a35f20.ttf",
+    "src": "resources/fonts/Montserrat-LightItalic.ttf"
+  },
+  "resources/fonts/Montserrat-LightItalic.woff2": {
+    "file": "assets/Montserrat-LightItalic.e8b29502.woff2",
+    "src": "resources/fonts/Montserrat-LightItalic.woff2"
+  },
+  "resources/fonts/Montserrat-Medium.ttf": {
+    "file": "assets/Montserrat-Medium.66c00b62.ttf",
+    "src": "resources/fonts/Montserrat-Medium.ttf"
+  },
+  "resources/fonts/Montserrat-Medium.woff": {
+    "file": "assets/Montserrat-Medium.946757b7.woff",
+    "src": "resources/fonts/Montserrat-Medium.woff"
+  },
+  "resources/fonts/Montserrat-Medium.woff2": {
+    "file": "assets/Montserrat-Medium.d4d47669.woff2",
+    "src": "resources/fonts/Montserrat-Medium.woff2"
+  },
   "resources/fonts/Montserrat-MediumItalic.ttf": {
     "file": "assets/Montserrat-MediumItalic.4c58ce57.ttf",
     "src": "resources/fonts/Montserrat-MediumItalic.ttf"
+  },
+  "resources/fonts/Montserrat-MediumItalic.woff": {
+    "file": "assets/Montserrat-MediumItalic.725124b1.woff",
+    "src": "resources/fonts/Montserrat-MediumItalic.woff"
   },
   "resources/fonts/Montserrat-MediumItalic.woff2": {
     "file": "assets/Montserrat-MediumItalic.ebe61343.woff2",
     "src": "resources/fonts/Montserrat-MediumItalic.woff2"
   },
-  "resources/fonts/Montserrat-MediumItalic.woff": {
-    "file": "assets/Montserrat-MediumItalic.725124b1.woff",
-    "src": "resources/fonts/Montserrat-MediumItalic.woff"
+  "resources/fonts/Montserrat-Regular.ttf": {
+    "file": "assets/Montserrat-Regular.782c6ca0.ttf",
+    "src": "resources/fonts/Montserrat-Regular.ttf"
   },
   "resources/fonts/Montserrat-Regular.woff": {
     "file": "assets/Montserrat-Regular.e1620019.woff",
@@ -171,45 +175,41 @@
     "file": "assets/Montserrat-Regular.3437637c.woff2",
     "src": "resources/fonts/Montserrat-Regular.woff2"
   },
-  "resources/fonts/Montserrat-SemiBold.woff2": {
-    "file": "assets/Montserrat-SemiBold.f3d8c648.woff2",
-    "src": "resources/fonts/Montserrat-SemiBold.woff2"
-  },
-  "resources/fonts/Montserrat-Regular.ttf": {
-    "file": "assets/Montserrat-Regular.782c6ca0.ttf",
-    "src": "resources/fonts/Montserrat-Regular.ttf"
-  },
-  "resources/fonts/Montserrat-SemiBoldItalic.woff2": {
-    "file": "assets/Montserrat-SemiBoldItalic.747ad541.woff2",
-    "src": "resources/fonts/Montserrat-SemiBoldItalic.woff2"
-  },
-  "resources/fonts/Montserrat-SemiBold.woff": {
-    "file": "assets/Montserrat-SemiBold.2897f91c.woff",
-    "src": "resources/fonts/Montserrat-SemiBold.woff"
-  },
-  "resources/fonts/Montserrat-SemiBoldItalic.woff": {
-    "file": "assets/Montserrat-SemiBoldItalic.fc5622e0.woff",
-    "src": "resources/fonts/Montserrat-SemiBoldItalic.woff"
-  },
   "resources/fonts/Montserrat-SemiBold.ttf": {
     "file": "assets/Montserrat-SemiBold.e9c3ae1a.ttf",
     "src": "resources/fonts/Montserrat-SemiBold.ttf"
   },
-  "resources/fonts/Montserrat-Thin.woff": {
-    "file": "assets/Montserrat-Thin.b312b12c.woff",
-    "src": "resources/fonts/Montserrat-Thin.woff"
-  },
-  "resources/fonts/Montserrat-Thin.woff2": {
-    "file": "assets/Montserrat-Thin.33812ae9.woff2",
-    "src": "resources/fonts/Montserrat-Thin.woff2"
+  "resources/fonts/Montserrat-SemiBold.woff2": {
+    "file": "assets/Montserrat-SemiBold.f3d8c648.woff2",
+    "src": "resources/fonts/Montserrat-SemiBold.woff2"
   },
   "resources/fonts/Montserrat-SemiBoldItalic.ttf": {
     "file": "assets/Montserrat-SemiBoldItalic.6de9a90a.ttf",
     "src": "resources/fonts/Montserrat-SemiBoldItalic.ttf"
   },
+  "resources/fonts/Montserrat-SemiBoldItalic.woff": {
+    "file": "assets/Montserrat-SemiBoldItalic.fc5622e0.woff",
+    "src": "resources/fonts/Montserrat-SemiBoldItalic.woff"
+  },
+  "resources/fonts/Montserrat-SemiBold.woff": {
+    "file": "assets/Montserrat-SemiBold.2897f91c.woff",
+    "src": "resources/fonts/Montserrat-SemiBold.woff"
+  },
+  "resources/fonts/Montserrat-SemiBoldItalic.woff2": {
+    "file": "assets/Montserrat-SemiBoldItalic.747ad541.woff2",
+    "src": "resources/fonts/Montserrat-SemiBoldItalic.woff2"
+  },
   "resources/fonts/Montserrat-Thin.ttf": {
     "file": "assets/Montserrat-Thin.54ac6b96.ttf",
     "src": "resources/fonts/Montserrat-Thin.ttf"
+  },
+  "resources/fonts/Montserrat-Thin.woff2": {
+    "file": "assets/Montserrat-Thin.33812ae9.woff2",
+    "src": "resources/fonts/Montserrat-Thin.woff2"
+  },
+  "resources/fonts/Montserrat-Thin.woff": {
+    "file": "assets/Montserrat-Thin.b312b12c.woff",
+    "src": "resources/fonts/Montserrat-Thin.woff"
   },
   "resources/fonts/Montserrat-ThinItalic.woff": {
     "file": "assets/Montserrat-ThinItalic.fa0c4e43.woff",
@@ -235,10 +235,6 @@
     "file": "assets/Montserrat-ThinItalic_1.75094469.woff2",
     "src": "resources/fonts/Montserrat-ThinItalic_1.woff2"
   },
-  "resources/fonts/Montserrat-Thin_1.ttf": {
-    "file": "assets/Montserrat-Thin_1.7dad76df.ttf",
-    "src": "resources/fonts/Montserrat-Thin_1.ttf"
-  },
   "resources/fonts/Montserrat-Thin_1.woff": {
     "file": "assets/Montserrat-Thin_1.0b34762d.woff",
     "src": "resources/fonts/Montserrat-Thin_1.woff"
@@ -247,6 +243,10 @@
     "file": "assets/Montserrat-Thin_1.69b653a1.woff2",
     "src": "resources/fonts/Montserrat-Thin_1.woff2"
   },
+  "resources/fonts/Montserrat-Thin_1.ttf": {
+    "file": "assets/Montserrat-Thin_1.7dad76df.ttf",
+    "src": "resources/fonts/Montserrat-Thin_1.ttf"
+  },
   "resources/fonts/Segoe UI Bold.ttf": {
     "file": "assets/Segoe UI Bold.3084cb39.ttf",
     "src": "resources/fonts/Segoe UI Bold.ttf"
@@ -254,6 +254,10 @@
   "resources/fonts/SegoeUI-Bold.ttf": {
     "file": "assets/SegoeUI-Bold.cd8fa2df.ttf",
     "src": "resources/fonts/SegoeUI-Bold.ttf"
+  },
+  "resources/fonts/Montserrat-VariableFont_wght.ttf": {
+    "file": "assets/Montserrat-VariableFont_wght.f35fdf51.ttf",
+    "src": "resources/fonts/Montserrat-VariableFont_wght.ttf"
   },
   "resources/fonts/SegoeUI-Bold.woff": {
     "file": "assets/SegoeUI-Bold.4ea817da.woff",
@@ -275,17 +279,13 @@
     "file": "assets/SegoeUI.46a16902.woff2",
     "src": "resources/fonts/SegoeUI.woff2"
   },
-  "resources/fonts/Montserrat-VariableFont_wght.ttf": {
-    "file": "assets/Montserrat-VariableFont_wght.f35fdf51.ttf",
-    "src": "resources/fonts/Montserrat-VariableFont_wght.ttf"
+  "resources/images/Banner_home_Site_PG.jpg": {
+    "file": "assets/Banner_home_Site_PG.b7587fb2.jpg",
+    "src": "resources/images/Banner_home_Site_PG.jpg"
   },
   "resources/images/acompanhamento.png": {
     "file": "assets/acompanhamento.22a83293.png",
     "src": "resources/images/acompanhamento.png"
-  },
-  "resources/images/Banner_home_Site_PG.jpg": {
-    "file": "assets/Banner_home_Site_PG.b7587fb2.jpg",
-    "src": "resources/images/Banner_home_Site_PG.jpg"
   },
   "resources/images/american-express-brand.png": {
     "file": "assets/american-express-brand.5a3acbb4.png",
@@ -303,13 +303,13 @@
     "file": "assets/banner-home-1024w.38c55dfa.jpg",
     "src": "resources/images/banner-home-1024w.jpg"
   },
-  "resources/images/banner-home-600w.jpg": {
-    "file": "assets/banner-home-600w.4c0252cc.jpg",
-    "src": "resources/images/banner-home-600w.jpg"
-  },
   "resources/images/banner-home-1767w.jpg": {
     "file": "assets/banner-home-1767w.ad22cdcf.jpg",
     "src": "resources/images/banner-home-1767w.jpg"
+  },
+  "resources/images/banner-home-600w.jpg": {
+    "file": "assets/banner-home-600w.4c0252cc.jpg",
+    "src": "resources/images/banner-home-600w.jpg"
   },
   "resources/images/banner-new-home-1024w.jpg": {
     "file": "assets/banner-new-home-1024w.2d18f49d.jpg",
@@ -319,10 +319,6 @@
     "file": "assets/banner-home.dc091e7a.jpg",
     "src": "resources/images/banner-home.jpg"
   },
-  "resources/images/banner-new-home-600w.jpg": {
-    "file": "assets/banner-new-home-600w.ff73e09a.jpg",
-    "src": "resources/images/banner-new-home-600w.jpg"
-  },
   "resources/images/banner-produtos.jpg": {
     "file": "assets/banner-produtos.7db51aca.jpg",
     "src": "resources/images/banner-produtos.jpg"
@@ -331,21 +327,25 @@
     "file": "assets/banner-new-home-1767w.d9918478.jpg",
     "src": "resources/images/banner-new-home-1767w.jpg"
   },
-  "resources/images/banner-sacolas.jpg": {
-    "file": "assets/banner-sacolas.6ca91b2f.jpg",
-    "src": "resources/images/banner-sacolas.jpg"
+  "resources/images/banner-new-home-600w.jpg": {
+    "file": "assets/banner-new-home-600w.ff73e09a.jpg",
+    "src": "resources/images/banner-new-home-600w.jpg"
+  },
+  "resources/images/banner-new-home.jpg": {
+    "file": "assets/banner-new-home.c0c036f4.jpg",
+    "src": "resources/images/banner-new-home.jpg"
   },
   "resources/images/bf/App_Mockup_1.webp": {
     "file": "assets/App_Mockup_1.5353417b.webp",
     "src": "resources/images/bf/App_Mockup_1.webp"
   },
+  "resources/images/banner-sacolas.jpg": {
+    "file": "assets/banner-sacolas.6ca91b2f.jpg",
+    "src": "resources/images/banner-sacolas.jpg"
+  },
   "resources/images/banner-venda-pela-internet.jpg": {
     "file": "assets/banner-venda-pela-internet.dcbabe52.jpg",
     "src": "resources/images/banner-venda-pela-internet.jpg"
-  },
-  "resources/images/banner-new-home.jpg": {
-    "file": "assets/banner-new-home.c0c036f4.jpg",
-    "src": "resources/images/banner-new-home.jpg"
   },
   "resources/images/bf/App_Mockup_1.png": {
     "file": "assets/App_Mockup_1.441cbd72.png",
@@ -379,45 +379,45 @@
     "file": "assets/appstore.4a2517c1.svg",
     "src": "resources/images/bf/appstore.svg"
   },
-  "resources/images/bf/googleplay.svg": {
-    "file": "assets/googleplay.1e3e0263.svg",
-    "src": "resources/images/bf/googleplay.svg"
-  },
   "resources/images/bf/bg-black.webp": {
     "file": "assets/bg-black.cd99698c.webp",
     "src": "resources/images/bf/bg-black.webp"
+  },
+  "resources/images/bf/googleplay.svg": {
+    "file": "assets/googleplay.1e3e0263.svg",
+    "src": "resources/images/bf/googleplay.svg"
   },
   "resources/images/bf/googleplay2.svg": {
     "file": "assets/googleplay2.e9051828.svg",
     "src": "resources/images/bf/googleplay2.svg"
   },
-  "resources/images/bf/Mockup_Iphone_app.png": {
-    "file": "assets/Mockup_Iphone_app.48a9fc67.png",
-    "src": "resources/images/bf/Mockup_Iphone_app.png"
+  "resources/images/bf/img-ebw-call.webp": {
+    "file": "assets/img-ebw-call.cd9d1c2c.webp",
+    "src": "resources/images/bf/img-ebw-call.webp"
   },
   "resources/images/bf/img-ebw-call.jpg": {
     "file": "assets/img-ebw-call.c1b88a0a.jpg",
     "src": "resources/images/bf/img-ebw-call.jpg"
   },
-  "resources/images/bf/img-ebw-call.webp": {
-    "file": "assets/img-ebw-call.cd9d1c2c.webp",
-    "src": "resources/images/bf/img-ebw-call.webp"
-  },
   "resources/images/bf/maquininha.png": {
     "file": "assets/maquininha.a29e4ca3.png",
     "src": "resources/images/bf/maquininha.png"
   },
-  "resources/images/bf/maquininha.webp": {
-    "file": "assets/maquininha.7393f9ea.webp",
-    "src": "resources/images/bf/maquininha.webp"
+  "resources/images/bf/Mockup_Iphone_app.png": {
+    "file": "assets/Mockup_Iphone_app.48a9fc67.png",
+    "src": "resources/images/bf/Mockup_Iphone_app.png"
+  },
+  "resources/images/bf/hero-section-fit.png": {
+    "file": "assets/hero-section-fit.af805e13.png",
+    "src": "resources/images/bf/hero-section-fit.png"
   },
   "resources/images/bf/hero-section-1-1.png": {
     "file": "assets/hero-section-1-1.9e7dda43.png",
     "src": "resources/images/bf/hero-section-1-1.png"
   },
-  "resources/images/bf/hero-section-fit.png": {
-    "file": "assets/hero-section-fit.af805e13.png",
-    "src": "resources/images/bf/hero-section-fit.png"
+  "resources/images/bf/maquininha.webp": {
+    "file": "assets/maquininha.7393f9ea.webp",
+    "src": "resources/images/bf/maquininha.webp"
   },
   "resources/images/bf/bg-black.png": {
     "file": "assets/bg-black.322f644e.png",
@@ -431,29 +431,21 @@
     "file": "assets/section-2-front.e561914d.webp",
     "src": "resources/images/bf/section-2-front.webp"
   },
-  "resources/images/bf/venda.jpg": {
-    "file": "assets/venda.f64d7d2a.jpg",
-    "src": "resources/images/bf/venda.jpg"
-  },
   "resources/images/bf/venda.webp": {
     "file": "assets/venda.08361d27.webp",
     "src": "resources/images/bf/venda.webp"
   },
-  "resources/images/blog/newsletter-bg.svg": {
-    "file": "assets/newsletter-bg.a7dbfd54.svg",
-    "src": "resources/images/blog/newsletter-bg.svg"
-  },
-  "resources/images/bf/section-2-bg.png": {
-    "file": "assets/section-2-bg.b1727894.png",
-    "src": "resources/images/bf/section-2-bg.png"
-  },
-  "resources/images/bf/section-2-front.png": {
-    "file": "assets/section-2-front.15f2b891.png",
-    "src": "resources/images/bf/section-2-front.png"
+  "resources/images/bf/venda.jpg": {
+    "file": "assets/venda.f64d7d2a.jpg",
+    "src": "resources/images/bf/venda.jpg"
   },
   "resources/images/A910_Negocie_Taxas_Menor.mp4": {
     "file": "assets/A910_Negocie_Taxas_Menor.28e36e5c.mp4",
     "src": "resources/images/A910_Negocie_Taxas_Menor.mp4"
+  },
+  "resources/images/blog/newsletter-bg.svg": {
+    "file": "assets/newsletter-bg.a7dbfd54.svg",
+    "src": "resources/images/blog/newsletter-bg.svg"
   },
   "resources/images/conheca-a-ebw.jpg": {
     "file": "assets/conheca-a-ebw.368b4757.jpg",
@@ -463,21 +455,29 @@
     "file": "assets/consultoria.162c7d1f.png",
     "src": "resources/images/consultoria.png"
   },
+  "resources/images/bf/section-2-bg.png": {
+    "file": "assets/section-2-bg.b1727894.png",
+    "src": "resources/images/bf/section-2-bg.png"
+  },
   "resources/images/conta-pagamento.png": {
     "file": "assets/conta-pagamento.408b9df9.png",
     "src": "resources/images/conta-pagamento.png"
+  },
+  "resources/images/bf/section-2-front.png": {
+    "file": "assets/section-2-front.15f2b891.png",
+    "src": "resources/images/bf/section-2-front.png"
   },
   "resources/images/detalhe-maquininhas.png": {
     "file": "assets/detalhe-maquininhas.7f1e0706.png",
     "src": "resources/images/detalhe-maquininhas.png"
   },
-  "resources/images/elo-brand.png": {
-    "file": "assets/elo-brand.68b3438e.png",
-    "src": "resources/images/elo-brand.png"
-  },
   "resources/images/dinners-club-international-brand.png": {
     "file": "assets/dinners-club-international-brand.3a3cdbd3.png",
     "src": "resources/images/dinners-club-international-brand.png"
+  },
+  "resources/images/elo-brand.png": {
+    "file": "assets/elo-brand.68b3438e.png",
+    "src": "resources/images/elo-brand.png"
   },
   "resources/images/faq.png": {
     "file": "assets/faq.6eda814f.png",
@@ -559,21 +559,21 @@
     "file": "assets/machine-revolution.b1b5a978.png",
     "src": "resources/images/machine-revolution.png"
   },
-  "resources/images/machine-tef.png": {
-    "file": "assets/machine-tef.8f2ca810.png",
-    "src": "resources/images/machine-tef.png"
-  },
   "resources/images/machine-ultra.png": {
     "file": "assets/machine-ultra.66c2accb.png",
     "src": "resources/images/machine-ultra.png"
   },
-  "resources/images/noticias_placeholder.jpg": {
-    "file": "assets/noticias_placeholder.848b7add.jpg",
-    "src": "resources/images/noticias_placeholder.jpg"
+  "resources/images/machine-tef.png": {
+    "file": "assets/machine-tef.8f2ca810.png",
+    "src": "resources/images/machine-tef.png"
   },
   "resources/images/mockup-pg.png": {
     "file": "assets/mockup-pg.2bede915.png",
     "src": "resources/images/mockup-pg.png"
+  },
+  "resources/images/noticias_placeholder.jpg": {
+    "file": "assets/noticias_placeholder.848b7add.jpg",
+    "src": "resources/images/noticias_placeholder.jpg"
   },
   "resources/images/mockup-flow.png": {
     "file": "assets/mockup-flow.7dc477eb.png",
@@ -587,37 +587,37 @@
     "file": "assets/pessoas-sorridentes-de-tiro-medio-dancando-ao-ar-livre.c62c7f46.webp",
     "src": "resources/images/posts/1/pessoas-sorridentes-de-tiro-medio-dancando-ao-ar-livre.webp"
   },
-  "resources/images/posts/AACZEO.jpg": {
-    "file": "assets/AACZEO.2ccbb91e.jpg",
-    "src": "resources/images/posts/AACZEO.jpg"
+  "resources/images/posts/53791546.jpg": {
+    "file": "assets/53791546.f945c78b.jpg",
+    "src": "resources/images/posts/53791546.jpg"
   },
   "resources/images/posts/2/vista-frontal-mulheres-modernas-trabalhando-juntos.webp": {
     "file": "assets/vista-frontal-mulheres-modernas-trabalhando-juntos.6e201ea4.webp",
     "src": "resources/images/posts/2/vista-frontal-mulheres-modernas-trabalhando-juntos.webp"
   },
-  "resources/images/posts/esxEO56.jpg": {
-    "file": "assets/esxEO56.435a08c4.jpg",
-    "src": "resources/images/posts/esxEO56.jpg"
-  },
-  "resources/images/posts/53791546.jpg": {
-    "file": "assets/53791546.f945c78b.jpg",
-    "src": "resources/images/posts/53791546.jpg"
-  },
-  "resources/images/posts/esxcij.jpg": {
-    "file": "assets/esxcij.d83ef52b.jpg",
-    "src": "resources/images/posts/esxcij.jpg"
+  "resources/images/posts/AACZEO.jpg": {
+    "file": "assets/AACZEO.2ccbb91e.jpg",
+    "src": "resources/images/posts/AACZEO.jpg"
   },
   "resources/images/posts/T56ghI9bx.jpg": {
     "file": "assets/T56ghI9bx.d77eb31e.jpg",
     "src": "resources/images/posts/T56ghI9bx.jpg"
   },
-  "resources/images/mockup-flow-600w.png": {
-    "file": "assets/mockup-flow-600w.1dc0e0bc.png",
-    "src": "resources/images/mockup-flow-600w.png"
+  "resources/images/posts/esxEO56.jpg": {
+    "file": "assets/esxEO56.435a08c4.jpg",
+    "src": "resources/images/posts/esxEO56.jpg"
   },
   "resources/images/sem-contrato.png": {
     "file": "assets/sem-contrato.6168a20b.png",
     "src": "resources/images/sem-contrato.png"
+  },
+  "resources/images/posts/esxcij.jpg": {
+    "file": "assets/esxcij.d83ef52b.jpg",
+    "src": "resources/images/posts/esxcij.jpg"
+  },
+  "resources/images/mockup-flow-600w.png": {
+    "file": "assets/mockup-flow-600w.1dc0e0bc.png",
+    "src": "resources/images/mockup-flow-600w.png"
   },
   "resources/images/simplifiedlogo.jpg": {
     "file": "assets/simplifiedlogo.66f05fad.jpg",
@@ -645,7 +645,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.2870cd3c.css",
+    "file": "assets/app.797e20a5.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }

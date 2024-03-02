@@ -30,7 +30,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    @vite(['resources/css/app.css', 'resources/css/blog.css'])
+    @vite(['resources/css/app.css'])
     @livewireStyles
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 

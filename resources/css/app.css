@@ -103,3 +103,42 @@
 .list-maquininhas li:first-of-type {
     padding-top: 1rem;
 }
+    /*blog*/
+
+    article h1 {
+        @apply text-3xl font-bold;
+    }
+    article h2 {
+        @apply text-2xl font-bold;
+    }
+
+    article h3 {
+        @apply text-xl font-bold;
+    }
+
+    article h4 {
+        @apply text-lg font-bold;
+    }
+
+    article h5 {
+        @apply text-base font-bold;
+    }
+
+    article p{
+        @apply text-base;
+        @apply text-justify;
+        @apply mb-4;
+    }
+
+    article span {
+        @apply text-base;
+    }
+
+    article small {
+        @apply text-sm;
+    }
+
+    article a {
+        @apply text-passou-cyan font-medium;
+        @apply hover:text-passou-magenta-700 underline;
+    }
