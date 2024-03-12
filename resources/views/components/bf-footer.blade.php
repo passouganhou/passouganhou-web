@@ -25,9 +25,12 @@
                 <div class="flex md:justify-center justify-start sm:flex-row flex-col">
                     <h3 class="font-segoe-ui text-lg font-bold text-black mr-5 mt-1">Escritório:</h3>
                     <p class="leading-tight font-segoe-ui text-black">
-                        BRASÍLIA<br>
-                        Ed. Prime Business Setor Bancário Sul, Q 2<br>
-                        Salas 09/10 Asa Sul - CEP: 70.070-120
+                        SBS Q. 2 9. Edifício Prime Business,<br>
+                        Asa Sul, DF, 70070-120
+                    </p>
+                    <p class="leading-tight font-segoe-ui text-black">
+                        Condomínio Edifício Morumbi Square - Av. Dr. Chucri Zaidan, 80- Vila Cordeiro,<br>
+                        São Paulo - SP, 04583-110
                     </p>
                 </div>
 

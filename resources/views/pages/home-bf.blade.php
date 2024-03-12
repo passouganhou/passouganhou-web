@@ -68,7 +68,7 @@
                     <div class="w-full lg:w-6/12 xl:w-7/12 text-center md:text-start">
                         <h2 class="text-3xl sm:text-4xl xl:text-5xl font-bold"><span class="overline decoration-passou-cyan decoration-8">Quem</span> vende, lucra.<br> Quem compra, economiza.</h2>
                         <p class="py-5 text-xl sm:text-2xl xl:text-3xl">
-                            É real, oficial! Passou Ganhou é a primeira plataforma que conecta lojas e clientes, do digital ao físico.
+                            É a primeira plataforma de anúncios inteligentes, no mercado de meios de pagamentos que conecta empreendedores e consumidores, do digital ao físico.
                         </p>
                     </div>
                 </div>
