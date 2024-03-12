@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="lg:w-6/12 md:w-1/2 w-full  lg:mb-0 mb-8">
-                <div class="flex md:justify-center justify-start sm:flex-row flex-col">
+                <div class="flex md:justify-center justify-start gap-2 flex-col">
                     <h3 class="font-segoe-ui text-lg font-bold text-black mr-5 mt-1">Escritório:</h3>
                     <p class="leading-tight font-segoe-ui text-black">
                         SBS Q. 2 9. Edifício Prime Business,<br>
