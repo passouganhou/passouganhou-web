@@ -58,6 +58,9 @@
                             </div>
                         </a> --}}
                     </div>
+
+                    <h3 class="font-bold text-lg text-black mt-6 mb-3">Imprensa</h3>
+                    <p>Para entrar em contato com a Assessoria de Comunicação da PASSOU GANHOU, envie um e-mail para: <a href="mailto:comunicacao@passouganhou.com.br" class="font-segoe-ui text-black hover:underline">comunicacao@passouganhou.com.br</a></p>
                 </div>
 
         </div>

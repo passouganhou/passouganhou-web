@@ -19,12 +19,15 @@
                 </div>
             </div>
             <div class="lg:w-6/12 md:w-1/2 w-full  lg:mb-0 mb-8">
-                <div class="flex md:justify-center justify-start sm:flex-row flex-col">
+                <div class="flex md:justify-center justify-start gap-2 flex-col">
                     <h3 class="font-segoe-ui text-lg font-bold text-white mr-5 mt-1">Escritório:</h3>
                     <p class="leading-tight font-segoe-ui text-white">
-                        BRASÍLIA<br>
-                        Ed. Prime Business Setor Bancário Sul, Q 2<br>
-                        Salas 09/10 Asa Sul - CEP: 70.070-120
+                        SBS Q. 2 9. Edifício Prime Business,<br>
+                        Asa Sul, DF, 70070-120
+                    </p>
+                    <p class="leading-tight font-segoe-ui text-white">
+                        Condomínio Edifício Morumbi Square - Av. Dr. Chucri Zaidan, 80- Vila Cordeiro,<br>
+                        São Paulo - SP, 04583-110
                     </p>
                 </div>
 
@@ -52,6 +55,10 @@
                         </div>
                     </a> --}}
                 </div>
+
+                <h3 class="font-bold text-lg text-black mt-6 mb-3">Imprensa</h3>
+                <p>Para entrar em contato com a Assessoria de Comunicação da PASSOU GANHOU, envie um e-mail para: <a href="mailto:comunicacao@passouganhou.com.br" class="font-segoe-ui text-black hover:underline">comunicacao@passouganhou.com.br</a></p>
+
             </div>
         </div>
 
