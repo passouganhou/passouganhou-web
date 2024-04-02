@@ -17,6 +17,12 @@
                 <div class="pt-1">
                     <a class="font-segoe-ui text-lg hover:underline font-bold text-white" href="{{ route('termos-e-condicoes-de-uso') }}">Termos e Condições de Uso</a>
                 </div>
+                <div class="pt-1">
+                    <a class="font-segoe-ui text-lg hover:underline font-bold text-white" href="{{ route('canal-de-transparencia') }}">Canal da Transparência</a>
+                </div>
+                <div class="pt-1">
+                    <a class="font-segoe-ui text-lg hover:underline font-bold text-white" href="{{ route('imprensa') }}">Imprensa</a>
+                </div>
             </div>
             <div class="lg:w-6/12 md:w-1/2 w-full  lg:mb-0 mb-8">
                 <div class="flex md:justify-center justify-start gap-2 flex-col">
@@ -29,10 +35,6 @@
                         Condomínio Edifício Morumbi Square - Av. Dr. Chucri Zaidan, 80- Vila Cordeiro,<br>
                         São Paulo - SP, 04583-110
                     </p>
-
-                    <h3 class="font-bold text-lg text-black mt-6 mb-3">Imprensa</h3>
-                    <p>Para entrar em contato com a Assessoria de Comunicação da PASSOU GANHOU, envie um e-mail para: <a href="mailto:comunicacao@passouganhou.com.br" class="font-segoe-ui text-black hover:underline">comunicacao@passouganhou.com.br</a></p>
-
                 </div>
 
             </div>

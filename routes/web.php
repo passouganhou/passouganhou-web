@@ -45,6 +45,10 @@ Route::get('canaldatransparencia', function () {
     return view('pages.canal-de-transparencia');
 })->name('canal-de-transparencia');
 
+Route::get('imprensa', function () {
+    return view('pages.imprensa');
+})->name('imprensa');
+
 Route::get('dev/poc', function () {
    return view('pages.dev.poc');
 });
