@@ -18,7 +18,7 @@
                 Para entrar em contato com a assessoria de comunicação da Passou Ganhou, utilize o seguinte email:
             </p>
 
-            <p class="text-lg font-bold mt-2">
+            <p class="text-md md:text-lg font-bold mt-2">
                 <a href="mailto:comunicacao@passouganhou.com.br">comunicacao@passouganhou.com.br</a>
             </p>
 
