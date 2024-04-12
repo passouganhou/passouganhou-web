@@ -154,7 +154,7 @@ class SimulatorController extends Controller
             'anticipation' => $request->proposal['anticipation'],
             'rent' => $request->proposal['monthly_rental'],
         ];
-
+/*
         $simulacao = new Simulacao();
         $simulacao->vendedor_id = $request->vendedor;
         $simulacao->mcc = $merchantData['mcc'];
@@ -174,7 +174,7 @@ class SimulatorController extends Controller
         $simulacao->prop_aluguel = $proposal['rent'];
         $simulacao->opt_antecipacao = $merchantOptions['automatic_anticipation'];
         $simulacao->save();
-
+*/
 
         $anticipatedValue = $this->getAnticipatedValue($productShare, $merchantInfo['faturamento_mensal']);
         $diff = $this->calculateProposalCostDifferences($proposal, $merchantData['custos_adquirente']);

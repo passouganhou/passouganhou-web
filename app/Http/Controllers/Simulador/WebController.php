@@ -9,6 +9,19 @@ class WebController extends Controller
 {
     public function poc()
     {
+        $teamUsers = $this->fetchVendedores();
+        return view('pages.dev.poc', compact('teamUsers'));
+    }
+
+    private function fetchVendedores()
+    {
+        return \Cache::remember('rd-vendedores', now()->addMinutes(30), function () {
+            return $this->fetchVendedoresFromApi();
+        });
+    }
+
+    private function fetchVendedoresFromApi()
+    {
         $rdTeamsUrl = 'https://crm.rdstation.com/api/v1/teams?token=65ddeda08fd4940014e8085c';
         $rdTeams = Http::get($rdTeamsUrl)->json();
         $teamUsers = [];
@@ -24,7 +37,6 @@ class WebController extends Controller
             }
         }
         //make team users unique by id
-        $teamUsers = collect($teamUsers)->unique('id')->values()->all();
-        return view('pages.dev.poc', compact('teamUsers'));
+        return collect($teamUsers)->unique('id')->values()->all();
     }
 }
