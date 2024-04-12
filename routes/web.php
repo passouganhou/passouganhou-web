@@ -49,9 +49,13 @@ Route::get('imprensa', function () {
     return view('pages.imprensa');
 })->name('imprensa');
 
-Route::get('dev/poc', function () {
-   return view('pages.dev.poc');
+Route::get('dev/poc', [\App\Http\Controllers\Simulador\WebController::class, 'poc'])->name('dev.poc');
+Route::get('dev/poc/crm', function () {
+    return view('pages.dev.poc-crm');
 });
+
+Route::get('dev/debug', [\App\Http\Controllers\Blog\PostController::class, 'debug'])->name('debug');
+Route::post('dev/upload', [\App\Http\Controllers\Blog\PostController::class, 'testUploadedPhoto'])->name('debug.upload');
 
 // Route::get('venda-pela-internet', function () {
 //     return view('pages.venda-pela-internet');

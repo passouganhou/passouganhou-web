@@ -29,7 +29,7 @@
                 class="flex text-green-500 items-center whitespace-nowrap rounded-r border border-l-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
                 id="{{$id}}_diff"
             >
-                0,40%</span
+                {{$useDiff}}%</span
             >
         @endif
 </div>

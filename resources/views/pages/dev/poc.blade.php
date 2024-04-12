@@ -1,3 +1,7 @@
+@php
+$visaMasterDefaultDiff = 0.40;
+$eloAmexDefaultDiff = 0.80;
+@endphp
 <x-base-layout>
     <x-slot name="title">Dev - POC Simulador de Rentabilidade</x-slot>
     <x-slot name="main">
@@ -5,14 +9,26 @@
 
             <div class="py-16">
                 <form>
-                    <fieldset class="border flex flex-col justify-between items-center gap-2">
-                        <legend for="mcc_option">Área de Atuação (MCC)</legend>
+                    <div class="border flex flex-col justify-between items-center gap-2">
+                        <label class="font-semibold" for="vendedor">Vendedor</label>
+                        <select class="border" name="vendedor" id="vendedor">
+                            <option value="">Selecione um vendedor</option>
+                            @foreach($teamUsers as $user)
+                                <option value="{{$user['id']}}">{{$user['name']}}</option>
+                            @endforeach
+                        </select>
+                        <hr>
                         <div class="flex flex-col w-5/12 my-4" >
+                            <label class="font-semibold" for="mcc_option">Área de Atuação (MCC)</label>
                             <select class="border" name="mcc_option" id="mcc_option"></select>
                         </div>
-                        <div class="flex flex-col w-7/12 rounded-lg my-4 hidden" id="tabela_ac">
-                            <h3>Custo Adquirente (Vero)</h3>
+                        <div class="flex flex-col w-full md:w-7/12 rounded-lg my-4 hidden" id="tabela_ac">
                             <table class="table-auto border-collapse border border-slate-400">
+                                <thead>
+                                    <tr>
+                                        <th class="border border-slate-300" colspan="4">Custo Adquirente (Vero)</th>
+                                    </tr>
+                                </thead>
                                 <thead>
                                     <tr>
                                         <th class="border border-slate-300">MCC</th>
@@ -43,14 +59,15 @@
                                 </tbody>
                             </table>
                         </div>
-                    </fieldset>
+                    </div>
 
-                    <div class="hidden" id="simulator-step-2">
+                    <div class=" py-4 hidden" id="simulator-step-2">
 
-                        <div class="flex flex-row items-stretch justify-center mb-4 gap-2">
+                        <div class="flex flex-col md:flex-row items-stretch justify-center mb-4 gap-2">
 
-                            <fieldset class="border border-gray-300 rounded-lg p-4 flex flex-col gap-2 h-full w-1/3">
-                                <legend>Estabelecimento</legend>
+                            <div class="border border-gray-300 rounded-lg p-4 flex flex-col gap-2 h-full w-full md:w-1/3">
+                                <span class="font-semibold text-md">Estabelecimento</span>
+                                <hr>
                                 <div>
                                     <label for="pontos_de_venda">Pontos de Venda</label>
                                     <input type="number" name="points_of_sale" id="pontos_de_venda" class="border border-slate-300 rounded-lg" value="1" min="1">
@@ -67,14 +84,11 @@
                                     <label for="ticket_medio">Ticket Médio</label>
                                     <input type="number" name="medium_ticket" id="ticket_medio" class="border border-slate-300 rounded-lg" min="0" required>
                                 </div>
-                                <div>
-                                    <label for="antecipacao_automatica">Antecipação Automática</label>
-                                    <input type="checkbox" name="opt_automatic_anticipation" id="incluir_antecipacao_automatica" class="border border-slate-300 rounded-lg">
-                                </div>
-                            </fieldset>
+                            </div>
 
-                            <fieldset class="border border-gray-300 rounded-lg p-4 flex flex-col gap-2 h-full w-1/3">
-                                <legend>(%) Share de produto</legend>
+                            <div class="border border-gray-300 rounded-lg p-4 flex flex-col gap-2 h-full w-full md:w-1/3">
+                                <span class="font-semibold text-md">(%) Share de produto</span>
+                                <hr>
                                 <div>
                                     <label for="debito">Débito</label>
                                     <input type="number" name="debit_share" id="debito" class="border border-slate-300 rounded-lg" value="25" min="0" max="100" required>
@@ -84,48 +98,63 @@
                                     <input type="number" name="credit_share" id="credito_vista" class="border border-slate-300 rounded-lg" value="25" min="0" max="100" required>
                                 </div>
                                 <div>
-                                    <label for="credito_parc_2_6">Crédito parcelado até 6x</label>
+                                    <label for="credito_parc_2_6">Crédito até 6x</label>
                                     <input type="number" name="credit_share_2_6" id="credito_parc_2_6" class="border border-slate-300 rounded-lg" value="25" min="0" max="100" required>
                                 </div>
                                 <div>
-                                    <label for="credito_parc_7_12">Crédito parcelado de 7x a 12x</label>
+                                    <label for="credito_parc_7_12">Crédito de 7x a 12x</label>
                                     <input type="number" name="credit_share_7_12" id="credito_parc_7_12" class="border border-slate-300 rounded-lg" value="25" min="0" max="100" required>
                                 </div>
                                 <div class="hidden" id="share_validation_message">
                                     <p class="text-red-500">A soma dos shares de produto deve ser igual a 100%.</p>
                                 </div>
-                                <div class="hidden" id="p_anticipation_value_hideable">
-                                    <p>
-                                        Valor da Antecipação Automática: <span id="p_anticipation_value">R$ 0,00</span>
-                                    </p>
-                                </div>
-                            </fieldset>
+                            </div>
 
                         </div>
 
                         <div class="flex flex-row items-stretch justify-center mb-4 gap-2">
 
-                            <fieldset class="border border-gray-300 rounded-lg p-4 flex flex-col gap-2 h-full w-2/3">
-                                <legend>Proposta</legend>
+                            <div class="border border-gray-300 rounded-lg p-4 flex flex-col gap-2 h-full w-full md:w-2/3">
+                                <legend class="font-bold">Proposta</legend>
+                                <hr>
                                 <!-- debit, credit, parc_2_6, parc_7_12, anticipation, monthly_rental -->
 
-                                <x-form.simulator.inputs.proposal-diff-input label="Débito (%)" id="p_debit" use-diff="true"/>
-                                <x-form.simulator.inputs.proposal-diff-input label="Crédito à vista (%)" id="p_credit" use-diff="true"/>
-                                <x-form.simulator.inputs.proposal-diff-input label="Parcelado até 6x (%)" id="p_credit_2_6" use-diff="true"/>
-                                <x-form.simulator.inputs.proposal-diff-input label="Parcelado de 7x a 12x (%)" id="p_credit_7_12" use-diff="true"/>
-                                <x-form.simulator.inputs.proposal-diff-input label="Antecipação Automática (%)" id="p_anticipation" min="1.63"/>
-                                <x-form.simulator.inputs.proposal-diff-input label="Aluguel Mensal (R$)" id="p_monthly_rental" min="0"/>
+                                <div class="py-4">
+                                    <span class="font-semibold text-md">VISA/MASTER</span>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Débito (%)" id="p_debit" use-diff="{{$visaMasterDefaultDiff}}"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Crédito à vista (%)" id="p_credit" use-diff="{{$visaMasterDefaultDiff}}"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado até 6x (%)" id="p_credit_2_6" use-diff="{{$visaMasterDefaultDiff}}"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado de 7x a 12x (%)" id="p_credit_7_12" use-diff="{{$visaMasterDefaultDiff}}"/>
+                                </div>
 
+                                <hr>
 
-                            </fieldset>
+                                <div class="pt-4 pb-3">
+                                    <span class="font-semibold text-md">ELO/AMEX</span>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Débito (%)" id="p_debit_elo" use-diff="0.61"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Crédito à vista (%)" id="p_credit_elo" use-diff="0.84"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado até 6x (%)" id="p_credit_2_6_elo" use-diff="0.89"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado de 7x a 12x (%)" id="p_credit_7_12_elo" use-diff="0.91"/>
+                                </div>
+
+                                <hr>
+
+                                <div class="py-4">
+                                    <x-form.simulator.inputs.proposal-diff-input label="Antecipação Automática (%)" id="p_anticipation" min="1.63"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Aluguel Mensal (R$)" id="p_monthly_rental" min="0"/>
+                                </div>
+
+                                <hr>
+                                <button type="submit" class="bg-passou-magenta text-white px-4 py-2 rounded-lg">Simular Proposta</button>
+
+                            </div>
 
                         </div>
 
-                        <button type="submit" class="bg-passou-magenta text-white px-4 py-2 rounded-lg">Simular</button>
 
                     </div>
 
-                    <fieldset class="hidden border p-4" id="view-results">
+                    <div class="hidden border p-4" id="view-results">
                         <legend class="text-xl">Dados para conferência e validação</legend>
 
                         <div>
@@ -184,14 +213,36 @@
                             </p>
 
                         </div>
-                    </fieldset>
 
+                    </div>
+
+                    <div class="container border rounded-md hidden" id="resumo-wrapper">
+                        <h4 class="text-lg font-bold">Resumo</h4>
+                        <div id="resumo">
+                            <h3 class="font-semibold">Visa/Master</h3>
+                            <p id="resumo_visa_master"></p>
+                            <h3 class="font-semibold">Elo/Amex</h3>
+                            <p id="resumo_elo_amex"></p>
+                            <h3 class="font-semibold">Pix</h3>
+                            <p id="resumo_pix"></p>
+                        </div>
+
+                        <div class="" id="p_anticipation_value_hideable">
+                            <p>
+                                <span class="font-semibold">Valor da Antecipação Automática: </span><span id="p_anticipation_value">R$ 0,00</span>
+                            </p>
+                        </div>
+
+                    </div>
 
                 </form>
             </div>
 
         </div>
         <script>
+            const canVisualizarCustosOperacionais = false;
+            const visaMasterDefaultDiff = {{$visaMasterDefaultDiff}};
+            const eloAmexDefaultDiff = {{$eloAmexDefaultDiff}};
             const token = 'PG9uZ2l0aW9uPjx0b2tlbj5hY2Nlc3M8L3Rva2VuPjwvb25naXRpb24+';
             const mccOptionsSelect = document.getElementById('mcc_option');
             const monthlyIncomeInput = document.getElementById('faturamento_mensal');
@@ -206,6 +257,10 @@
             const proposalCredit = document.getElementById('p_credit');
             const proposalC26 = document.getElementById('p_credit_2_6');
             const proposalC712 = document.getElementById('p_credit_7_12');
+            const proposalDebitElo = document.getElementById('p_debit_elo');
+            const proposalCreditElo = document.getElementById('p_credit_elo');
+            const proposalC26Elo = document.getElementById('p_credit_2_6_elo');
+            const proposalC712Elo = document.getElementById('p_credit_7_12_elo');
             const proposalAnticipation = document.getElementById('p_anticipation');
 
             const acDebit = document.getElementById('ac_debito');
@@ -218,16 +273,30 @@
                 p_credit: acCredit,
                 p_credit_2_6: acC26,
                 p_credit_7_12: acC712,
+                p_debit_elo: acDebit,
+                p_credit_elo: acCredit,
+                p_credit_2_6_elo: acC26,
+                p_credit_7_12_elo: acC712,
             }
 
-            const proposalInputs = [proposalDebit, proposalCredit, proposalC26, proposalC712];
+            const proposalInputs = [
+                proposalDebit,
+                proposalCredit,
+                proposalC26,
+                proposalC712,
+                proposalDebitElo,
+                proposalCreditElo,
+                proposalC26Elo,
+                proposalC712Elo,
+
+            ];
             const shareInputs = [debitShareInput, creditShareInput, creditShare2_6Input, creditShare7_12Input];
 
             document.getElementById('faturamento_mensal').addEventListener('change', function() {
                 updateValorDaAntecipacao();
             });
 
-            document.getElementById('incluir_antecipacao_automatica').addEventListener('change', function() {
+            /*document.getElementById('incluir_antecipacao_automatica').addEventListener('change', function() {
                 document.getElementById('p_anticipation_value_hideable').classList.toggle('hidden')
                 if (this.checked) {
                     updateValorDaAntecipacao();
@@ -235,7 +304,7 @@
                     document.getElementById('p_anticipation_value').innerText = 'R$ 0,00';
                     document.getElementById('p_anticipation').value = 0;
                 }
-            });
+            });*/
 
             //use header "Api-Token" to authenticate with token variable
 
@@ -280,15 +349,43 @@
                                 acCredit.innerText = custosAdquirente.credito_vista + '%';
                                 acC26.innerText = custosAdquirente.credito_parc_2_6 + '%';
                                 acC712.innerText = custosAdquirente.credito_parc_7_12 + '%';
+
+                                //garantir que os custos adquirente são números
+                                custosAdquirente.debit = parseFloat(custosAdquirente.debit);
+                                custosAdquirente.credito_vista = parseFloat(custosAdquirente.credito_vista);
+                                custosAdquirente.credito_parc_2_6 = parseFloat(custosAdquirente.credito_parc_2_6);
+                                custosAdquirente.credito_parc_7_12 = parseFloat(custosAdquirente.credito_parc_7_12);
+
+                                let proposalDebitValue = getValorPropostaComMargem(custosAdquirente.debit, visaMasterDefaultDiff)
+                                let proposalCreditValue = getValorPropostaComMargem(custosAdquirente.credito_vista, visaMasterDefaultDiff);
+                                let proposalC26Value = getValorPropostaComMargem(custosAdquirente.credito_parc_2_6, visaMasterDefaultDiff);
+                                let proposalC712Value = getValorPropostaComMargem(custosAdquirente.credito_parc_7_12, visaMasterDefaultDiff);
+                                let proposalDebitEloValue = getValorPropostaComMargem(custosAdquirente.debit, 0.61);
+                                let proposalCreditEloValue = getValorPropostaComMargem(custosAdquirente.credito_vista, 0.84)
+                                let proposalC26EloValue = getValorPropostaComMargem(custosAdquirente.credito_parc_2_6, 0.89);
+                                let proposalC712EloValue = getValorPropostaComMargem(custosAdquirente.credito_parc_7_12, 0.91);
+
                                 //set proposal values
-                                proposalDebit.value = custosAdquirente.debit + 0.4;
-                                proposalCredit.value = custosAdquirente.credito_vista + 0.4;
-                                proposalC26.value = custosAdquirente.credito_parc_2_6 + 0.4;
-                                proposalC712.value = custosAdquirente.credito_parc_7_12 + 0.4;
+                                proposalDebit.value = proposalDebitValue;
+                                proposalCredit.value = proposalCreditValue;
+                                proposalC26.value = proposalC26Value;
+                                proposalC712.value = proposalC712Value;
+                                proposalDebitElo.value = proposalDebitEloValue;
+                                proposalCreditElo.value = proposalCreditEloValue;
+                                proposalC26Elo.value = proposalC26EloValue;
+                                proposalC712Elo.value = proposalC712EloValue;
                                 proposalAnticipation.value = 1.63;
                             });
                     });
                 });
+
+            function getValorPropostaComMargem(taxa, margem) {
+                let taxaFloat = parseFloat(taxa);
+                let margemFloat = parseFloat(margem);
+                let valor = taxaFloat + margemFloat;
+                let fixed = valor.toFixed(2);
+                return parseFloat(fixed);
+            }
 
             shareInputs.forEach(shareInput => {
                 shareInput.addEventListener('change', function() {
@@ -323,6 +420,7 @@
                     let proposalValue = proposalInput.value;
                     //get from idInputMapping
                     let acquirerCost = constIdInputMapping[proposalInputId].innerText;
+                    console.log(proposalInputId, acquirerCost)
                     //remove % sign
                     acquirerCost = acquirerCost.replace('%', '');
                     //calculate diff
@@ -361,9 +459,6 @@
 
             function updateValorDaAntecipacao() {
                 let allInputsFilled = true;
-                if (!document.getElementById('incluir_antecipacao_automatica').checked) {
-                    allInputsFilled = false;
-                }
 
                 shareInputs.forEach(shareInput => {
                     if (shareInput.value === '') {
@@ -398,7 +493,6 @@
                 let link = 0;
                 let monthlyIncome = monthlyIncomeInput.value;
                 let mediumTicket = document.getElementById('ticket_medio').value;
-                let optAutomaticAnticipation = document.getElementById('incluir_antecipacao_automatica').checked;
                 let productShare = {
                     debit: debitShareInput.value,
                     credit: creditShareInput.value,
@@ -420,9 +514,10 @@
                     link: link,
                     monthly_income: monthlyIncome,
                     medium_ticket: mediumTicket,
-                    opt_automatic_anticipation: optAutomaticAnticipation,
+                    opt_automatic_anticipation: true,
                     product_share: productShare,
                     proposal: proposal,
+                    vendedor: document.getElementById('vendedor').value ?? 0
                 };
                 fetch('/api/simulator/calculate', {
                     method: 'POST',
@@ -434,23 +529,65 @@
                 })
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data);
-                        //set operational costs
-                        document.getElementById('operational_costs_commission').innerText = data.custos.operacional.variavel.comissao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_transaction').innerText = data.custos.operacional.variavel.custo_transacoes.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_taxes').innerText = data.custos.operacional.variavel.impostos.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_chip').innerText = data.custos.operacional.variavel.chip.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_delivery').innerText = data.custos.operacional.variavel.entrega.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_machines').innerText = data.custos.operacional.fixo.custo_maquinas.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_depreciation').innerText = data.custos.operacional.variavel.depreciacao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('operational_costs_total').innerText = data.custos.operacional.variavel.total_outros_custos.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        //set results
-                        document.getElementById('results_revenue_monthly').innerText = data.resultados.liquido.mensal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        document.getElementById('results_revenue_annual').innerText = data.resultados.liquido.anual.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
-                        //show results
-                        document.getElementById('view-results').classList.remove('hidden');
+                        if (canVisualizarCustosOperacionais) {
+                        setCustosOperacionais(data)
+                    }
                     });
+
+
+                setResumo(proposalDebit, proposalCredit, proposalC26, proposalC712, proposalDebitElo, proposalCreditElo, proposalC26Elo, proposalC712Elo)
             }
+
+            function setCustosOperacionais(data) {
+                document.getElementById('operational_costs_commission').innerText = data.custos.operacional.variavel.comissao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_transaction').innerText = data.custos.operacional.variavel.custo_transacoes.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_taxes').innerText = data.custos.operacional.variavel.impostos.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_chip').innerText = data.custos.operacional.variavel.chip.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_delivery').innerText = data.custos.operacional.variavel.entrega.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_machines').innerText = data.custos.operacional.fixo.custo_maquinas.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_depreciation').innerText = data.custos.operacional.variavel.depreciacao.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('operational_costs_total').innerText = data.custos.operacional.variavel.total_outros_custos.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                //set results
+                document.getElementById('results_revenue_monthly').innerText = data.resultados.liquido.mensal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                document.getElementById('results_revenue_annual').innerText = data.resultados.liquido.anual.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                //show results
+                document.getElementById('view-results').classList.remove('hidden');
+            }
+
+            function setResumo(proposalDebit, proposalCredit, proposalC26, proposalC712, proposalDebitElo, proposalCreditElo, proposalC26Elo, proposalC712Elo) {
+
+                const resumoVisaMasterId = document.getElementById('resumo_visa_master');
+                const resumoEloAmexId = document.getElementById('resumo_elo_amex');
+                const resumoPixId = document.getElementById('resumo_pix');
+
+                //garantir que os valores são números
+                proposalDebit = parseFloat(proposalDebit.value);
+                proposalCredit = parseFloat(proposalCredit.value);
+                proposalC26 = parseFloat(proposalC26.value);
+                proposalC712 = parseFloat(proposalC712.value);
+                proposalDebitElo = parseFloat(proposalDebitElo.value);
+                proposalCreditElo = parseFloat(proposalCreditElo.value);
+                proposalC26Elo = parseFloat(proposalC26Elo.value);
+                proposalC712Elo = parseFloat(proposalC712Elo.value);
+
+                let resumo = document.getElementById('resumo');
+
+                if (!resumo) {
+                    console.error("Elemento com o ID 'resumo' não encontrado na página.");
+                    return;
+                }
+
+                let visaMasterP = `Débito: ${proposalDebit.toFixed(2)}% | Crédito à vista: ${proposalCredit.toFixed(2)}% | Crédito parcelado até 6x: ${proposalC26.toFixed(2)}% | Crédito parcelado de 7x a 12x: ${proposalC712.toFixed(2)}%`;
+                let eloAmexP = `Débito: ${proposalDebitElo.toFixed(2)}% | Crédito à vista: ${proposalCreditElo.toFixed(2)}% | Crédito parcelado até 6x: ${proposalC26Elo.toFixed(2)}% | Crédito parcelado de 7x a 12x: ${proposalC712Elo.toFixed(2)}%`;
+                let pixP = 'Pix: 0,50%';
+
+                resumoVisaMasterId.innerText = visaMasterP;
+                resumoEloAmexId.innerText = eloAmexP;
+                resumoPixId.innerText = pixP;
+
+                document.getElementById('resumo-wrapper').classList.remove('hidden');
+            }
+
         </script>
     </x-slot>
 </x-base-layout>
