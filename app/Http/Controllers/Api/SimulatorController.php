@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\MerchantService;
+use App\Models\Simulacao;
 use Illuminate\Http\Request;
 
 class SimulatorController extends Controller
@@ -153,6 +154,26 @@ class SimulatorController extends Controller
             'anticipation' => $request->proposal['anticipation'],
             'rent' => $request->proposal['monthly_rental'],
         ];
+
+        $simulacao = new Simulacao();
+        $simulacao->vendedor_id = $request->vendedor;
+        $simulacao->mcc = $merchantData['mcc'];
+        $simulacao->pontos_venda = (int) $merchantInfo['pontos_de_venda'];
+        $simulacao->maquinas = (int) $merchantInfo['quantidade_maquinas'];
+        $simulacao->faturamento_mensal = (int) $merchantInfo['faturamento_mensal'];
+        $simulacao->ticket_medio = (int) $merchantInfo['ticket_medio'];
+        $simulacao->share_debito = (int) $productShare['debit'];
+        $simulacao->share_credito = (int) $productShare['credit'];
+        $simulacao->share_2_6 = (int) $productShare['parc_2_6'];
+        $simulacao->share_7_12 = (int) $productShare['parc_7_12'];
+        $simulacao->prop_visa_master = $proposal;
+        $simulacao->prop_elo_amex = $proposal;
+       //unset($simulacao->prop_elo_amex['rent']);
+       //unset($simulacao->prop_visa_master['rent']);
+        $simulacao->prop_antecipacao = $proposal['anticipation'];
+        $simulacao->prop_aluguel = $proposal['rent'];
+        $simulacao->opt_antecipacao = $merchantOptions['automatic_anticipation'];
+        $simulacao->save();
 
 
         $anticipatedValue = $this->getAnticipatedValue($productShare, $merchantInfo['faturamento_mensal']);
