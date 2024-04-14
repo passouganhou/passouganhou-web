@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Simulador;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rd\Deal;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use JetBrains\PhpStorm\NoReturn;
 
 class WebController extends Controller
 {
@@ -12,6 +15,36 @@ class WebController extends Controller
         $teamUsers = $this->fetchVendedores();
         return view('pages.dev.poc', compact('teamUsers'));
     }
+    public function simuladorProposta()
+    {
+        $teamUsers = $this->fetchVendedores();
+        dd($teamUsers);
+        return view('pages.dev.poc', [
+            'teamUsers' => $teamUsers
+        ]);
+    }
+
+    public function negociacoes()
+    {
+        $uid = '65f88e4380e9bd00181e4f43';
+        $response = $this->fetchNegociacoesFromUser($uid);
+        $negociacoesArr = $response['deals'];
+        $negociacoes = Deal::hydrate($negociacoesArr);
+        $inject = ['negociacoes' => $negociacoes];
+        return view('pages.rd.negociacoes', $inject);
+    }
+
+    public function login()
+    {
+        return view('pages.rd.login', ['rd_auth_url' => $this->generateRdAuthUrl()]);
+    }
+
+    #[NoReturn] public function callback(Request $request)
+    {
+        dd($request);
+    }
+
+    //vai pro repositorio
 
     private function fetchVendedores()
     {
@@ -38,5 +71,21 @@ class WebController extends Controller
         }
         //make team users unique by id
         return collect($teamUsers)->unique('id')->values()->all();
+    }
+
+    private function fetchNegociacoesFromUser($userId)
+    {
+        $negociacoesUrl = 'https://crm.rdstation.com/api/v1/deals?token=65ddeda08fd4940014e8085c&user_id='.$userId;
+        $negociacoes = Http::get($negociacoesUrl)->json();
+        return $negociacoes;
+    }
+
+    public function generateRdAuthUrl()
+    {
+        $rd_client_id = config('rdstation.rd_client_id');
+        $rd_client_secret = config('rdstation.rd_client_secret');
+        $app_url = getenv('APP_URL');
+        $rd_auth_uri = config('rdstation.rd_auth_uri');
+        return $rd_auth_uri.'client_id='.$rd_client_id.'&redirect_uri='.$app_url.'/rd/callback&state=';
     }
 }
