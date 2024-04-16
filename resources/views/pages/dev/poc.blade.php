@@ -57,6 +57,19 @@ $eloAmexDefaultDiff = 0.80;
                                         <td class="border border-slate-300" id="ac_parc_7_12">4</td>
                                     </tr>
                                 </tbody>
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="border border-slate-300" colspan="4">Elo/Amex</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="text-center">
+                                    <td class="border border-slate-300" id="elo_ac_debito">1</td>
+                                    <td class="border border-slate-300" id="elo_ac_credito">2</td>
+                                    <td class="border border-slate-300" id="elo_ac_parc_2_6">3</td>
+                                    <td class="border border-slate-300" id="elo_ac_parc_7_12">4</td>
+                                </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -131,10 +144,10 @@ $eloAmexDefaultDiff = 0.80;
 
                                 <div class="pt-4 pb-3">
                                     <span class="font-semibold text-md">ELO/AMEX</span>
-                                    <x-form.simulator.inputs.proposal-diff-input label="Débito (%)" id="p_debit_elo" use-diff="0.61"/>
-                                    <x-form.simulator.inputs.proposal-diff-input label="Crédito à vista (%)" id="p_credit_elo" use-diff="0.84"/>
-                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado até 6x (%)" id="p_credit_2_6_elo" use-diff="0.89"/>
-                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado de 7x a 12x (%)" id="p_credit_7_12_elo" use-diff="0.91"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Débito (%)" id="p_debit_elo" use-diff="0.4"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Crédito à vista (%)" id="p_credit_elo" use-diff="0.4"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado até 6x (%)" id="p_credit_2_6_elo" use-diff="0.4"/>
+                                    <x-form.simulator.inputs.proposal-diff-input label="Parcelado de 7x a 12x (%)" id="p_credit_7_12_elo" use-diff="0.4"/>
                                 </div>
 
                                 <hr>
@@ -267,16 +280,20 @@ $eloAmexDefaultDiff = 0.80;
             const acCredit = document.getElementById('ac_credito');
             const acC26 = document.getElementById('ac_parc_2_6');
             const acC712 = document.getElementById('ac_parc_7_12');
+            const acDebitElo = document.getElementById('elo_ac_debito');
+            const acCreditElo = document.getElementById('elo_ac_credito');
+            const acC26Elo = document.getElementById('elo_ac_parc_2_6');
+            const acC712Elo = document.getElementById('elo_ac_parc_7_12');
 
             constIdInputMapping = {
                 p_debit: acDebit,
                 p_credit: acCredit,
                 p_credit_2_6: acC26,
                 p_credit_7_12: acC712,
-                p_debit_elo: acDebit,
-                p_credit_elo: acCredit,
-                p_credit_2_6_elo: acC26,
-                p_credit_7_12_elo: acC712,
+                p_debit_elo: acDebitElo,
+                p_credit_elo: acCreditElo,
+                p_credit_2_6_elo: acC26Elo,
+                p_credit_7_12_elo: acC712Elo,
             }
 
             const proposalInputs = [
@@ -349,6 +366,10 @@ $eloAmexDefaultDiff = 0.80;
                                 acCredit.innerText = custosAdquirente.credito_vista + '%';
                                 acC26.innerText = custosAdquirente.credito_parc_2_6 + '%';
                                 acC712.innerText = custosAdquirente.credito_parc_7_12 + '%';
+                                acDebitElo.innerText = custosAdquirente.elo.debit + '%';
+                                acCreditElo.innerText = custosAdquirente.elo.credito_vista + '%';
+                                acC26Elo.innerText = custosAdquirente.elo.credito_parc_2_6 + '%';
+                                acC712Elo.innerText = custosAdquirente.elo.credito_parc_7_12 + '%';
 
                                 //garantir que os custos adquirente são números
                                 custosAdquirente.debit = parseFloat(custosAdquirente.debit);
@@ -360,10 +381,11 @@ $eloAmexDefaultDiff = 0.80;
                                 let proposalCreditValue = getValorPropostaComMargem(custosAdquirente.credito_vista, visaMasterDefaultDiff);
                                 let proposalC26Value = getValorPropostaComMargem(custosAdquirente.credito_parc_2_6, visaMasterDefaultDiff);
                                 let proposalC712Value = getValorPropostaComMargem(custosAdquirente.credito_parc_7_12, visaMasterDefaultDiff);
-                                let proposalDebitEloValue = getValorPropostaComMargem(custosAdquirente.debit, 0.61);
-                                let proposalCreditEloValue = getValorPropostaComMargem(custosAdquirente.credito_vista, 0.84)
-                                let proposalC26EloValue = getValorPropostaComMargem(custosAdquirente.credito_parc_2_6, 0.89);
-                                let proposalC712EloValue = getValorPropostaComMargem(custosAdquirente.credito_parc_7_12, 0.91);
+
+                                let proposalDebitEloValue = getValorPropostaComMargem((custosAdquirente.elo.debit - custosAdquirente.debit), proposalDebitValue);
+                                let proposalCreditEloValue = getValorPropostaComMargem((custosAdquirente.elo.credito_vista - custosAdquirente.credito_vista), proposalCreditValue)
+                                let proposalC26EloValue = getValorPropostaComMargem((custosAdquirente.elo.credito_parc_2_6 - custosAdquirente.credito_parc_2_6), proposalC26Value);
+                                let proposalC712EloValue = getValorPropostaComMargem((custosAdquirente.elo.credito_parc_7_12 - custosAdquirente.credito_parc_7_12), proposalC712Value);
 
                                 //set proposal values
                                 proposalDebit.value = proposalDebitValue;

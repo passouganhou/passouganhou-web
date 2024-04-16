@@ -61,9 +61,11 @@ class SimulatorController extends Controller
 
         $merchantService->makeHidden(['created_at', 'updated_at', 'deleted_at']);
         $mediumTaxes = $merchantService->getMediumTaxes();
+        $eloTaxes = $merchantService->getEloTaxes();
         $anticipationTax = $this->getAnticipationTax();
         $mediumTaxes['anticipation'] = $anticipationTax;
         $merchantService->custos_adquirente = $mediumTaxes;
+        $merchantService->custos_adquirente['elo'] = $eloTaxes;
 
         return response()->json($merchantService);
     }
@@ -207,6 +209,7 @@ class SimulatorController extends Controller
                     'credito_parcelado_7_12' => $acquireCosts['credito_parc_7_12'].'%',
                     'antecipacao' => $acquireCosts['anticipation'].'%',
                 ],
+                'elo' => [],
                 'operacional' => $operationCosts
             ],
             'resultados' => [
@@ -240,8 +243,10 @@ class SimulatorController extends Controller
         }
 
         $mediumTaxes = $merchantService->getMediumTaxes();
+        $eloTaxes = $merchantService->getEloTaxes();
         $anticipationTax = $this->getAnticipationTax();
         $mediumTaxes['anticipation'] = $anticipationTax;
+        $mediumTaxes['elo'] = $eloTaxes;
 
         return [
             'mcc' => $merchantService->mcc,

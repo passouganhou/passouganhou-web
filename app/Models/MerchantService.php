@@ -63,6 +63,21 @@ class MerchantService extends Model
         return $medium;
     }
 
+    public function getEloTaxes()
+    {
+        $elo = $this->taxes['elo'];
+
+        $costs = [
+            'debit' => $elo['debit'],
+            'credito_vista' => $elo['credito_vista'],
+            'credito_parc_2_6' => $elo['credito_parc_2_6'],
+            'credito_parc_7_12' => $elo['credito_parc_7_12'],
+        ];
+
+        return $costs;
+
+    }
+
     public function importFromcsv()
     {
         //open costs.csv in storage/public
