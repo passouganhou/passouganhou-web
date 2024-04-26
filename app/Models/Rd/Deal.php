@@ -39,6 +39,8 @@ class Deal extends Model
         'deal_products',
     ];
 
+    public array $proposalField = ['label' => 'Proposta', 'id' => '66184e4d3cf3650016b39c56'];
+
     // Accessors
     public function getUserAttribute($value)
     {
@@ -72,7 +74,31 @@ class Deal extends Model
 
     public function getDealCustomFieldsAttribute($value)
     {
-        return (object) $value;
+        return collect($value)->map(function ($field) {
+            $field['custom_field']['value'] = $field['value'];
+            return (object) $field['custom_field'];
+        })->toArray();
+    }
+
+    //set custom field value by id
+    public function setDealCustomFreeTextFieldById(string $id, $value)
+    {
+        $customField = collect($this->deal_custom_fields)->firstWhere('_id', $id);
+        if ($customField) {
+            $customField->value = $value;
+        }
+    }
+
+    public function getDealCustomFieldIdByLabel(string $label)
+    {
+        $customField = collect($this->deal_custom_fields)->firstWhere('label', $label);
+        return $customField?->_id;
+    }
+
+    public function getdealCustomFieldById(string $id)
+    {
+        $customField = collect($this->deal_custom_fields)->firstWhere('_id', $id);
+        return $customField;
     }
 
     public function getDealProductsAttribute($value)

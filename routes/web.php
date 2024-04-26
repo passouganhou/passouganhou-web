@@ -75,3 +75,4 @@ Route::middleware('auth')->group(function () {
 //include blog routes
 require __DIR__.'/blog.php';
 require __DIR__.'/rd/index.php';
+require __DIR__.'/auth.php';

@@ -9,10 +9,9 @@ class RDStationAuthMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $response = true;
-        if ($response === true){
-            return $next($request);
+        if (!$request->session()->has('rd_crm_token')) {
+            return redirect()->route('rd.login');
         }
-        return redirect()->route('rd.login');
+        return $next($request);
     }
 }

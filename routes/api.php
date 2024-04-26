@@ -23,6 +23,7 @@ Route::group(
             Route::get('/mccs/{mcc}', [\App\Http\Controllers\Api\SimulatorController::class, 'show'])->name('simulator.show');
             Route::get('/get-mcc-options', [\App\Http\Controllers\Api\SimulatorController::class, 'getMCCOptions']);
             Route::post('/calculate', [\App\Http\Controllers\Api\SimulatorController::class, 'simulateResults']);
+            Route::post('/submit', [\App\Http\Controllers\Api\SimulatorController::class, 'submitSimulation']);
             Route::get('/get-acquirer-costs/{mcc?}', [\App\Http\Controllers\Api\SimulatorController::class, 'fetchAcquirerCosts'])->name('simulator.getAcquirerCosts');
         });
     }

@@ -22,6 +22,8 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'rd_crm_token',
+        'rd_crm_user_id',
     ];
 
     /**
@@ -46,5 +48,10 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessFilament(): bool
     {
         return true;
+    }
+
+    public function simulations()
+    {
+        return $this->hasMany(Simulacao::class, 'vendedor_id', 'rd_crm_user_id');
     }
 }

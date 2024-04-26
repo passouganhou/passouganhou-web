@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\RdHelper;
 use App\Http\Controllers\Controller;
 use App\Models\MerchantService;
 use App\Models\Simulacao;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 
 class SimulatorController extends Controller
@@ -156,27 +159,6 @@ class SimulatorController extends Controller
             'anticipation' => $request->proposal['anticipation'],
             'rent' => $request->proposal['monthly_rental'],
         ];
-/*
-        $simulacao = new Simulacao();
-        $simulacao->vendedor_id = $request->vendedor;
-        $simulacao->mcc = $merchantData['mcc'];
-        $simulacao->pontos_venda = (int) $merchantInfo['pontos_de_venda'];
-        $simulacao->maquinas = (int) $merchantInfo['quantidade_maquinas'];
-        $simulacao->faturamento_mensal = (int) $merchantInfo['faturamento_mensal'];
-        $simulacao->ticket_medio = (int) $merchantInfo['ticket_medio'];
-        $simulacao->share_debito = (int) $productShare['debit'];
-        $simulacao->share_credito = (int) $productShare['credit'];
-        $simulacao->share_2_6 = (int) $productShare['parc_2_6'];
-        $simulacao->share_7_12 = (int) $productShare['parc_7_12'];
-        $simulacao->prop_visa_master = $proposal;
-        $simulacao->prop_elo_amex = $proposal;
-       //unset($simulacao->prop_elo_amex['rent']);
-       //unset($simulacao->prop_visa_master['rent']);
-        $simulacao->prop_antecipacao = $proposal['anticipation'];
-        $simulacao->prop_aluguel = $proposal['rent'];
-        $simulacao->opt_antecipacao = $merchantOptions['automatic_anticipation'];
-        $simulacao->save();
-*/
 
         $anticipatedValue = $this->getAnticipatedValue($productShare, $merchantInfo['faturamento_mensal']);
         $diff = $this->calculateProposalCostDifferences($proposal, $merchantData['custos_adquirente']);
@@ -229,6 +211,97 @@ class SimulatorController extends Controller
         }
 
         return response()->json($response);
+    }
+
+    public function submitSimulation(Request $request)
+    {
+        try {
+            $validatedData = $request->validate([
+                'anticipation' => 'required|numeric',
+                'credit' => 'required|numeric',
+                'deal' => 'required|string',
+                'debit' => 'required|numeric',
+                'elo_credit' => 'required|numeric',
+                'elo_debit' => 'required|numeric',
+                'elo_parc_2_6' => 'required|numeric',
+                'elo_parc_7_12' => 'required|numeric',
+                'monthly_rental' => 'required|numeric',
+                'parc_2_6' => 'required|numeric',
+                'parc_7_12' => 'required|numeric',
+                'vendedor' => 'required|string',
+            ]);
+
+            $merchantData = $request->merchantData;
+
+            $vendedor = User::where('rd_crm_user_id', $validatedData['vendedor'])->first(['id', 'name', 'email', 'rd_crm_token', 'rd_crm_user_id']);
+            \Cache::forget('user_'.$vendedor->id.'_negociacoes');
+            $deal = RdHelper::getNegociacao($validatedData['deal'], $vendedor->rd_crm_token);
+            $dealProposalFieldId = $deal->proposalField['id'];
+
+            //proposalText:
+            /* Seguir o seguinte exemplo: Visa/Master: Débito: 1.40% | Crédito à vista: 2.31% | Crédito parcelado até 6x: 2.61% | Crédito parcelado de 7x a 12x: 3.08%; Elo/Amex: Débito: 1.97% | Crédito à vista: 3.14% | Crédito parcelado até 6x: 3.52% | Crédito parcelado de 7x a 12x: 3.99%; Pix: 0,50%; Antecipação Automática: 1.69%
+             * */
+            $proposalText = "Visa/Master: Débito: {$validatedData['debit']}% | Crédito à vista: {$validatedData['credit']}% | Crédito parcelado até 6x: {$validatedData['parc_2_6']}% | Crédito parcelado de 7x a 12x: {$validatedData['parc_7_12']}%; Elo/Amex: Débito: {$validatedData['elo_debit']}% | Crédito à vista: {$validatedData['elo_credit']}% | Crédito parcelado até 6x: {$validatedData['elo_parc_2_6']}% | Crédito parcelado de 7x a 12x: {$validatedData['elo_parc_7_12']}%; Pix: 0,50%; Antecipação Automática: {$validatedData['anticipation']}%";
+            //$proposalText = '[TESTE GERADO PELA API]:'.$proposalText;
+            //$response = true;
+            $response = RdHelper::updateNegociacaoCustomField($validatedData['deal'], $dealProposalFieldId, $proposalText, $vendedor->rd_crm_token);
+            if ($response) {
+                RdHelper::moveDealToNextStage($validatedData['deal'], $vendedor->rd_crm_token);
+                RdHelper::createAnnotationToDeal($validatedData['deal'], $vendedor->rd_crm_token, 'Proposta enviada via simulador');
+                $this->registerSubmission($vendedor->rd_crm_user_id, $validatedData['deal'], $validatedData, $merchantData);
+                return response()->json(['message' => 'Proposta enviada com sucesso']);
+            } else {
+                throw new Exception('Erro ao enviar proposta');
+            }
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 400);
+        }
+
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function registerSubmission($vendedorId, $dealId, $proposal, $merchantData)
+    {
+        //dd($merchantData);
+        $productShare = $merchantData['product_share'];
+
+        $proposalElo = [
+            'debit' => $proposal['elo_debit'],
+            'credit' => $proposal['elo_credit'],
+            'parc_2_6' => $proposal['elo_parc_2_6'],
+            'parc_7_12' => $proposal['elo_parc_7_12'],
+        ];
+        $proposalVisaMaster = [
+            'debit' => $proposal['debit'],
+            'credit' => $proposal['credit'],
+            'parc_2_6' => $proposal['parc_2_6'],
+            'parc_7_12' => $proposal['parc_7_12'],
+        ];
+
+        $simulacao = new Simulacao();
+        $simulacao->negociacao_id = $dealId;
+        $simulacao->vendedor_id = $vendedorId;
+        $simulacao->mcc = $merchantData['mcc'];
+        $simulacao->pontos_venda = (int) $merchantData['points_of_sale'];
+        $simulacao->maquinas = (int) $merchantData['equipment_quantity'];
+        $simulacao->faturamento_mensal = (int) $merchantData['medium_ticket'];
+        $simulacao->ticket_medio = (int) $merchantData['medium_ticket'];
+        $simulacao->share_debito = (int) $productShare['debit'];
+        $simulacao->share_credito = (int) $productShare['credit'];
+        $simulacao->share_2_6 = (int) $productShare['parc_2_6'];
+        $simulacao->share_7_12 = (int) $productShare['parc_7_12'];
+        $simulacao->prop_visa_master = $proposalVisaMaster;
+        $simulacao->prop_elo_amex = $proposalElo;
+        $simulacao->prop_antecipacao = $proposal['anticipation'];
+        $simulacao->prop_aluguel = $proposal['monthly_rental'];
+        $simulacao->opt_antecipacao = $merchantData['opt_automatic_anticipation'];
+        try {
+            $simulacao->save();
+        } catch (Exception $e) {
+            throw new Exception('Erro ao salvar simulação');
+        }
     }
 
     public function getAcquirerCosts($mcc)
