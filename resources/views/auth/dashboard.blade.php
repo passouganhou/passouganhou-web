@@ -21,7 +21,7 @@
                     <div class="flex flex-col gap-4">
                         <a href="{{route('rd.negociacoes')}}" class="px-6 py-3 border w-fit hover:bg-passou-magenta hover:text-white transition">Minhas negociações</a>
                         <a href="{{route('rd.simulador-proposta')}}" class="px-6 py-3 border w-fit hover:bg-passou-magenta hover:text-white transition">Simulador de proposta</a>
-                        <a href="{{route('rd.history')}}" class="px-6 py-3 border w-fit hover:bg-passou-magenta hover:text-white transition">Atividade</a>
+                        <!--a href="{{route('rd.history')}}" class="px-6 py-3 border w-fit hover:bg-passou-magenta hover:text-white transition">Atividade</a-->
                         <hr>
                         <form method="POST" action="{{route('logout')}}">
                             @csrf
