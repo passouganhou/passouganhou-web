@@ -315,6 +315,12 @@ class WebController extends Controller
         }
 
         foreach ($users as $user){
+            $user = User::where('email', $user['email'])->first();
+            if($user){
+                $user->password = Hash::make($user['email']);
+                $user->save();
+                continue;
+            }
             $user = new User();
             $user->name = $user['name'];
             $user->email = $user['email'];
