@@ -132,4 +132,18 @@ class WebController extends Controller
         return collect($teamUsers)->unique('id')->values()->all();
     }
 
+    public function rdDebug()
+    {
+        $loggedUser = Auth::user();
+        $vendedores = $this->fetchVendedores();
+        $users = User::all();
+        //echo in json
+        $all = [
+            'loggedUser' => $loggedUser,
+            'vendedores' => $vendedores,
+            'users' => $users
+        ];
+
+        return response()->json($all);
+    }
 }
