@@ -69,7 +69,7 @@ Route::get('politica-de-privacidade', function () {
 })->name('politica-de-privacidade');
 
 Route::middleware('auth')->group(function () {
-    Route::get('rd-debug', \App\Http\Controllers\Simulador\WebController::class, 'rdDebug');
+    Route::get('rd-debug', [\App\Http\Controllers\Simulador\WebController::class, 'rdDebug']);
     Route::post('export-contacts', [ExportController::class, 'export'])->name('export.contacts');
 });
 
