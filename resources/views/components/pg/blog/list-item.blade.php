@@ -15,11 +15,11 @@
     </div>
     <div class="lg:w-2/3 px-6 py-2">
         <h2 class="text-2xl font-bold leading-8 tracking-tight">
-            <a class="text-gray-900 dark:text-gray-100 hover:text-passou-cyan transition-colors" href="{{ $href }}"> {{ $title }}</a>
+            <a class="text-gray-900 hover:text-passou-cyan transition-colors" href="{{ $href }}"> {{ $title }}</a>
         </h2>
-        <p class="prose mb-3 max-w-none text-gray-500 dark:text-gray-400 hover:text-gray-700">{{ \Illuminate\Support\Str::limit($description, 160) }}</p>
+        <p class="prose mb-3 max-w-none text-gray-500 hover:text-gray-700">{{ \Illuminate\Support\Str::limit($description, 160) }}</p>
         <a href="{{ $href }}"
-        class="font-medium leading-6 text-primary-500 hover:text-passou-cyan dark:hover:text-primary-400 transition-colors"
+        class="font-medium leading-6 text-primary-500 hover:text-passou-cyan transition-colors"
         aria-label="Link to {{ $title }}">
         Continue lendo &rarr;
         </a>
