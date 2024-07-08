@@ -104,41 +104,73 @@
     padding-top: 1rem;
 }
     /*blog*/
-
-    article h1 {
+    /*styles for article and .note-editable*/
+    article, .note-editable {
+        @apply text-base;
+        @apply text-justify;
+    }
+    /*h1*/
+    article h1, .note-editable h1 {
         @apply text-3xl font-bold;
     }
-    article h2 {
+    article h2, .note-editable h2 {
         @apply text-2xl font-bold;
     }
 
-    article h3 {
+    article h3, .note-editable h3 {
         @apply text-xl font-bold;
     }
 
-    article h4 {
+    article h4, .note-editable h4 {
         @apply text-lg font-bold;
     }
 
-    article h5 {
+    article h5, .note-editable h5 {
         @apply text-base font-bold;
     }
 
-    article p{
+    article h6, .note-editable h6 {
+        @apply text-base font-bold;
+    }
+
+    article p, .note-editable p {
         @apply text-base;
         @apply text-justify;
         @apply mb-4;
     }
 
-    article span {
+    article span, .note-editable span {
         @apply text-base;
     }
 
-    article small {
+    article small, .note-editable small {
         @apply text-sm;
     }
 
-    article a {
+    article a, .note-editable a {
         @apply text-passou-cyan font-medium;
         @apply hover:text-passou-magenta-700 underline;
+    }
+
+    article pre, .note-editable pre {
+        @apply text-base;
+        @apply bg-gray-100;
+        @apply p-4;
+        @apply rounded-lg;
+        @apply overflow-x-auto;
+    }
+
+    article code, .note-editable code {
+        @apply text-base;
+        @apply bg-gray-100;
+        @apply p-1;
+        @apply rounded-lg;
+    }
+
+    article blockquote, .note-editable blockquote {
+        @apply text-base;
+        @apply bg-gray-100;
+        @apply p-4;
+        @apply rounded-lg;
+        @apply border-l-4 border-passou-cyan;
     }
