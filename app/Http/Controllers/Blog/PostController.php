@@ -46,11 +46,20 @@ class PostController extends Controller
                 'summary' => 'O Carnaval é considerado a maior festa popular brasileira, regado a uma explosão de cores, ritmos e celebrações que contagia multidões em várias cidades do país. E, para os empreendedores, é também uma excelente oportunidade para impulsionar as vendas e alavancar os resultados significativos.
 
 Por isso, vamos explorar estratégias eficazes e práticas de como aumentar as vendas durante o Carnaval, garantindo que o seu negócio não fique de fora da festa, mas também que tenha resultados significativos.',
-                'tags' => ['tag1', 'tag2'],
+                'tags' => ['carnaval', 'empreendedorismo', 'estratégias para aumentar vendas', 'passou ganhou', 'CND-RS'],
                 'categories' => ['Negócios e Empreendedorismo'],
                 'slug' => 'carnaval-empreendedor-estrategias-aumentar-vendas',
                 'published_at' => '2024-01-31',
                 'cover' => Vite::asset('resources/images/posts/1/pessoas-sorridentes-de-tiro-medio-dancando-ao-ar-livre.webp')
+            ],
+            [
+                'title' => 'Passou Ganhou elimina meia tonelada de plástico na Feira do Sebrae com copos de fibra de arroz',
+                'summary' => 'Descubra como a Passou Ganhou está revolucionando a sustentabilidade em eventos! Conheça nossa iniciativa na Feira do Sebrae, onde substituímos copos descartáveis por copos ecológicos de fibra de arroz, reduzindo o impacto ambiental e inspirando um futuro mais verde.',
+                'tags' => ['Passou Ganhou', 'sustentabilidade', 'copos de fibra de arroz', 'Feira do Sebrae', 'redução de plásticos', 'inovação ecológica'],
+                'categories' => ['Sustentabilidade'],
+                'slug' => 'passou-ganhou-sustentabilidade-feira-do-sebrae',
+                'published_at' => '2024-07-05',
+                'cover' => Vite::asset('resources/images/posts/3/feira-do-sebrae.webp')
             ]
         ];
         // transform the posts to a collection of models
