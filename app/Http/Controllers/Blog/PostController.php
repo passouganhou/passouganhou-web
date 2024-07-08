@@ -59,7 +59,7 @@ Por isso, vamos explorar estratégias eficazes e práticas de como aumentar as v
                 'categories' => ['Sustentabilidade'],
                 'slug' => 'passou-ganhou-sustentabilidade-feira-do-sebrae',
                 'published_at' => '2024-07-05',
-                'cover' => Vite::asset('resources/images/posts/3/feira-do-sebrae.webp')
+                'cover' => Vite::asset('resources/images/posts/3/copos-feira-sebrae.webp')
             ]
         ];
         // transform the posts to a collection of models
