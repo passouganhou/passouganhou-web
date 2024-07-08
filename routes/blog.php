@@ -24,5 +24,13 @@ Route::prefix('blog')->group(
             $metadata->keywords = 'empreendedorismo feminino; negócios;';
             return view('pages.blog.noticias.ph2', compact('metadata'));
         })->name('publicacao-aqui-2');
+
+        Route::get('passou-ganhou-sustentabilidade-feira-do-sebrae', function () {
+            $metadata = new stdClass();
+            $metadata->title = 'Passou Ganhou elimina meia tonelada de plástico na Feira do Sebrae com copos de fibra de arroz';
+            $metadata->description = 'Descubra como a Passou Ganhou está revolucionando a sustentabilidade em eventos! Conheça nossa iniciativa na Feira do Sebrae, onde substituímos copos descartáveis por copos ecológicos de fibra de arroz, reduzindo o impacto ambiental e inspirando um futuro mais verde.';
+            $metadata->keywords = 'Passou Ganhou, sustentabilidade, copos de fibra de arroz, Feira do Sebrae, redução de plásticos, inovação ecológica';
+            return view('pages.blog.noticias.ph3', compact('metadata'));
+        })->name('publicacao-aqui-3');
     }
 );
