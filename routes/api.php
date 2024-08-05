@@ -34,6 +34,18 @@ Route::prefix('/rd-webhook')->group(function () {
     Route::get('/oportunities', [\App\Http\Controllers\Api\RDWebhookController::class, 'getOportunities'])->name('rd-webhook.getOportunities');
 });
 
+Route::prefix('v1')->group(function () {
+    //Route::post('photo/upload', [\App\Http\Controllers\Api\PhotoController::class, 'upload'])->name('api.photo.upload');
+    Route::prefix('gsurf')->group(function () {
+        Route::get('transactions', [\App\Http\Controllers\Api\TransactionController::class, 'index']);
+        Route::get('transactions/import', [\App\Http\Controllers\Api\GsurfController::class, 'importar'])->name('api.importar');
+        Route::get('transactions-by-customer', [\App\Http\Controllers\Api\TransactionController::class, 'transactionsByCustomer']);
+        Route::get('transactions-by-customer/most-valuable', [\App\Http\Controllers\Api\TransactionController::class, 'getMostValuableCustomers']);
+        Route::get('transactions-by-customer/less-valuable', [\App\Http\Controllers\Api\TransactionController::class, 'getLessValuableCustomers']);
+        Route::get('transactions/total', [\App\Http\Controllers\Api\TransactionController::class, 'getTotalTransactions']);
+    });
+
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
