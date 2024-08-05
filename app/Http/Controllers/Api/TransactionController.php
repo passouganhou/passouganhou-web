@@ -67,12 +67,10 @@ class TransactionController extends Controller
     public function validateRequest($request)
     {
         if (!$request->has('start_date')) {
-            $request->merge(['start_date' => '2024-05-01']);
-            //$request->merge(['start_date' => date('Y-m-d')]);
+            $request->merge(['start_date' => date('Y-m-01')]);
         }
         if (!$request->has('end_date')) {
-            $request->merge(['end_date' => '2024-05-02']);
-            //$request->merge(['end_date' => date('Y-m-d')]);
+            $request->merge(['end_date' => date('Y-m-t')]);
         }
         $rules = [
             'start_date' => 'required|date',
@@ -83,5 +81,6 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 400);
         }
+        return true;
     }
 }
