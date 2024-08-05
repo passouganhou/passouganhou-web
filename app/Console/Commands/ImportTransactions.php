@@ -48,7 +48,7 @@ class ImportTransactions extends Command
 
         if (!$startDate || !$endDate) {
             $endDate = Carbon::now()->format('Y-m-d');
-            $startDate = Carbon::now()->subDay()->format('Y-m-d');
+            $startDate = Carbon::now()->format('Y-m-d');
         }
 
         $response = $this->gsurfService->importTransactions($startDate, $endDate);
