@@ -46,7 +46,7 @@
 
 
         <section class="pt-20 pb-16">
-            @if($maquininhas)
+            {{--@if($maquininhas)
                 <div class="container">
                     <h2 class="text-passou-magenta-700 font-bold text-center font-montserrat text-3xl mb-12">Está com dúvidas sobre o funcionamento<br> das maquininhas PASSOU GANHOU? Clique na sua e saiba mais.</h2>
 
@@ -112,7 +112,7 @@
                         @endforeach
                     </div>
                 </div>
-            @endif
+            @endif--}}
             <div class="container pt-20">
                 <h3 class="font-semibold font-montserrat text-center text-passou-magenta-700 md:text-5xl text-3xl mb-16 tracking-tighter">Ainda precisa de ajuda?</h3>
 
