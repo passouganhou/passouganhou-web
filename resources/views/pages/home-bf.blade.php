@@ -253,7 +253,7 @@
                 Seção preta com texto centralizado, e na parte inferior os contatos
             -->
             <!-- Fundo preto -->
-            <div class="container w-full lg:w-9/12">
+            <div class="container w-full lg:w-9/12" id="atendimento">
                 <div class="my-8 flex flex-col gap-10">
                     <h2 class="text-3xl sm:text-4xl font-bold">Precisou? É só chamar!</h2>
                     <hr class="border-t-8 border-passou-cyan w-32 self-center text-center">
