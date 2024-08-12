@@ -18,8 +18,9 @@
 
                 <ul class="flex flex-row items-center justify-center">
                     <x-nav-link href="{{ route('home') }}" color="text-white">Home</x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#atendimento" color="text-white" class="page-scroller">Atendimento</x-nav-link>
-                    {{-- <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
+                    <x-nav-link href="{{ route('home') }}#atendimento" color="text-white">Atendimento</x-nav-link>
+                    {{-- <x-nav-link href="{{ route('home') }}#atendimento" color="text-white" class="page-scroller">Atendimento</x-nav-link>
+                    <x-nav-link href="{{ route('venda-pela-internet.index') }}">Venda pela internet</x-nav-link> --}}
                     <x-nav-link href="{{route('blog.index')}}" color="text-white" rel="noopener noreferrer">Blog</x-nav-link>
                     <x-nav-link href="{{ route('faq.index') }}" color="text-white">FAQ</x-nav-link>
                     <x-nav-link href="{{ route('noticias-em-destaque') }}" color="text-white">Notícias em Destaque</x-nav-link>

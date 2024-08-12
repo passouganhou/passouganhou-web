@@ -248,12 +248,13 @@
                 <x-home.noticias-carousel />
             </div>
         </section>
+        <div id="atendimento"></div>
         <section class="relative bg-black bg-fixed bg-cover text-white text-center flex flex-col pt-12 pb-8" id="contactSection" style="background-image: url('{{Vite::asset('resources/images/bf/Lines_Faixa8.svg')}}')">
             <!--
                 Seção preta com texto centralizado, e na parte inferior os contatos
             -->
             <!-- Fundo preto -->
-            <div class="container w-full lg:w-9/12" id="atendimento">
+            <div class="container w-full lg:w-9/12">
                 <div class="my-8 flex flex-col gap-10">
                     <h2 class="text-3xl sm:text-4xl font-bold">Precisou? É só chamar!</h2>
                     <hr class="border-t-8 border-passou-cyan w-32 self-center text-center">
