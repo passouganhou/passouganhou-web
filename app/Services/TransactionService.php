@@ -25,7 +25,7 @@ class TransactionService
         $endDate = $this->formatDateTime($endDate, 'end');
         return Transaction::select(
             'customer_id',
-            DB::raw('SUM(amount)/100 as total_amount'),
+            DB::raw('SUM(amount) as total_amount'),
             DB::raw('COUNT(*) as transaction_count'),
             DB::raw('MAX(transaction_date) as last_transaction_date'),
             DB::raw('NOW() as query_date'),
