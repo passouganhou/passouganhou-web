@@ -14,7 +14,7 @@ class TransactionService
         $endDate = $this->formatDateTime($endDate, 'end');
         return Transaction::where('status_category_description', 'Confirmada')
             //exclude columns from select
-            ->select('id', 'transaction_date', 'amount', 'status_category_description', 'customer_id')
+            ->select('id', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id')
             ->get();
     }
 
