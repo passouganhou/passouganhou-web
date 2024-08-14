@@ -13,9 +13,8 @@ class TransactionService
         $startDate = $this->formatDateTime($startDate, 'start');
         $endDate = $this->formatDateTime($endDate, 'end');
         return Transaction::where('status_category_description', 'Confirmada')
-            //->where('transaction_date', '>=', $startDate)
-            //->where('transaction_date', '<=', $endDate)
-            //->limit($limit)
+            //exclude columns from select
+            ->select('id', 'transaction_date', 'amount', 'status_category_description', 'customer_id')
             ->get();
     }
 
