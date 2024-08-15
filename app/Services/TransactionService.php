@@ -29,8 +29,10 @@ class TransactionService
             DB::raw('MAX(transaction_date) as last_transaction_date'),
             DB::raw('NOW() as query_date'),
             DB::raw('CASE WHEN MAX(transaction_date) < NOW() - INTERVAL 15 DAY THEN 1 ELSE 0 END as more_than_15_days'),
-            DB::raw('SUM(CASE WHEN category_description = "Debito" THEN amount ELSE 0 END) as debit_share_value'),
-            DB::raw('SUM(CASE WHEN category_description = "Credito" THEN amount ELSE 0 END) as credit_share_value')
+            DB::raw('SUM(CASE WHEN transaction_type_id = 14 THEN amount ELSE 0 END) as debit_share_amount'),
+            DB::raw('SUM(CASE WHEN transaction_type_id = 9 THEN amount ELSE 0 END) as credit_vista_share_amount'),
+            DB::raw('SUM(CASE WHEN transaction_type_id = 13 AND installments_number > 1 AND installments_number < 7 THEN amount ELSE 0 END) as credit_2_6_share_amount'),
+            DB::raw('SUM(CASE WHEN transaction_type_id = 13 AND installments_number > 6 AND installments_number <= 12 THEN amount ELSE 0 END) as credit_7_12_share_amount')
         )
             ->where('status_category_description', 'Confirmada')
             ->whereNotNull('customer_id')
