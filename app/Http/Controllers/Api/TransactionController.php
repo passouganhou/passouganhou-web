@@ -17,17 +17,26 @@ class TransactionController extends Controller
     public function index()
     {
         $request = request();
-        $this->validateRequest($request);
+        $this->normalizeRequest($request);
         $startDate = $request->get('start_date');
         $endDate = $request->get('end_date');
         $transactions = $this->transactionService->getAllTransactions($startDate, $endDate);
+        return response()->json($transactions);
+    }
+    public function getAll()
+    {
+        $request = request();
+        $this->validateRequest($request);
+        $startDate = $request->get('start_date');
+        $endDate = $request->get('end_date');
+        $transactions = $this->transactionService->getAllTransactionsWithAllColumns($startDate, $endDate);
         return response()->json($transactions);
     }
 
     public function transactionsByCustomer()
     {
         $request = request();
-        $this->validateRequest($request);
+        $this->normalizeRequest($request);
         $startDate = $request->get('start_date');
         $endDate = $request->get('end_date');
         $transactions = $this->transactionService->getTransactionsGroupedByCustomerId($startDate, $endDate);
@@ -37,7 +46,7 @@ class TransactionController extends Controller
     public function getMostValuableCustomers()
     {
         $request = request();
-        $this->validateRequest($request);
+        $this->normalizeRequest($request);
         $startDate = $request->get('start_date');
         $endDate = $request->get('end_date');
         $transactions = $this->transactionService->getMostValuableCustomers($startDate, $endDate);
@@ -47,7 +56,7 @@ class TransactionController extends Controller
     public function getLessValuableCustomers()
     {
         $request = request();
-        $this->validateRequest($request);
+        $this->normalizeRequest($request);
         $startDate = $request->get('start_date');
         $endDate = $request->get('end_date');
         $transactions = $this->transactionService->getLessValuableCustomers($startDate, $endDate);
@@ -57,7 +66,7 @@ class TransactionController extends Controller
     public function getTotalTransactions()
     {
         $request = request();
-        $this->validateRequest($request);
+        $this->normalizeRequest($request);
         $startDate = $request->get('start_date');
         $endDate = $request->get('end_date');
         $transactions = $this->transactionService->getTotalTransactions($startDate, $endDate);
@@ -66,12 +75,6 @@ class TransactionController extends Controller
 
     public function validateRequest($request)
     {
-        if (!$request->has('start_date')) {
-            $request->merge(['start_date' => date('Y-m-01')]);
-        }
-        if (!$request->has('end_date')) {
-            $request->merge(['end_date' => date('Y-m-t')]);
-        }
         $rules = [
             'start_date' => 'required|date',
             'end_date' => 'required|date',
@@ -82,5 +85,15 @@ class TransactionController extends Controller
             return response()->json(['error' => $e->getMessage()], 400);
         }
         return true;
+    }
+    public function normalizeRequest($request)
+    {
+        if (!$request->has('start_date')) {
+            $request->merge(['start_date' => date('Y-m-01')]);
+        }
+        if (!$request->has('end_date')) {
+            $request->merge(['end_date' => date('Y-m-t')]);
+        }
+        return $this->validateRequest($request);
     }
 }

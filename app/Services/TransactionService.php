@@ -17,6 +17,14 @@ class TransactionService
             ->select('id', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id')
             ->get();
     }
+    public function getAllTransactionsWithAllColumns($startDate, $endDate, $limit = 1000)
+    {
+        $startDate = $this->formatDateTime($startDate, 'start');
+        $endDate = $this->formatDateTime($endDate, 'end');
+        return Transaction::whereDate('date', '>=', $startDate)
+            ->whereDate('date', '<=', $endDate)
+            ->get();
+    }
 
     public function getTransactionsGroupedByCustomerId($startDate, $endDate, $limit = 1000)
     {
