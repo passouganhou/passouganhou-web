@@ -37,9 +37,9 @@ Route::get('/', function (GeneralSettings $settings) {
 
 Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
 
-Route::get('peca-a-sua', function (GeneralSettings $settings) {
+/*Route::get('peca-a-sua', function (GeneralSettings $settings) {
     return view('pages.peca-maquininha', compact('settings'));
-})->name('peca-maquininha.index');
+})->name('peca-maquininha.index');*/
 
 Route::get('canaldatransparencia', function () {
     return view('pages.canal-de-transparencia');
