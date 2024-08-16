@@ -74,4 +74,21 @@ class GsurfRepository
         return $result;
     }
 
+    public function getMerchants()
+    {
+        $response = \Cache::remember('gsurf_merchants', now()->addMinutes(30), function () {
+            $apiUrl = 'https://api.gsurfnet.com/sc3-mtm-v2/merchants';
+            $response = $this->client->request('GET', $apiUrl, [
+                'headers' => [ 'Authorization' => 'Bearer ' . $this->getToken() ],
+                'query' => [
+                    'page' => 1,
+                    'limit' => 1500
+                ]
+            ]);
+            $body = $response->getBody();
+            return $body->getContents();
+        });
+        return json_decode($response);
+    }
+
 }

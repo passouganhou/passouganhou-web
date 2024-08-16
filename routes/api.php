@@ -37,13 +37,16 @@ Route::prefix('/rd-webhook')->group(function () {
 Route::prefix('v1')->group(function () {
     //Route::post('photo/upload', [\App\Http\Controllers\Api\PhotoController::class, 'upload'])->name('api.photo.upload');
     Route::prefix('gsurf')->group(function () {
-        Route::get('transactions', [\App\Http\Controllers\Api\TransactionController::class, 'index']);
-        Route::get('transactions-by-date', [\App\Http\Controllers\Api\TransactionController::class, 'getAll']);
-        Route::get('transactions/import', [\App\Http\Controllers\Api\GsurfController::class, 'importar'])->name('api.importar');
+        Route::get('merchants', [\App\Http\Controllers\Api\GsurfController::class, 'getMerchants'])->name('api.gsurf.merchants');
         Route::get('transactions-by-customer', [\App\Http\Controllers\Api\TransactionController::class, 'transactionsByCustomer']);
         Route::get('transactions-by-customer/most-valuable', [\App\Http\Controllers\Api\TransactionController::class, 'getMostValuableCustomers']);
         Route::get('transactions-by-customer/less-valuable', [\App\Http\Controllers\Api\TransactionController::class, 'getLessValuableCustomers']);
-        Route::get('transactions/total', [\App\Http\Controllers\Api\TransactionController::class, 'getTotalTransactions']);
+        Route::get('transactions-by-date', [\App\Http\Controllers\Api\TransactionController::class, 'getAll']);
+        Route::prefix('transactions')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Api\TransactionController::class, 'index']);
+            Route::get('import', [\App\Http\Controllers\Api\GsurfController::class, 'importar'])->name('api.importar');
+            Route::get('total', [\App\Http\Controllers\Api\TransactionController::class, 'getTotalTransactions']);
+        });
     });
 
 });

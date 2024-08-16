@@ -21,6 +21,12 @@ class GsurfService
         return $this->gsurfRepository->getToken();
     }
 
+    public function getMerchants()
+    {
+        $response = $this->gsurfRepository->getMerchants();
+        return $response->merchant;
+    }
+
     /**
      * @throws Exception
      */

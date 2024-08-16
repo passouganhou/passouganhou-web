@@ -21,6 +21,12 @@ class GsurfController extends Controller
         return response()->json($response);
     }
 
+    public function getMerchants()
+    {
+        $response = $this->gsurfService->getMerchants();
+        return response()->json($response);
+    }
+
     public function validateRequest($request)
     {
         if (!$request->has('start_date')) {
