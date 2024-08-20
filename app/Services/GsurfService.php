@@ -37,6 +37,43 @@ class GsurfService
         return $this->gsurfRepository->getTransactionsFromGsurf($start, $end, $page);
     }
 
+    public function getValuesAndQuantityByDay()
+    {
+        $values = $this->gsurfRepository->getTransactionsValuesByDay();
+        $quantity = $this->gsurfRepository->getTransactionsQuantityByDay();
+
+        if ($values->statusCode !== 200 || $quantity->statusCode !== 200) {
+            throw new Exception('Erro ao buscar valores e quantidades por dia');
+        }
+
+        $times = $values->body->data[0]->times;
+        $valuesData = $values->body->data[0]->values;
+        $quantityData = $quantity->body->data[0]->values;
+
+        $response = [
+            'statusCode' => 200,
+            'body' => [
+                'description' => 'Valor das Transações, Quantidade por Dia e Ticket Médio',
+                'data' => []
+            ]
+        ];
+
+        foreach ($times as $index => $time) {
+            $value = (float) $valuesData[$index] / 100;
+            $quantity = $quantityData[$index];
+            $medium_ticket = $value > 0 && $quantity > 0 ? $value / $quantity : 0;
+
+            $response['body']['data'][] = [
+                'date' => $time,
+                'value' => $value,
+                'quantity' => $quantity,
+                'medium_ticket' => $medium_ticket
+            ];
+        }
+
+        return $response;
+    }
+
     /**
      * @throws Exception
      */
@@ -93,9 +130,9 @@ class GsurfService
                 $duplicatedId = explode('\'', explode('for key', $e->getMessage())[0])[1];
                 Transaction::where('id', $duplicatedId)->delete();
                 $this->commitData($transactions);
+            } else {
+                throw new Exception('Erro ao salvar transações: ' . $e->getMessage());
             }
-            dd($e->getMessage(), $transaction);
-            throw new Exception('Erro ao salvar transações: ' . $e->getMessage());
         }
     }
 

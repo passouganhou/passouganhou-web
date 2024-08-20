@@ -21,6 +21,11 @@ class GsurfController extends Controller
         return response()->json($response);
     }
 
+    public function getValuesAndQuantityByDay()
+    {
+        $response = $this->gsurfService->getValuesAndQuantityByDay();
+        return response()->json($response);
+    }
     public function getMerchants()
     {
         $response = $this->gsurfService->getMerchants();

@@ -46,6 +46,7 @@ Route::prefix('v1')->group(function () {
             Route::get('/', [\App\Http\Controllers\Api\TransactionController::class, 'index']);
             Route::get('import', [\App\Http\Controllers\Api\GsurfController::class, 'importar'])->name('api.importar');
             Route::get('total', [\App\Http\Controllers\Api\TransactionController::class, 'getTotalTransactions']);
+            Route::get('total-by-day', [\App\Http\Controllers\Api\GsurfController::class, 'getValuesAndQuantityByDay']);
         });
     });
 

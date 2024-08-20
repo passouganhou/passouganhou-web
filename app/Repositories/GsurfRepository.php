@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Enumerable;
 
 class GsurfRepository
 {
@@ -10,11 +11,17 @@ class GsurfRepository
     private String $client_id = '519be47c-a7a6-4988-b73e-75d2b3137e22';
     private String $client_secret = 'Kos0kgMl56N5583P6vEd0tJh2NAIuMYC';
 
+    private Enumerable $frequencies;
+
     private String $token;
 
     public function __construct()
     {
         $this->client = new Client();
+        $this->frequencies = collect([
+            'DAILY' => 2,
+            'MONTHLY' => 3
+        ]);
     }
     public function getToken()
     {
@@ -89,6 +96,42 @@ class GsurfRepository
             return $body->getContents();
         });
         return json_decode($response);
+    }
+
+    public function getTransactionsValuesAndQuantityByDay()
+    {
+
+    }
+
+    public function getTransactionsValuesByDay()
+    {
+        $dataWarehouseId = 2;
+        $frequencyId = $this->frequencies->get('DAILY');
+        return $this->getWarehouseFacts($frequencyId, $dataWarehouseId);
+    }
+
+    public function getTransactionsQuantityByDay()
+    {
+        $dataWarehouseId = 1;
+        $frequencyId = $this->frequencies->get('DAILY');
+        return $this->getWarehouseFacts($frequencyId, $dataWarehouseId);
+    }
+
+    public function getWarehouseFacts($frequencyId, $dataWarehouseId)
+    {
+        $apiUrl = 'https://api.gsurfnet.com/transactions-v2/transactions/dw/' . $dataWarehouseId;
+        $response = $this->client->request('GET', $apiUrl, [
+            'headers' => [ 'Authorization' => 'Bearer ' . $this->getToken() ],
+            'query' => [
+                'initial_date' => '2024-01-01',
+                'final_date' => '2024-12-31',
+                'frequency_id' => $frequencyId,
+                'dimension_3' => 9
+            ]
+        ]);
+        $body = $response->getBody();
+        $content = $body->getContents();
+        return json_decode($content);
     }
 
 }
