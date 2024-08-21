@@ -32,6 +32,12 @@ class GsurfController extends Controller
         return response()->json($response);
     }
 
+    public function getTerminals()
+    {
+        $response = $this->gsurfService->getAllTerminalsFromGsurf();
+        return response()->json($response);
+    }
+
     public function validateRequest($request)
     {
         if (!$request->has('start_date')) {

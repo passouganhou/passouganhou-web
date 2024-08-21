@@ -136,6 +136,11 @@ class GsurfService
         }
     }
 
+    public function getAllTerminalsFromGsurf()
+    {
+        return $this->gsurfRepository->getAllTerminalsFromGsurf();
+    }
+
     /**
      * @throws Exception
      */

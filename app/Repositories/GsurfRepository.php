@@ -38,12 +38,45 @@ class GsurfRepository
             return json_decode($content)->access_token;
         });
     }
+    public function getAllTerminalsFromGsurf()
+    {
+        $result = [];
+        $totalPages = 0;
+        $page = 0;
+        $limit = 1500;
+        do {
+            sleep(60);
+            $page++;
+            $terminals = $this->getTerminalsFromGsurf($page, $limit);
+            //dd($terminals, $terminals->terminals, $terminals->pages, $terminals->limit, $terminals->total, $terminals->currentPage);
+            $records = $terminals->terminals;
+            $limit = $terminals->limit;
+            if (!empty($records)){
+                $result = array_merge($result, $records);
+            }
+            $total = $terminals->total;
+            $totalPages++;
+        } while ($totalPages < $terminals->pages);
+        return $result;
+    }
+
+    public function getTerminalsFromGsurf($page = 1, $limit = 300)
+    {
+        $apiUrl = 'https://api.gsurfnet.com/sc3-mtm-v2/terminals';
+        $response = $this->client->request('GET', $apiUrl, [
+            'headers' => [ 'Authorization' => 'Bearer ' . $this->getToken() ],
+            'query' => [
+                'page' => $page,
+                'limit' => $limit
+            ]
+        ]);
+        $body = $response->getBody();
+        $content = $body->getContents();
+        return json_decode($content);
+    }
 
     public function getTransactionsFromGsurf(String $dateTimeStart, String $dateTimeEnd, int $page = 1, $limit = 100)
     {
-        /*
-         * curl --location 'https://api.gsurfnet.com/transactions-v2/transactions?initial_date=2024-07-16T00%3A00%3A00&final_date=2024-07-16T23%3A59%3A59'
-         */
         $apiUrl = 'https://api.gsurfnet.com/transactions-v2/transactions';
         $response = $this->client->request('GET', $apiUrl, [
             'headers' => [ 'Authorization' => 'Bearer ' . $this->getToken() ],

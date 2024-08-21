@@ -38,6 +38,7 @@ Route::prefix('v1')->group(function () {
     //Route::post('photo/upload', [\App\Http\Controllers\Api\PhotoController::class, 'upload'])->name('api.photo.upload');
     Route::prefix('gsurf')->group(function () {
         Route::get('merchants', [\App\Http\Controllers\Api\GsurfController::class, 'getMerchants'])->name('api.gsurf.merchants');
+        Route::get('terminals', [\App\Http\Controllers\Api\GsurfController::class, 'getTerminals'])->name('api.gsurf.terminals');
         Route::get('transactions-by-customer', [\App\Http\Controllers\Api\TransactionController::class, 'transactionsByCustomer']);
         Route::get('transactions-by-customer/most-valuable', [\App\Http\Controllers\Api\TransactionController::class, 'getMostValuableCustomers']);
         Route::get('transactions-by-customer/less-valuable', [\App\Http\Controllers\Api\TransactionController::class, 'getLessValuableCustomers']);
