@@ -26,7 +26,7 @@ class TransactionService
             ->whereDate('date', '<=', $endDate)
             ->get();
     }
-    public function getAllTransactionsWithAllColumnsWithTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo', $limit = 1000)
+    public function getAllTransactionsWithAllColumnsWithTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo')
     {
         // Formata as datas de início e fim
         $startDate = $this->formatDateTime($startDate, 'start');
@@ -35,7 +35,6 @@ class TransactionService
         // Busca todas as transações dentro do intervalo de datas informado
         $transactions = Transaction::whereDate('date', '>=', $startDate)
             ->whereDate('date', '<=', $endDate)
-            ->limit($limit)
             ->get();
 
         // Ajusta os campos de data para o timezone especificado
