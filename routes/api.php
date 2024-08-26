@@ -49,6 +49,7 @@ Route::prefix('v1')->group(function () {
             Route::get('total', [\App\Http\Controllers\Api\TransactionController::class, 'getTotalTransactions']);
             Route::get('total-by-day', [\App\Http\Controllers\Api\GsurfController::class, 'getValuesAndQuantityByDay']);
             Route::get('debugar', [\App\Http\Controllers\Api\TransactionController::class, 'debugar']);
+            Route::get('debugar/all', [\App\Http\Controllers\Api\TransactionController::class, 'debugarAll']);
         });
     });
 
