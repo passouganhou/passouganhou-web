@@ -30,7 +30,7 @@ class TransactionController extends Controller
         return $this->jsonRemember('transactions_all', function () {
             $startDate = date('Y-01-01');
             $endDate = date('Y-12-31');
-            return $this->transactionService->getAllTransactionsWithAllColumns($startDate, $endDate);
+            return $this->transactionService->getAllTransactionsWithAllColumnsWithTZ($startDate, $endDate);
         }, 1200);
     }
     private function jsonRemember(String $key, $callback, $expirationMinutes = 60)

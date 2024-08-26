@@ -25,6 +25,26 @@ class TransactionService
             ->whereDate('date', '<=', $endDate)
             ->get();
     }
+    public function getAllTransactionsWithAllColumnsWithTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo', $limit = 1000)
+    {
+        $startDate = $this->formatDateTime($startDate, 'start');
+        $endDate = $this->formatDateTime($endDate, 'end');
+
+        $transactions = Transaction::whereDate('date', '>=', $startDate)
+            ->whereDate('date', '<=', $endDate)
+            ->get();
+
+        foreach ($transactions as $transaction) {
+            $transaction->date = \Carbon\Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $transaction->date, 'UTC')
+                ->setTimezone($timezone)
+                ->format('Y-m-d H:i:s');
+            $transaction->transaction_date = \Carbon\Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $transaction->transaction_date, 'UTC')
+                ->setTimezone($timezone)
+                ->format('Y-m-d H:i:s');
+        }
+
+        return $transactions;
+    }
 
     public function getTransactionsGroupedByCustomerId($startDate, $endDate, $limit = 1000)
     {
