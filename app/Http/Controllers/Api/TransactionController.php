@@ -19,7 +19,7 @@ class TransactionController extends Controller
     {
         return $this->jsonRemember('transactions', function () {
             return $this->transactionService->getAllTransactions('2021-01-01', '2021-01-31');
-        }, 3);
+        });
     }
     private function jsonRemember(String $key, $callback, $expirationMinutes = 60)
     {
