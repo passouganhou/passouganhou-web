@@ -15,7 +15,7 @@ class TransactionService
         $endDate = $this->formatDateTime($endDate, 'end');
         $transactions = Transaction::where('status_category_description', 'Confirmada')
             //exclude columns from select
-            ->select('id', 'date', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id')
+            ->select('id', 'date', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id', 'uuid')
             ->get();
 
         // Ajusta os campos de data para o timezone especificado
