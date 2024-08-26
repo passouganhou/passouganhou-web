@@ -13,7 +13,7 @@ class TransactionService
     {
         $startDate = $this->formatDateTime($startDate, 'start');
         $endDate = $this->formatDateTime($endDate, 'end');
-        $transactions = Transaction::where('status_category_description', 'Confirmada')
+        $transactions = Transaction::whereIn('status_id', [8,9])
             //exclude columns from select
             ->select('id', 'date', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id', 'uuid')
             ->get();
@@ -95,6 +95,7 @@ class TransactionService
             DB::raw('SUM(CASE WHEN transaction_type_id = 13 AND installments_number > 6 AND installments_number <= 12 THEN amount ELSE 0 END) as credit_7_12_share_amount')
         )
             ->where('status_category_description', 'Confirmada')
+            ->whereIn('status_id', [8,9])
             ->whereNotNull('customer_id')
             ->groupBy('customer_id')
             ->orderBy('total_amount', 'desc')
@@ -107,7 +108,7 @@ class TransactionService
         $endDate = $this->formatDateTime($endDate, 'end');
         $customers = DB::table('gsurf_transactions')
             ->select('customer_id', DB::raw('SUM(amount) as total_amount'), DB::raw('COUNT(*) as transaction_count'))
-            ->where('status_category_description', 'Confirmada')
+            ->whereIn('status_id', [8,9])
             //->where('transaction_date', '>=', $startDate)
             //->where('transaction_date', '<=', $endDate)
             ->whereNotNull('customer_id')
@@ -126,7 +127,7 @@ class TransactionService
         $endDate = $this->formatDateTime($endDate, 'end');
         $customers = DB::table('gsurf_transactions')
             ->select('customer_id', DB::raw('SUM(amount) as total_amount'), DB::raw('COUNT(*) as transaction_count'))
-            ->where('status_category_description', 'Confirmada')
+            ->whereIn('status_id', [8,9])
             //->where('transaction_date', '>=', $startDate)
             //->where('transaction_date', '<=', $endDate)
             ->whereNotNull('customer_id')
@@ -144,7 +145,7 @@ class TransactionService
         $endDate = $this->formatDateTime($endDate, 'end');
         $result = DB::table('gsurf_transactions')
             ->select(DB::raw('COUNT(*) as total_transactions'), DB::raw('SUM(amount) as total_amount'))
-            ->where('status_category_description', 'Confirmada')
+            ->whereIn('status_id', [8,9])
             //->where('transaction_date', '>=', $startDate)
             //->where('transaction_date', '<=', $endDate)
             ->first();
