@@ -9,15 +9,35 @@ use Exception;
 
 class TransactionService
 {
-    public function getAllTransactions($startDate, $endDate, $limit = 1000)
+    public function getAllTransactionsTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo')
     {
         $startDate = $this->formatDateTime($startDate, 'start');
         $endDate = $this->formatDateTime($endDate, 'end');
-        return Transaction::where('status_category_description', 'Confirmada')
+        $transactions = Transaction::where('status_category_description', 'Confirmada')
             //exclude columns from select
             ->select('id', 'date', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id')
             ->get();
+
+        // Ajusta os campos de data para o timezone especificado
+        $transactions->transform(function ($transaction) use ($timezone) {
+            // Converte a coluna 'date' de UTC para o timezone especificado
+            $transaction->date = Carbon::parse($transaction->date)
+                ->setTimezone($timezone)
+                ->format('Y-m-d H:i:s');
+
+            // Converte a coluna 'transaction_date' de UTC para o timezone especificado, se existir
+            if (!empty($transaction->transaction_date)) {
+                $transaction->transaction_date = Carbon::parse($transaction->transaction_date)
+                    ->setTimezone($timezone)
+                    ->format('Y-m-d H:i:s');
+            }
+
+            return $transaction;
+        });
+
+        return $transactions;
     }
+
     public function getAllTransactionsWithAllColumns($startDate, $endDate, $limit = 1000)
     {
         $startDate = $this->formatDateTime($startDate, 'start');

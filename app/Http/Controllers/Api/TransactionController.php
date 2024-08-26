@@ -21,7 +21,7 @@ class TransactionController extends Controller
             //começo e final do ano atual
             $startDate = date('Y-01-01');
             $endDate = date('Y-12-31');
-            return $this->transactionService->getAllTransactions($startDate, $endDate);
+            return $this->transactionService->getAllTransactionsTZ($startDate, $endDate);
         }, 1200);
     }
 
