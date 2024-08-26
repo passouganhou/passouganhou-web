@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\DataWarehouse\Gsurf\Transaction;
+use Carbon\Carbon;
 use DB;
 use Exception;
 
@@ -27,24 +28,36 @@ class TransactionService
     }
     public function getAllTransactionsWithAllColumnsWithTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo', $limit = 1000)
     {
+        // Formata as datas de início e fim
         $startDate = $this->formatDateTime($startDate, 'start');
         $endDate = $this->formatDateTime($endDate, 'end');
 
+        // Busca todas as transações dentro do intervalo de datas informado
         $transactions = Transaction::whereDate('date', '>=', $startDate)
             ->whereDate('date', '<=', $endDate)
+            ->limit($limit)
             ->get();
 
-        foreach ($transactions as $transaction) {
-            $transaction->date = \Carbon\Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $transaction->date, 'UTC')
+        // Ajusta os campos de data para o timezone especificado
+        $transactions->transform(function ($transaction) use ($timezone) {
+            // Converte a coluna 'date' de UTC para o timezone especificado
+            $transaction->date = Carbon::parse($transaction->date)
                 ->setTimezone($timezone)
                 ->format('Y-m-d H:i:s');
-            $transaction->transaction_date = \Carbon\Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $transaction->transaction_date, 'UTC')
-                ->setTimezone($timezone)
-                ->format('Y-m-d H:i:s');
-        }
+
+            // Converte a coluna 'transaction_date' de UTC para o timezone especificado, se existir
+            if (!empty($transaction->transaction_date)) {
+                $transaction->transaction_date = Carbon::parse($transaction->transaction_date)
+                    ->setTimezone($timezone)
+                    ->format('Y-m-d H:i:s');
+            }
+
+            return $transaction;
+        });
 
         return $transactions;
     }
+
 
     public function getTransactionsGroupedByCustomerId($startDate, $endDate, $limit = 1000)
     {
