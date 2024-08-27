@@ -51,6 +51,14 @@ Route::prefix('v1')->group(function () {
             Route::get('debugar', [\App\Http\Controllers\Api\TransactionController::class, 'debugar']);
             Route::get('debugar/all', [\App\Http\Controllers\Api\TransactionController::class, 'debugarAll']);
         });
+        Route::prefix('payments')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Api\PaymentController::class, 'index']);
+            //Route::get('import', [\App\Http\Controllers\Api\PaymentController::class, 'importar'])->name('api.payments.importar');
+            //Route::get('total', [\App\Http\Controllers\Api\PaymentController::class, 'getTotalPayments']);
+            //Route::get('total-by-day', [\App\Http\Controllers\Api\PaymentController::class, 'getValuesAndQuantityByDay']);
+            //Route::get('debugar', [\App\Http\Controllers\Api\PaymentController::class, 'debugar']);
+            //Route::get('debugar/all', [\App\Http\Controllers\Api\PaymentController::class, 'debugarAll']);
+        });
     });
 
 });

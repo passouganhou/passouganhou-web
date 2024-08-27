@@ -2,8 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\DataWarehouse\Gsurf\Transaction;
 use App\Services\GsurfService;
 use Carbon\Carbon;
+use DB;
+use Exception;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Command\Command as CommandAlias;
 
@@ -44,6 +47,7 @@ class ImportTransactions extends Command
      */
     public function handle(): int
     {
+        $this->info('Importing transactions...');
         $startDate = $this->argument('startDate');
         $endDate = $this->argument('endDate');
 
@@ -51,30 +55,30 @@ class ImportTransactions extends Command
             $endDate = Carbon::now()->format('Y-m-d');
             $startDate = Carbon::now()->format('Y-m-d');
         }
-
         try {
-            $response = $this->gsurfService->importTransactions($startDate, $endDate);
-            if ($response['status'] === 'success') {
-                $this->info('Transactions imported successfully.');
-                $this->info('Start Date: ' . $startDate);
-                $this->info('End Date: ' . $endDate);
-                $this->info('Response: ' . json_encode($response));
-                if ($this->clearFiles()) {
-                    $this->info('Files deleted successfully.');
-                    return CommandAlias::SUCCESS;
-                } else {
-                    $this->error('Error while trying to delete files.');
-                    return CommandAlias::FAILURE;
-                }
-            } else {
-                $this->error('Error while trying to import transactions.');
-                $this->error('Response: ' . json_encode($response));
-                return CommandAlias::FAILURE;
-            }
+            $transactions = $this->gsurfService->getFormattedTransactions($startDate, $endDate);
         } catch (\Exception $e) {
-            $this->error('Error while trying to import transactions: ' . $e->getMessage());
+            $this->error('Error while trying to get transactions: ' . $e->getMessage());
             return CommandAlias::FAILURE;
         }
+
+        $this->info('Transactions fetched successfully.');
+
+        try {
+            $count = $this->commitData($transactions);
+            if ($count === 0) {
+                $this->error('No transactions saved.');
+                return CommandAlias::FAILURE;
+            }
+            $this->info('Total transactions saved: ' . $count);
+            $this->clearFiles();
+            return CommandAlias::SUCCESS;
+        }
+        catch (\Exception $e) {
+            $this->error('Error while trying to save transactions: ' . $e->getMessage());
+            return CommandAlias::FAILURE;
+        }
+
     }
 
     private function clearFiles()
@@ -93,4 +97,55 @@ class ImportTransactions extends Command
             return false;
         }
     }
+
+    public function commitData(array $transactions)
+    {
+        DB::beginTransaction();
+        $total = count($transactions);
+        $this->info('Total transactions to save: ' . $total);
+        $counter = 0;
+
+        $this->info('Saving transactions...');
+        $this->output->progressStart($total);
+
+        while (count($transactions) > 0) {
+            try {
+                foreach ($transactions as $key => $transaction) {
+                    if ($transaction instanceof Transaction) {
+                        $transaction->save();
+                    } else {
+                        $newTransaction = new Transaction($transaction);
+                        $newTransaction->save();
+                    }
+                    $counter++;
+                    $this->output->progressAdvance();
+                    unset($transactions[$key]);  // Remove the transaction after successful save
+                }
+
+                DB::commit();
+                $this->output->progressFinish();
+                $this->info('Transactions saved successfully.');
+
+            } catch (Exception $e) {
+                DB::rollBack();
+                $this->error('Error while trying to save transaction: ' . $e->getMessage());
+
+                // Log the error and remove the transaction that caused the error
+                if ($transaction instanceof Transaction) {
+                    $this->error('Failed transaction ID: ' . $transaction->id);
+                } else {
+                    $this->error('Failed transaction data: ' . json_encode($transaction));
+                }
+
+                // Remove the transaction that caused the error
+                unset($transactions[$key]);
+
+                // Start a new transaction to try again with the remaining transactions
+                DB::beginTransaction();
+            }
+        }
+
+        return $counter;
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\DataWarehouse\Gsurf\Payment;
 use App\Models\DataWarehouse\Gsurf\Transaction;
 use App\Repositories\GsurfRepository;
 use DB;
@@ -77,18 +78,53 @@ class GsurfService
     /**
      * @throws Exception
      */
+    public function getFormattedTransactions(String $dateTimeStart, String $dateTimeEnd)
+    {
+        $start = $this->formatDateTime($dateTimeStart, 'start');
+        $end = $this->formatDateTime($dateTimeEnd, 'end');
+        try {
+            $transactions = $this->gsurfRepository->getAllTransactionsFromGsurf($start, $end, 800);
+            return array_map([$this, 'validateAndFormatTransaction'], $transactions);
+        }catch (Exception $e) {
+            throw new Exception('Erro: ' . $e->getMessage(), 400);
+        }
+    }
+    public function getFormattedPayments(String $dateTimeStart, String $dateTimeEnd)
+    {
+        $start = $this->formatPaymentDateTime($dateTimeStart, 'start');
+        $end = $this->formatPaymentDateTime($dateTimeEnd, 'end');
+        try {
+            $payments = $this->gsurfRepository->getAllPaymentsFromGsurf($start, $end, 800);
+            return array_map([$this, 'validateAndFormatPayment'], $payments);
+        }catch (Exception $e) {
+            throw new Exception('Erro: ' . $e->getMessage(), 400);
+        }
+    }
     public function importTransactions(String $dateTimeStart, String $dateTimeEnd): array
     {
         $start = $this->formatDateTime($dateTimeStart, 'start');
         $end = $this->formatDateTime($dateTimeEnd, 'end');
         try {
-            $transactions = $this->gsurfRepository->getAllTransactionsFromGsurf($start, $end);
-            $transactionModels = array_map([$this, 'validateAndFormatTransaction'], $transactions);
-            $this->commitData($transactionModels);
+            $transactions = $this->getFormattedTransactions($start, $end);
+            $this->commitData($transactions);
             return [
                 'status' => 'success',
                 'message' => 'Transações importadas com sucesso',
-                'count' => count($transactionModels),
+                'count' => count($transactions),
+            ];
+        }catch (Exception $e) {
+            throw new Exception('Erro: ' . $e->getMessage(), 400);
+        }
+    }
+    public function importPayments(String $dateTimeStart, String $dateTimeEnd): array
+    {
+        try {
+            $payments = $this->getFormattedPayments($dateTimeStart, $dateTimeEnd);
+            $this->commitPayments($payments);
+            return [
+                'status' => 'success',
+                'message' => 'Pagamentos importados com sucesso',
+                'count' => count($payments),
             ];
         }catch (Exception $e) {
             throw new Exception('Erro: ' . $e->getMessage(), 400);
@@ -105,6 +141,16 @@ class GsurfService
             $transactions->save();
         }
     }
+    public function persistPayments($payments) : void
+    {
+        if (is_array($payments)) {
+            foreach ($payments as $payment) {
+                $this->persistTransactions($payment);
+            }
+        } else {
+            $payments->save();
+        }
+    }
 
     /**
      * @throws Exception
@@ -113,8 +159,10 @@ class GsurfService
     {
         DB::beginTransaction();
 
+        $actualTransaction = null;
         try {
             foreach ($transactions as $transaction) {
+                $actualTransaction = $transaction;
                 if ($transaction instanceof Transaction) {
                     $transaction->save();
                 } else {
@@ -126,14 +174,45 @@ class GsurfService
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
-            if (str_contains($e->getMessage(), 'Duplicate entry')) {
-                $duplicatedId = explode('\'', explode('for key', $e->getMessage())[0])[1];
-                Transaction::where('id', $duplicatedId)->delete();
-                $this->commitData($transactions);
-            } else {
-                throw new Exception('Erro ao salvar transações: ' . $e->getMessage());
+            //delete actual transaction from $transactions
+            $transactions = array_filter($transactions, function ($t) use ($actualTransaction) {
+                return $t['id'] !== $actualTransaction['id'];
+            });
+            $this->commitData($transactions);
+            //if (str_contains($e->getMessage(), 'Duplicate entry')) {
+            //    $duplicatedId = explode('\'', explode('for key', $e->getMessage())[0])[1];
+            //    Transaction::where('id', $duplicatedId)->delete();
+            //} else {
+            //    throw new Exception('Erro ao salvar transações: ' . $e->getMessage());
+            //}
+        }
+    }
+    public function commitPayments(array $payments)
+    {
+        DB::beginTransaction();
+        $total = count($payments);
+        $counter = 0;
+        while (count($payments) > 0) {
+            try {
+                foreach ($payments as $key => $payment) {
+                    if ($payment instanceof Payment) {
+                        $payment->save();
+                    } else {
+                        $newPayment = new Payment($payment);
+                        $newPayment->save();
+                    }
+                    $counter++;
+                    unset($payments[$key]);
+                }
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollBack();
+                unset($payments[$key]);
+                DB::beginTransaction();
             }
         }
+
+        return $counter;
     }
 
     public function getAllTerminalsFromGsurf()
@@ -157,6 +236,10 @@ class GsurfService
         $transactionData = $this->extractTransactionData($response);
         $this->validateTransactionData($transactionData);
         return $transactionData;
+    }
+    public function validateAndFormatPayment($response): Payment
+    {
+        return $this->extractPaymentData($response);
     }
 
     public function extractTransactionData($response): array
@@ -293,6 +376,48 @@ class GsurfService
         return $transactionData;
     }
 
+    public function extractPaymentData($record) : Payment
+    {
+                $paymentInstance = new Payment();
+
+                $paymentInstance->unique_id = $record->unique_id;
+                $paymentInstance->creation_date = $record->creation_date;
+                $paymentInstance->payment_date = $record->payment_date;
+                $paymentInstance->terminal_number = $record->terminal_number;
+                $paymentInstance->channel = $record->channel;
+                $paymentInstance->customer_id = $record->customer_id;
+                $paymentInstance->import_date = $record->import_date;
+                $paymentInstance->order_id = $record->order_id;
+                $paymentInstance->merchant_usn = $record->merchant_usn;
+                $paymentInstance->payer_id = $record->payer_id;
+                $paymentInstance->payer_name = $record->payer_name;
+                $paymentInstance->gsetef_merchant_id = $record->gsetef_merchant_id;
+                $paymentInstance->last_settlement_date = $record->last_settlement_date;
+                $paymentInstance->settlement_status = $record->settlement_status;
+                $paymentInstance->dynamic_data = $record->dynamic_data;
+                $paymentInstance->split_data = $record->split_data;
+                $paymentInstance->status_id = $record->status->id;
+                $paymentInstance->status_description = $record->status->description;
+                $paymentInstance->type_id = $record->type->id;
+                $paymentInstance->type_description = $record->type->description;
+                $paymentInstance->sale_type_id = $record->sale_type->id;
+                $paymentInstance->sale_type_description = $record->sale_type->description;
+                $paymentInstance->amount = $record->amount->amount;
+                $paymentInstance->amount_currency = $record->amount->currency;
+                $paymentInstance->original_amount = $record->original_amount->amount;
+                $paymentInstance->original_amount_currency = $record->original_amount->currency;
+                $paymentInstance->amount_paid = $record->amount_paid->amount;
+                $paymentInstance->amount_paid_currency = $record->amount_paid->currency;
+                $paymentInstance->merchant_amount = $record->merchant_amount->amount;
+                $paymentInstance->merchant_amount_currency = $record->merchant_amount->currency;
+                $paymentInstance->merchant_amount_paid = $record->merchant_amount_paid->amount;
+                $paymentInstance->merchant_amount_paid_currency = $record->merchant_amount_paid->currency;
+                $paymentInstance->adjustment_amount = $record->adjustment_amount->amount;
+                $paymentInstance->adjustment_amount_currency = $record->adjustment_amount->currency;
+
+
+        return $paymentInstance;
+    }
     protected function validateTransactionData(array $transactionData): void
     {
         $rules = [
@@ -311,4 +436,13 @@ class GsurfService
         ];
         Validator::make($data, $rules)->validate();
     }
+
+    public function formatPaymentDateTime(String $dateTime, String $startOrEnd): string
+    {
+        if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateTime)) {
+            throw new Exception('Formato de data inválido');
+        }
+        return $dateTime . ($startOrEnd == 'start' ? '+00:00:00-03:00' : '+23:59:59-03:00');
+    }
+
 }
