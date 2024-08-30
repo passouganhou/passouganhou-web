@@ -23,7 +23,7 @@ class PaymentController extends Controller
     {
         return $this->jsonRemember('payments', function () {
             return Payment::all();
-        }, 720);
+        }, 1300);
     }
 
     private function jsonRemember(String $key, $callback, $expirationMinutes = 60)

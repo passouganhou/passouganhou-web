@@ -9,35 +9,56 @@ use Exception;
 
 class TransactionService
 {
-    public function getAllTransactionsTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo')
-    {
-        $startDate = $this->formatDateTime($startDate, 'start');
-        $endDate = $this->formatDateTime($endDate, 'end');
-        $transactions = Transaction::whereIn('status_id', [8,9])
-            //exclude columns from select
-            ->select('id', 'date', 'transaction_date', 'amount', 'status_category_description', 'category_description', 'customer_id', 'uuid')
+    public function getAllTransactionsSlim(){
+        return Transaction::select(
+            'uuid',
+            'nsu_sitef',
+            'merchant_code_sitef',
+            'merchant_code_subacquirer',
+            'response_code',
+            'installments_number',
+            'channel',
+            'nsu_host',
+            'entry_mode',
+            'logic_number',
+            'type',
+            'transaction_date',
+            'reconciliation_status',
+            'export_date',
+            'original_authorization_code',
+            'original_installments_number',
+            'order_id',
+            'reconciliation_nsu',
+            'reconciliation_date',
+            'original_transaction_usn',
+            'status_id',
+            'status_description',
+            'original_status_id',
+            'original_status_description',
+            'transaction_type_id',
+            'transaction_type_description',
+            'card_brand_id',
+            'card_brand_description',
+            'acquirer_id',
+            'acquirer_description',
+            'category_id',
+            'category_description',
+            'status_category_id',
+            'status_category_description',
+            'sale_type_id',
+            'sale_type_description',
+            'response_code_detailing_category',
+            'response_code_detailing_reason',
+            'response_code_detailing_note',
+            'antifraud_data_code',
+            'antifraud_data_reviewer_comments',
+            'antifraud_data_category',
+            'antifraud_data_reason',
+            'antifraud_data_note',
+        )
+            ->whereIn('status_id', [8,9])
             ->get();
-
-        // Ajusta os campos de data para o timezone especificado
-        $transactions->transform(function ($transaction) use ($timezone) {
-            // Converte a coluna 'date' de UTC para o timezone especificado
-            $transaction->date = Carbon::parse($transaction->date)
-                ->setTimezone($timezone)
-                ->format('Y-m-d H:i:s');
-
-            // Converte a coluna 'transaction_date' de UTC para o timezone especificado, se existir
-            if (!empty($transaction->transaction_date)) {
-                $transaction->transaction_date = Carbon::parse($transaction->transaction_date)
-                    ->setTimezone($timezone)
-                    ->format('Y-m-d H:i:s');
-            }
-
-            return $transaction;
-        });
-
-        return $transactions;
     }
-
     public function getAllTransactionsWithAllColumns($startDate, $endDate, $limit = 1000)
     {
         $startDate = $this->formatDateTime($startDate, 'start');
@@ -46,37 +67,6 @@ class TransactionService
             ->whereDate('date', '<=', $endDate)
             ->get();
     }
-    public function getAllTransactionsWithAllColumnsWithTZ($startDate, $endDate, $timezone = 'America/Sao_Paulo')
-    {
-        // Formata as datas de início e fim
-        $startDate = $this->formatDateTime($startDate, 'start');
-        $endDate = $this->formatDateTime($endDate, 'end');
-
-        // Busca todas as transações dentro do intervalo de datas informado
-        $transactions = Transaction::whereDate('date', '>=', $startDate)
-            ->whereDate('date', '<=', $endDate)
-            ->get();
-
-        // Ajusta os campos de data para o timezone especificado
-        $transactions->transform(function ($transaction) use ($timezone) {
-            // Converte a coluna 'date' de UTC para o timezone especificado
-            $transaction->date = Carbon::parse($transaction->date)
-                ->setTimezone($timezone)
-                ->format('Y-m-d H:i:s');
-
-            // Converte a coluna 'transaction_date' de UTC para o timezone especificado, se existir
-            if (!empty($transaction->transaction_date)) {
-                $transaction->transaction_date = Carbon::parse($transaction->transaction_date)
-                    ->setTimezone($timezone)
-                    ->format('Y-m-d H:i:s');
-            }
-
-            return $transaction;
-        });
-
-        return $transactions;
-    }
-
 
     public function getTransactionsGroupedByCustomerId($startDate, $endDate, $limit = 1000)
     {

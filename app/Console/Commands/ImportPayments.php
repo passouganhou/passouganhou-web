@@ -72,7 +72,9 @@ class ImportPayments extends Command
                 return CommandAlias::FAILURE;
             }
             $this->info('Total payments saved: ' . $count);
-            $this->clearFiles();
+            if ($this->clearFiles()){
+                $this->regenerateJsonCache();
+            }
             return CommandAlias::SUCCESS;
         }
         catch (\Exception $e) {
@@ -86,17 +88,52 @@ class ImportPayments extends Command
     {
         try {
             $directory = storage_path('app/json');
-            $files = glob($directory . '/*');
-            foreach ($files as $file) {
-                if (is_file($file)) {
-                    unlink($file);
-                }
+            $path = $directory . '/payments.json';
+            if (file_exists($path)){
+                unlink($path);
+                $this->info('File deleted successfully.');
+            } else {
+                $this->info('File not found.');
             }
             return true;
         } catch (\Exception $e) {
             $this->error('Error while trying to delete files: ' . $e->getMessage());
             return false;
         }
+    }
+
+    private function regenerateJsonCache()
+    {
+        $paymentsInCache = $this->jsonRemember('payments', function () {
+            return Payment::all();
+        }, 1300);
+        $this->info('Payments in cache: ' . count($paymentsInCache));
+    }
+
+    private function jsonRemember(String $key, $callback, $expirationMinutes = 60)
+    {
+        $directory = storage_path('app/json');
+        $path = $directory . '/' . $key . '.json';
+
+        // Verifica se o diretório existe, se não, cria o diretório
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        if (file_exists($path)) {
+            $content = file_get_contents($path);
+            $data = json_decode($content, true);
+            if (isset($data['timestamp']) && (time() - $data['timestamp']) < ($expirationMinutes * 60)) {
+                return $data['value'];
+            }
+        }
+        $value = $callback();
+        $data = [
+            'timestamp' => time(),
+            'value' => $value
+        ];
+        file_put_contents($path, json_encode($data));
+        return $value;
     }
 
     public function commitData(array $payments)

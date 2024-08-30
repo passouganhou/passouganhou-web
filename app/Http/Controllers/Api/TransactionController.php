@@ -61,11 +61,10 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $request = request();
-        $this->normalizeRequest($request);
-        $startDate = $request->get('start_date');
-        $endDate = $request->get('end_date');
-        $transactions = $this->transactionService->getAllTransactions($startDate, $endDate);
+        $transactions =  $this->jsonRemember('transactions_slim', function () {
+            return $this->transactionService->getAllTransactionsSlim();
+        }, 1200);
+
         return response()->json($transactions);
     }
     public function getAll()
@@ -142,3 +141,5 @@ class TransactionController extends Controller
         return $this->validateRequest($request);
     }
 }
+
+
