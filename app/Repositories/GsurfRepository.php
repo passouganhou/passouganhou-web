@@ -76,6 +76,28 @@ class GsurfRepository
         return json_decode($content);
     }
 
+    public function getTransactionByUuid(String $uuid)
+    { //https://api.gsurfnet.com/transactions-v2/transactions?uuid=fcd9778ae10a307cbebad74fec7d8776e65831bef0ec8dd935426bb264619f2f&response_utc_offset=-03:00
+        $apiUrl = 'https://api.gsurfnet.com/transactions-v2/transactions?uuid=' . $uuid . '&response_utc_offset=-03:00';
+        $response = $this->client->request('GET', $apiUrl, [
+            'headers' => [ 'Authorization' => 'Bearer ' . $this->getToken() ]
+        ]);
+        $body = $response->getBody();
+        $content = $body->getContents();
+        return json_decode($content);
+    }
+
+    public function getPaymentByUniqueId(String $uniqueId)
+    { //https://api.gsurfnet.com/transactions-v2/payments?response_utc_offset=-03:00&unique_id=fcd9778ae10a307cbebad74fec7d8776e65831bef0ec8dd935426bb264619f2f
+        $apiUrl = 'https://api.gsurfnet.com/transactions-v2/payments?response_utc_offset=-03:00&unique_id=' . $uniqueId;
+        $response = $this->client->request('GET', $apiUrl, [
+            'headers' => [ 'Authorization' => 'Bearer ' . $this->getToken() ]
+        ]);
+        $body = $response->getBody();
+        $content = $body->getContents();
+        return json_decode($content);
+    }
+
     public function getTransactionsFromGsurf(String $dateTimeStart, String $dateTimeEnd, int $page = 1, $limit = 100)
     {
         $apiUrl = 'https://api.gsurfnet.com/transactions-v2/transactions';

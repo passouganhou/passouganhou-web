@@ -21,6 +21,11 @@ class GsurfController extends Controller
         return response()->json($response);
     }
 
+    public function syncPendingTransactions()
+    {
+        return $this->gsurfService->updatePendingTransactionsAndPayments();
+    }
+
     public function getValuesAndQuantityByDay()
     {
         $response = $this->gsurfService->getValuesAndQuantityByDay();

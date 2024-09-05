@@ -22,6 +22,59 @@ class GsurfService
         return $this->gsurfRepository->getToken();
     }
 
+    /*
+     * 1. Buscar transações cujo status seja 14 (pendente) nos ultimos 60 dias
+     * 2. Listar uuids das transações
+     * 3. Buscar no repositorio da gsurf as transações com os uuids
+     * 4. Atualizar as transações com os dados do repositorio
+     * 5. Buscar no repositorio da gsurf os pagamentos com os uuids
+     * 6. Atualizar os pagamentos com os dados do repositorio
+     * 7. Retornar a quantidade de transações e pagamentos atualizados
+     */
+    public function updatePendingTransactionsAndPayments(): array
+    {
+        $transactions = Transaction::where('status_id', 14)
+            ->where('date', '>=', now()->subDays(60))
+            ->get();
+
+        $uuids = $transactions->pluck('uuid')->toArray();
+        $updatedTransactions = [];
+        $updatedPayments = [];
+
+        foreach ($uuids as $uuid){ //9b8fa3c8ec6778101ef0c569be66983a7d9ad69b0076af6d10c1c15cffda4d2e
+            $transactionsFromGsurf = $this->gsurfRepository->getTransactionByUuid($uuid);
+            $paymentsFromGsurf = $this->gsurfRepository->getPaymentByUniqueId($uuid);
+            /*
+             * statusCode, body, body.page, body.limit, body.records: array
+             */
+            $payment = !empty($paymentsFromGsurf->body->records) ? $paymentsFromGsurf->body->records[0] : null;
+            $transaction = !empty($transactionsFromGsurf->body->records) ? $transactionsFromGsurf->body->records[0] : null;
+
+            if (!$transaction && !$payment) {
+                continue;
+            }
+
+            if ($transaction) {
+                $transactionData = $this->extractTransactionData($transaction);
+                $this->validateTransactionData($transactionData);
+                $transaction = Transaction::updateOrCreate(['id' => $transactionData['id']], $transactionData);
+                $updatedTransactions[] = $transaction;
+            }
+
+            if ($payment) {
+                $paymentData = $this->extractPaymentData($payment);
+                $paymentData->save();
+                $updatedPayments[] = $paymentData;
+            }
+
+        }
+
+        return [
+            'transactions' => $updatedTransactions,
+            'payments' => $updatedPayments,
+        ];
+    }
+
     public function getMerchants()
     {
         $response = $this->gsurfRepository->getMerchants();
