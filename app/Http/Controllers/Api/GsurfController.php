@@ -34,8 +34,36 @@ class GsurfController extends Controller
 
     public function getTerminals()
     {
-        $response = $this->gsurfService->getAllTerminalsFromGsurf();
+        $response = $this->jsonRemember('terminals_all', function () {
+            return $this->gsurfService->getAllTerminalsFromGsurf();
+        }, 1200);
         return response()->json($response);
+    }
+
+    private function jsonRemember(String $key, $callback, $expirationMinutes = 60)
+    {
+        $directory = storage_path('app/json');
+        $path = $directory . '/' . $key . '.json';
+
+        // Verifica se o diretório existe, se não, cria o diretório
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        if (file_exists($path)) {
+            $content = file_get_contents($path);
+            $data = json_decode($content, true);
+            if (isset($data['timestamp']) && (time() - $data['timestamp']) < ($expirationMinutes * 60)) {
+                return $data['value'];
+            }
+        }
+        $value = $callback();
+        $data = [
+            'timestamp' => time(),
+            'value' => $value
+        ];
+        file_put_contents($path, json_encode($data));
+        return $value;
     }
 
     public function validateRequest($request)
