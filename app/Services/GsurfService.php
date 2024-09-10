@@ -128,6 +128,32 @@ class GsurfService
         return $response;
     }
 
+    public function checkPaymentsIntegrity(): int
+    {
+        $yesterdayStartDate = now()->subDays(1)->format('Y-m-d');
+        $yesterdayEndDate = now()->subDays(1)->format('Y-m-d');
+        $paymentsFromApi = $this->getFormattedPayments($yesterdayStartDate, $yesterdayEndDate);
+        $paymentsFromDatabase = Payment::where('payment_date', '>=', $yesterdayStartDate)
+            ->where('payment_date', '<=', $yesterdayEndDate)
+            ->get();
+
+        $diff = count($paymentsFromApi) - count($paymentsFromDatabase);
+        if ($diff === 0) {
+            return 0;
+        }
+
+        $paymentsFromApi = collect($paymentsFromApi);
+        $paymentsFromDatabase = collect($paymentsFromDatabase);
+
+        $paymentsFromApi->each(function ($payment) use ($paymentsFromDatabase) {
+            $paymentFromDatabase = $paymentsFromDatabase->where('unique_id', $payment->unique_id)->first();
+            if (!$paymentFromDatabase) {
+                $payment->save();
+            }
+        });
+        return $diff;
+    }
+
     /**
      * @throws Exception
      */

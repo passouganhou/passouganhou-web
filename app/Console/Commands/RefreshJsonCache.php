@@ -62,6 +62,7 @@ class RefreshJsonCache extends Command
 
     private function jsonRemember(String $key, $callback, $expirationMinutes = 1360)
     {
+        $this->info('Refreshing cache for ' . $key);
         $directory = storage_path('app/json');
         $path = $directory . '/' . $key . '.json';
 
@@ -83,6 +84,7 @@ class RefreshJsonCache extends Command
             'value' => $value
         ];
         file_put_contents($path, json_encode($data));
+        $this->info('Cache refreshed for ' . $key);
         return $value;
     }
 }
